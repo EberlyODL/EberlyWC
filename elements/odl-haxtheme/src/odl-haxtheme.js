@@ -31,7 +31,6 @@ import { store } from "@lrnwebcomponents/haxcms-elements/lib/haxcms-site-store.j
  * @polymer
  * @demo demo/index.html
  */
-console.log(HAXCMSTheme);
 class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
   /* REQUIRED FOR TOOLING DO NOT TOUCH */
 
@@ -55,7 +54,6 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
    * Notice active item changed state
    */
   _locationChanged(location) {
-    console.log("location:", location);
     if (typeof location !== typeof undefined) {
       switch (location.pathname) {
         case "/home":
@@ -73,6 +71,7 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
       }
 
       if (location.pathname.startsWith("/blog-posts/")) {
+        this.HAXCMSThemeWiring.connect(this, this.$.blog.$.contentcontainer);
         this.selectedPage = 4;
       }
 

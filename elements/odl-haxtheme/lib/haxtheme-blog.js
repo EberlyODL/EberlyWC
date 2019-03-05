@@ -143,7 +143,11 @@ Polymer({
     <page-banner image="[[activeItem.metadata.image]]" text="[[activeItem.title]]" alt="Gateway to the Sciences"></page-banner>
     <div id="news_wrap">
       <div class="news_container">
-        <slot></slot>
+        <div id="contentcontainer">
+          <div id="slot">
+            <slot></slot>
+          </div>
+        </div>
         <div class="sidebar_wrap">
           <div id="news_archive"></div>
             Blog archive here

@@ -3,15 +3,11 @@
 <page-topbar></page-topbar>
 <temp-nav></temp-nav>
 <iron-pages selected="[[selectedPage]]">
-    <haxtheme-home name="home">
-    </haxtheme-home>
+    <haxtheme-home id="homeelement"></haxtheme-home>
     <haxtheme-news></haxtheme-news>
     <haxtheme-team></haxtheme-team>
     <haxtheme-courses></haxtheme-courses>
-    <haxtheme-blog>
-        <div id="contentcontainer">
-            <slot></slot>
-        </div>
+    <haxtheme-blog id="blog">
     </haxtheme-blog>
 </iron-pages>
 <page-scroll></page-scroll>
@@ -26,3 +22,9 @@
         width="200px" /></div>
   </div>
   -->
+
+  <div id="contentcontainer">
+        <div id="slot">
+          <slot></slot>
+        </div>
+      </div>
