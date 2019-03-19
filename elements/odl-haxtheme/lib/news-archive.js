@@ -1,6 +1,6 @@
 import { html, Polymer } from "@polymer/polymer/polymer-legacy.js";
 import "@polymer/iron-image/iron-image.js";
-import { store } from "@lrnwebcomponents/haxcms-elements/lib/haxcms-site-store.js";
+import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-store.js";
 import { autorun, toJS } from "mobx";
 Polymer({
   _template: html`

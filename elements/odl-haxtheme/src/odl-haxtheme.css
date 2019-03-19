@@ -1,13 +1,13 @@
 :host {
   display: block;
+  font-family: "Roboto", sans-serif;
+  --theme-color-1: #363533;
+  --theme-color-2: #e2801e;
+  --theme-color-4: #fff;
 }
 
 :host([hidden]) {
   display: none;
-}
-:host::slotted(*) {
-  display: none;
-  font-family: "Roboto", sans-serif;
 }
 
 /**
@@ -15,4 +15,42 @@
  */
 :host([edit-mode]) #slot {
   display: none;
+}
+
+site-top-menu {
+  width: 100%;
+  --site-top-menu-button: {
+    padding: 15px 10px;
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+  };
+  --site-top-menu-button-hover: {
+    background-color: var(--theme-color-1);
+    color: white;
+  };
+  --site-top-menu-link-active: {
+    background-color: var(--theme-color-1);
+    color: white;
+  };
+  --site-top-menu-spacing: {
+    flex: 1 1 auto;
+  };
+  --site-top-menu-indicator: {
+    border-bottom: 4px solid white;
+  };
+  --site-top-meu-wrapper: {
+    background-color: var(--theme-color-2);
+    display: flex;
+    justify-content: stretch;
+  };
+  --site-top-menu-link: {
+    width: 100%;
+    background-color: var(--theme-color-2);
+    color: var(--theme-color-4);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+  };
 }

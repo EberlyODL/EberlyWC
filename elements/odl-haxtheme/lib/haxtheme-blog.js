@@ -1,6 +1,6 @@
 import { html, Polymer } from "@polymer/polymer/polymer-legacy.js";
 import "@polymer/iron-image/iron-image.js";
-import { store } from "@lrnwebcomponents/haxcms-elements/lib/haxcms-site-store.js";
+import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-store.js";
 import { autorun, toJS } from "mobx";
 import "./page-banner.js";
 import "./news-archive.js";
@@ -15,15 +15,25 @@ Polymer({
         --theme-color-4: #fff;
       }
 
+      h1 {
+        margin: 25px 0 0;
+        font-weight: 400;
+      }
 
       h2 {
         margin: 0;
-        font-weight: normal;
+        font-weight: 100;
         font-size: 26px;
       }
 
+      #contentcontainer {
+        font-size: 1.1rem;
+        font-weight: 300;
+        line-height: 1.6;
+      }
+
       .news_container {
-        display: flex;
+        /* display: flex; */
         width: 80%;
         margin-left: auto;
         margin-right: auto;
@@ -139,10 +149,47 @@ Polymer({
         align-items: center;
         padding-right: 15px;
       }
+
+      #publish_credential {
+        border-left: solid;
+        border-left-width: 4px;
+        border-left-color: var( --theme-color-2);
+        padding-left: 15px;
+      }
+
+      #author_info {
+        display: flex;
+        align-items: center;
+        margin: 15px 0 15px;
+      }
+
+      iron-image#author_image {
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+
     </style>
-    <page-banner image="[[activeItem.metadata.image]]" text="[[activeItem.title]]" alt="Gateway to the Sciences"></page-banner>
+    <page-banner image="[[activeItem.metadata.image]]" text="[[activeItem.metadata.tagLine]]" alt="Gateway to the Sciences"></page-banner>
     <div id="news_wrap">
       <div class="news_container">
+        <div id="publish_credential">
+          <div class="title">
+            <h1>[[activeItem.title]]</h1>
+          </div>
+          <div class="date">
+            <h2>[[_formatDate(activeItem.metadata.created)]]</h2>
+          </div>
+          <div id="author_info">
+          <iron-image
+              id="author_image"
+              style="width:75px; height:75px;"
+              sizing="cover"
+              src="[[activeItem.metadata.authorImage]]"
+            ></iron-image>
+            <div id="author">By: [[activeItem.metadata.author]]</div>
+          </div>
+        </div>
         <div id="contentcontainer">
           <div id="slot">
             <slot></slot>
@@ -204,15 +251,19 @@ Polymer({
     const archiveList = pagesFiltered.splice(5);
   },
   created: function() {
-    this.__disposer = autorun(() => {
+    this.__disposer = [];
+    autorun(reaction => {
       this.manifest = toJS(store.routerManifest);
-      this.activeItem = this.manifest.items.find(
-        i => i.id === store.activeItem
-      );
-      console.log(this.activeItem.title);
+      this.__disposer.push(reaction);
+    });
+    autorun(reaction => {
+      this.activeItem = toJS(store.activeItem);
+      this.__disposer.push(reaction);
     });
   },
   detached: function() {
-    this.__disposer();
+    for (var i in this.__disposer) {
+      this.__disposer[i].dispose();
+    }
   }
 });
