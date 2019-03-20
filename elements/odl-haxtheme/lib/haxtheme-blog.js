@@ -33,7 +33,7 @@ Polymer({
       }
 
       .news_container {
-        /* display: flex; */
+        display: flex;
         width: 80%;
         margin-left: auto;
         margin-right: auto;
@@ -150,7 +150,7 @@ Polymer({
         padding-right: 15px;
       }
 
-      #publish_credential {
+      .publish_credentials {
         border-left: solid;
         border-left-width: 4px;
         border-left-color: var( --theme-color-2);
@@ -168,37 +168,66 @@ Polymer({
         margin-right: 10px;
       }
 
+      #taxonomy {
+        display: flex;
+        align-items: center;
+        margin: 15px 0 15px;
+      }
+
+      #taxonomy a {
+        text-decoration: none;
+        font-size: 24px;
+        font-weight: 300;
+        color: var(--theme-color-2);
+        margin-right: 10px;
+      }
+
+      .tag_wrap {
+        margin-right: 10px;
+      }
+
 
     </style>
     <page-banner image="[[activeItem.metadata.image]]" text="[[activeItem.metadata.tagLine]]" alt="Gateway to the Sciences"></page-banner>
     <div id="news_wrap">
       <div class="news_container">
-        <div id="publish_credential">
-          <div class="title">
-            <h1>[[activeItem.title]]</h1>
+        <div id="news_inner_wrap">
+          <div class="publish_credentials">
+            <div class="title">
+              <h1>[[activeItem.title]]</h1>
+            </div>
+            <div class="date">
+              <h2>[[_formatDate(activeItem.metadata.created)]]</h2>
+            </div>
+            <div id="author_info">
+              <iron-image
+                id="author_image"
+                style="width:70px; height:70px;"
+                sizing="cover"
+                src="[[activeItem.metadata.authorImage]]">
+              </iron-image>
+              <div id="author">By: [[activeItem.metadata.author]]</div>
+            </div>
           </div>
-          <div class="date">
-            <h2>[[_formatDate(activeItem.metadata.created)]]</h2>
-          </div>
-          <div id="author_info">
-          <iron-image
-              id="author_image"
-              style="width:75px; height:75px;"
-              sizing="cover"
-              src="[[activeItem.metadata.authorImage]]"
-            ></iron-image>
-            <div id="author">By: [[activeItem.metadata.author]]</div>
-          </div>
-        </div>
-        <div id="contentcontainer">
-          <div id="slot">
-            <slot></slot>
-          </div>
+          <div id="contentcontainer">
+              <div id="slot">
+                <slot></slot>
+              </div>
+            </div>
+           <div id="taxonomy">
+            <div class="tag_wrap">
+              <h2>Tags:</h2>
+            </div>
+            <template is="dom-repeat" items="[[activeItem.metadata.tags]]" as="tag">
+            <a href="">[[tag]]</a> 
+            </template>
+           </div>
         </div>
         <div class="sidebar_wrap">
-          <div id="news_archive"></div>
+          <div id="news_archive">
             Blog archive here
           </div>
+        </div>
         </div>
       </div>
     </div>`,

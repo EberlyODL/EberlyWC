@@ -1,15 +1,15 @@
 {
-  "name": "@eberlywc/EberlyWC",
+  "name": "@eberlywc/eberlywc",
   "version": "0.0.0",
   "description": "Web component library for Eberly.",
   "wcfactory": {
     "askSASS": true,
     "askProps": true,
     "askHAX": true,
-    "monorepo": "EberlyWC",
+    "monorepo": "eberlywc",
     "orgNpm": "@eberlywc",
     "orgGit": "EberlyODL",
-    "gitRepo": "git@github.com:EberlyODL/EberlyWC.git",
+    "gitRepo": "git@github.com:EberlyODL/eberlywc.git",
     "sass": {
       "name": "rh-sass",
       "pkg": "@rhelements/rh-sass",
@@ -21,7 +21,7 @@
     "url": ""
   },
   "license": "Apache-2.0",
-  "repository": "git@github.com:EberlyODL/EberlyWC.git",
+  "repository": "git@github.com:EberlyODL/eberlywc.git",
   "scripts": {
     "start": "bash scripts/preinstall.sh && yarn run storybook",
     "lerna": "lerna",
@@ -33,7 +33,7 @@
     "publish": "echo 'NOTICE: You must run `lerna publish` manually'",
     "test-suite-inject": "node scripts/test-suite-inject.js",
     "storybook": "start-storybook -c .storybook -p 9001 -s ./elements",
-    "build-storybook": "build-storybook -c .storybook -o ../../storybooks/lrnwebcomponents",
+    "build-storybook": "build-storybook -c .storybook -o ../../storybooks/eberlywc",
     "rebuild-wcfcache": "./node_modules/.bin/gulp",
     "new": "yarn run rebuild-wcfcache && wcf element && yarn run test-suite-inject && yarn install --link-duplicates"
   },
@@ -110,9 +110,7 @@
     "yo": "2.0.5"
   },
   "dependencies": {
-    "@lrnwebcomponents/deduping-fix": "0.2.0",
-    "@lrnwebcomponents/hax-body-behaviors": "2.0.4",
-    "@polymer/lit-element": "0.7.1",
+    "lit-element": "2.0.1",
     "@polymer/polymer": "3.1.0",
     "@skatejs/renderer-lit-html": "0.2.2",
     "lit-html": "1.0.0",
