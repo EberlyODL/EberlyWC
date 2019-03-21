@@ -40,6 +40,12 @@ Polymer({
       }
 
       @media screen and (max-width: 768px) {
+        #news_wrap {
+          padding: 15px;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
         .news_container {
           flex-direction: column;
           width: 98%;
@@ -180,6 +186,10 @@ Polymer({
         font-weight: 300;
         color: var(--theme-color-2);
         margin-right: 10px;
+      }
+
+      #taxonomy a:hover {
+        font-weight: bold;
       }
 
       .tag_wrap {

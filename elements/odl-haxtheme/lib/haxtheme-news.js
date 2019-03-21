@@ -47,7 +47,7 @@ Polymer({
 
       #card_wrap {
         background-color: var(--theme-color-4);
-        margin: 25px;
+        margin: 15px;
         padding: 15px;
         box-shadow: 0 1px 2px #dcdcdc;
       }
