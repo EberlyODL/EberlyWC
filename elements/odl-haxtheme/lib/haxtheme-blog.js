@@ -34,7 +34,7 @@ Polymer({
 
       .news_container {
         display: flex;
-        width: 80%;
+        width: 75%;
         margin-left: auto;
         margin-right: auto;
       }
@@ -43,6 +43,11 @@ Polymer({
         #news_wrap {
           padding: 15px;
         }
+      }
+
+      #news_inner_wrap {
+        width: 90%;
+        margin-right: 20px;
       }
 
       @media screen and (max-width: 768px) {
@@ -109,29 +114,29 @@ Polymer({
       .sidebar_wrap {
         width: 25%;
         margin-top: 25px;
+        border-left: solid 2px #dcdcdc;
+        padding-left: 20px;
+        height: 500px;
       }
 
       @media screen and (max-width: 768px) {
        .sidebar_wrap {
           width: 100%;
-        }
-      }
-
-      @media screen and (max-width: 768px) {
-        #twitter_feed {
-          width: 90%;
-          margin-left: auto;
-          margin-right: auto;
+          height: auto;
+          border: none;
+          padding-left: 0;
+          margin-top: 10px;
         }
       }
 
       #news_archive {
         margin-bottom: 25px;
+        width: 121%;
       }
 
       @media screen and (max-width: 768px) {
         #news_archive {
-          width: 90%;
+          width: 100%;
           margin-left: auto;
           margin-right: auto;
         }
@@ -196,6 +201,7 @@ Polymer({
         margin-right: 10px;
       }
 
+   
 
     </style>
     <page-banner image="[[activeItem.metadata.image]]" text="[[activeItem.metadata.tagLine]]" alt="Gateway to the Sciences"></page-banner>
@@ -235,7 +241,7 @@ Polymer({
         </div>
         <div class="sidebar_wrap">
           <div id="news_archive">
-            Blog archive here
+            <news-archive></news-archive>
           </div>
         </div>
         </div>
