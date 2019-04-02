@@ -84,7 +84,7 @@ Polymer({
           <div id="card_image">
             <iron-image
               sizing="cover"
-              src="[[item.metadata.image]]"
+              src="[[item.metadata.fields.image]]"
             ></iron-image>
           </div>
           <div id="card_heading">

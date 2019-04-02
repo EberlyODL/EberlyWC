@@ -46,6 +46,11 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
           --theme-color-4: #fff;
         }
 
+        :root {
+          --haxcms-base-styles-a-weight: bold;
+          --haxcms-base-styles-a-font-size: 20px;
+        }
+
         :host([hidden]) {
           display: none;
         }
@@ -111,13 +116,6 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
       </iron-pages>
       <page-scroll></page-scroll>
       <page-footer></page-footer>
-      <map-menu
-        id="menu"
-        selected="[[selected]]"
-        manifest="[[manifest]]"
-        active-indicator
-        auto-scroll
-      ></map-menu>
     `;
   }
 

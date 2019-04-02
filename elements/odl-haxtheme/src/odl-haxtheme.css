@@ -6,6 +6,16 @@
   --theme-color-4: #fff;
 }
 
+:root {
+  /* --haxcms-base-styles-a-color: #e2801e;
+  --haxcms-base-styles-a-color-active:#e2801e;
+  --haxcms-base-styles-a-color-hover:#e2801e;
+  --haxcms-base-styles-a-color-visited: #e2801e; */
+  --haxcms-base-styles-a-weight: bold;
+  --haxcms-base-styles-a-font-size: 20px;
+
+}
+
 :host([hidden]) {
   display: none;
 }
@@ -54,3 +64,8 @@ site-top-menu {
     text-transform: uppercase;
   };
 }
+
+
+
+
+

@@ -1,9 +1,10 @@
 import { html, Polymer } from "@polymer/polymer/polymer-legacy.js";
 import "@polymer/iron-image/iron-image.js";
 import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-store.js";
+import "@lrnwebcomponents/haxcms-elements/lib/ui-components/query/site-query.js";
+import "@lrnwebcomponents/haxcms-elements/lib/ui-components/blocks/site-recent-content-block.js";
 import { autorun, toJS } from "mobx";
 import "./page-banner.js";
-import "./news-archive.js";
 Polymer({
   _template: html`
     <style>
@@ -120,6 +121,10 @@ Polymer({
         }
       }
 
+      site-recent-content-block {
+        --site-recent-content-block-header-color: #e2801e;
+      }
+
       #card_description {
         margin-bottom: 10px;
         font-size: 18px;
@@ -147,35 +152,42 @@ Polymer({
     <div id="news_wrap">
       <div class="news_container">
         <div class="news_page_feed">
-          <template is="dom-repeat" items="[[_items]]">
-            <div id="card_wrap">
-              <div id="card_image">
-                <iron-image
-                  sizing="cover"
-                  src="[[item.metadata.image]]"
-                ></iron-image>
+          <site-query
+            result="{{__items}}"
+            conditions='{"metadata.type": "news"}'
+            limit="5"
+          ></site-query>
+          <dom-repeat items="[[__items]]" mutable-data>
+            <template>
+              <div id="card_wrap">
+                <div id="card_image">
+                  <iron-image
+                    sizing="cover"
+                    src="[[item.metadata.fields.image]]"
+                  ></iron-image>
+                </div>
+                <div id="card_heading">
+                  <a href\$="[[item.location]]">
+                    <h2>[[item.title]]</h2>
+                  </a>
+                </div>
+                <div id="post_date">
+                  <span>[[_formatDate(item.metadata.created)]]</span>
+                </div>
+                <div id="card_description">
+                  <span>[[item.description]]</span>
+                </div>
+                <div id="card_footer">
+                  <iron-image
+                    id="author_image"
+                    sizing="cover"
+                    src="[[item.metadata.authorImage]]"
+                  ></iron-image>
+                  <div id="author_name">[[item.metadata.author]]</div>
+                </div>
               </div>
-              <div id="card_heading">
-                <a href\$="[[item.location]]">
-                  <h2>[[item.title]]</h2>
-                </a>
-              </div>
-              <div id="post_date">
-                <span>[[_formatDate(item.metadata.created)]]</span>
-              </div>
-              <div id="card_description">
-                <span>[[item.description]]</span>
-              </div>
-              <div id="card_footer">
-                <iron-image
-                  id="author_image"
-                  sizing="cover"
-                  src="[[item.metadata.authorImage]]"
-                ></iron-image>
-                <div id="author_name">[[item.metadata.author]]</div>
-              </div>
-            </div>
-          </template>
+            </template>
+          </dom-repeat>
         </div>
         <div class="sidebar_wrap">
           <div id="twitter_feed">
@@ -192,7 +204,14 @@ Polymer({
             ></script>
           </div>
           <div id="news_archive">
-            <news-archive></news-archive>
+            <site-recent-content-block
+              title="News Archive"
+              conditions='{"metadata.type": "news"}'
+              result="{{__items}}"
+              limit="5"
+              start-index="5"
+            >
+            </site-recent-content-block>
           </div>
         </div>
       </div>
@@ -201,23 +220,7 @@ Polymer({
 
   is: "haxtheme-news",
 
-  properties: {
-    /**
-     * Type of data to select from site.json
-     */
-    type: {
-      type: String,
-      value: "news",
-      reflectToAttribute: true
-    },
-    /**
-     * Items from sites.json
-     */
-    _items: {
-      type: Array,
-      value: []
-    }
-  },
+  properties: {},
 
   _formatDate: function(unixTimecode) {
     const date = new Date(unixTimecode * 1000);
@@ -229,23 +232,7 @@ Polymer({
 
     return dateFormatted;
   },
-  attached: function() {
-    const pages = this.manifest.items;
-    const pagesFiltered = pages.filter(item => {
-      if (typeof item.metadata !== "undefined") {
-        if (typeof item.metadata.type !== "undefined") {
-          if (item.metadata.type === "news") {
-            return true;
-          }
-        }
-      }
-      return false;
-    });
 
-    this.set("_items", pagesFiltered);
-
-    const archiveList = pagesFiltered.splice(5);
-  },
   created: function() {
     this.__disposer = autorun(() => {
       this.manifest = toJS(store.routerManifest);

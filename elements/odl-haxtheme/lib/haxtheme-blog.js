@@ -1,9 +1,13 @@
 import { html, Polymer } from "@polymer/polymer/polymer-legacy.js";
 import "@polymer/iron-image/iron-image.js";
 import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-store.js";
+import "@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-menu-button.js";
+import "@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-breadcrumb.js";
+import "@lrnwebcomponents/haxcms-elements/lib/ui-components/blocks/site-recent-content-block.js";
+
 import { autorun, toJS } from "mobx";
 import "./page-banner.js";
-import "./news-archive.js";
+
 Polymer({
   _template: html`
     <style>
@@ -13,6 +17,13 @@ Polymer({
         --theme-color-1: #363533;
         --theme-color-2: #e2801e;
         --theme-color-4: #fff;
+        --site-breadcrumb-color: #7f7f7f;
+        --site-menu-button-button: {
+          background-color: var(--theme-color-2);
+          margin: 5px 0 15px;
+          border-radius: none;
+          color: var(--theme-color-4);
+        }
       }
 
       h1 {
@@ -49,6 +60,7 @@ Polymer({
         width: 90%;
         margin-right: 20px;
       }
+
 
       @media screen and (max-width: 768px) {
         .news_container {
@@ -113,7 +125,7 @@ Polymer({
 
       .sidebar_wrap {
         width: 25%;
-        margin-top: 25px;
+        margin-top: 45px;
         border-left: solid 2px #dcdcdc;
         padding-left: 20px;
         height: 500px;
@@ -201,13 +213,31 @@ Polymer({
         margin-right: 10px;
       }
 
-   
+      #prev_next_btns {
+        display: flex;
+        justify-content: space-between;
+      }
 
+      site-breadcrumb {
+        margin-top: 10px;
+      }
+
+      @media screen and (max-width: 768px) {
+        site-breadcrumb {
+          margin: 0 0 30px;
+        }
+      }
+
+      site-recent-content-block {
+        --site-recent-content-block-header-color: #e2801e;
+      }
     </style>
-    <page-banner image="[[activeItem.metadata.image]]" text="[[activeItem.metadata.tagLine]]" alt="Gateway to the Sciences"></page-banner>
+    
+    <page-banner image="[[activeItem.metadata.fields.image]]" text="[[activeItem.metadata.tagLine]]" alt="Gateway to the Sciences"></page-banner>
     <div id="news_wrap">
       <div class="news_container">
         <div id="news_inner_wrap">
+        <site-breadcrumb></site-breadcrumb>
           <div class="publish_credentials">
             <div class="title">
               <h1>[[activeItem.title]]</h1>
@@ -218,7 +248,7 @@ Polymer({
             <div id="author_info">
               <iron-image
                 id="author_image"
-                style="width:70px; height:70px;"
+                style="width:60px; height:60px;"
                 sizing="cover"
                 src="[[activeItem.metadata.authorImage]]">
               </iron-image>
@@ -238,10 +268,24 @@ Polymer({
             <a href="">[[tag]]</a> 
             </template>
            </div>
+           <div id="prev_next_btns">
+            <site-menu-button type="prev" position="top" label="Previous">
+              <div slot="suffix">Prev</div>
+            </site-menu-button>
+            <site-menu-button type="next" position="top" label="Next">
+              <div slot="prefix">Next</div>
+            </site-menu-button>
+           </div>
         </div>
         <div class="sidebar_wrap">
           <div id="news_archive">
-            <news-archive></news-archive>
+            <site-recent-content-block
+              title="Recent News"
+              conditions='{"metadata.type": "news"}'
+              result="{{__items}}" 
+              limit="5"
+              >
+            </site-recent-content-block>
           </div>
         </div>
         </div>
@@ -278,23 +322,23 @@ Polymer({
 
     return dateFormatted;
   },
-  attached: function() {
-    const pages = this.manifest.items;
-    const pagesFiltered = pages.filter(item => {
-      if (typeof item.metadata !== "undefined") {
-        if (typeof item.metadata.type !== "undefined") {
-          if (item.metadata.type === "news") {
-            return true;
-          }
-        }
-      }
-      return false;
-    });
+  // attached: function() {
+  //   const pages = this.manifest.items;
+  //   const pagesFiltered = pages.filter(item => {
+  //     if (typeof item.metadata !== "undefined") {
+  //       if (typeof item.metadata.type !== "undefined") {
+  //         if (item.metadata.type === "news") {
+  //           return true;
+  //         }
+  //       }
+  //     }
+  //     return false;
+  //   });
 
-    this.set("_items", pagesFiltered);
+  //   this.set("_items", pagesFiltered);
 
-    const archiveList = pagesFiltered.splice(5);
-  },
+  //   const archiveList = pagesFiltered.splice(5);
+  // },
   created: function() {
     this.__disposer = [];
     autorun(reaction => {
