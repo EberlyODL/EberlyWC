@@ -13,6 +13,7 @@ import "@polymer/iron-icons/iron-icons.js";
 import "@polymer/iron-pages/iron-pages.js";
 import "@lrnwebcomponents/simple-colors/simple-colors.js";
 import "@lrnwebcomponents/promo-tile/promo-tile.js";
+import "@lrnwebcomponents/scroll-button/scroll-button.js";
 import "./lib/haxtheme-home.js";
 import "./lib/haxtheme-news.js";
 import "./lib/haxtheme-team.js";
@@ -20,7 +21,6 @@ import "./lib/haxtheme-courses.js";
 import "./lib/haxtheme-blog.js";
 import "./lib/page-topbar.js";
 import "./lib/page-footer.js";
-import "./lib/page-scroll.js";
 
 /**
  * `odl-haxtheme`

@@ -7,13 +7,21 @@
 }
 
 :root {
-  /* --haxcms-base-styles-a-color: #e2801e;
-  --haxcms-base-styles-a-color-active:#e2801e;
-  --haxcms-base-styles-a-color-hover:#e2801e;
-  --haxcms-base-styles-a-color-visited: #e2801e; */
+  --site-rss-bg-color: var(--theme-color-2);
   --haxcms-base-styles-a-weight: bold;
   --haxcms-base-styles-a-font-size: 20px;
-
+  --site-breadcrumb-color: #a9a9a9;
+  --site-menu-button-button: {
+    background-color: var(--theme-color-2);
+    margin: 5px 0 15px;
+    border-radius: none;
+    color: var(--theme-color-4);
+  };
+  --site-rss-border-radius: 0;
+  --site-rss-bg-active: var(--theme-color-2);
+  --site-recent-content-block-item-link: {
+    color: var(--theme-color-1);
+  };
 }
 
 :host([hidden]) {
@@ -27,8 +35,23 @@
   display: none;
 }
 
+
+scroll-button {
+    position: fixed;
+    right: 0;
+    bottom: 50px;
+    margin-right: 25px;
+    border: 1px solid #f5f5f5;
+  --scroll-button-button: {
+    background-color: var(--theme-color-2);
+  };
+  --scroll-button-button-active: {
+    background-color: var(--theme-color-2);
+  }
+}
+
 site-top-menu {
-  width: 100%;
+    width: 100%;
   --site-top-menu-button: {
     padding: 15px 10px;
     margin: 0;
@@ -64,6 +87,7 @@ site-top-menu {
     text-transform: uppercase;
   };
 }
+
 
 
 

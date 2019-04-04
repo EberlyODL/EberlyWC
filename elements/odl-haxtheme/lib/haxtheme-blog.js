@@ -4,6 +4,7 @@ import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-st
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-menu-button.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-breadcrumb.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/blocks/site-recent-content-block.js";
+import "@lrnwebcomponents/haxcms-elements/lib/ui-components/site/site-print-button.js";
 
 import { autorun, toJS } from "mobx";
 import "./page-banner.js";
@@ -17,12 +18,8 @@ Polymer({
         --theme-color-1: #363533;
         --theme-color-2: #e2801e;
         --theme-color-4: #fff;
-        --site-breadcrumb-color: #7f7f7f;
-        --site-menu-button-button: {
-          background-color: var(--theme-color-2);
-          margin: 5px 0 15px;
-          border-radius: none;
-          color: var(--theme-color-4);
+        --site-print-button-button: {
+          color: #a9a9a9;
         }
       }
 
@@ -35,6 +32,10 @@ Polymer({
         margin: 0;
         font-weight: 100;
         font-size: 26px;
+      }
+
+      site-breadcrumb {
+        margin-top: 10px;
       }
 
       #contentcontainer {
@@ -123,6 +124,12 @@ Polymer({
         margin-bottom: 5px;
       }
 
+      #share_actions {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: -20px;
+      }
+
       .sidebar_wrap {
         width: 25%;
         margin-top: 45px;
@@ -153,7 +160,7 @@ Polymer({
           margin-right: auto;
         }
       }
-      
+
       #card_description {
         margin-bottom: 10px;
         font-size: 18px;
@@ -191,6 +198,11 @@ Polymer({
         margin-right: 10px;
       }
 
+      #article-interactions {
+        display: flex;
+        justify-content: flex-end;
+      }
+
       #taxonomy {
         display: flex;
         align-items: center;
@@ -203,6 +215,12 @@ Polymer({
         font-weight: 300;
         color: var(--theme-color-2);
         margin-right: 10px;
+      }
+
+      @media screen and (max-width: 768px) {
+        #taxonomy a {
+          font-size: 16px;
+        }
       }
 
       #taxonomy a:hover {
@@ -218,10 +236,6 @@ Polymer({
         justify-content: space-between;
       }
 
-      site-breadcrumb {
-        margin-top: 10px;
-      }
-
       @media screen and (max-width: 768px) {
         site-breadcrumb {
           margin: 0 0 30px;
@@ -230,6 +244,7 @@ Polymer({
 
       site-recent-content-block {
         --site-recent-content-block-header-color: #e2801e;
+        --site-recent-content-block-active-color: var(--theme-color-2);
       }
     </style>
     
@@ -237,7 +252,7 @@ Polymer({
     <div id="news_wrap">
       <div class="news_container">
         <div id="news_inner_wrap">
-        <site-breadcrumb></site-breadcrumb>
+            <site-breadcrumb></site-breadcrumb>
           <div class="publish_credentials">
             <div class="title">
               <h1>[[activeItem.title]]</h1>
@@ -254,6 +269,9 @@ Polymer({
               </iron-image>
               <div id="author">By: [[activeItem.metadata.author]]</div>
             </div>
+          </div>
+          <div id="share_actions">
+            <site-print-button></site-print-button>
           </div>
           <div id="contentcontainer">
               <div id="slot">
@@ -294,23 +312,7 @@ Polymer({
 
   is: "haxtheme-blog",
 
-  properties: {
-    /**
-     * Type of data to select from site.json
-     */
-    type: {
-      type: String,
-      value: "news",
-      reflectToAttribute: true
-    },
-    /**
-     * Items from sites.json
-     */
-    _items: {
-      type: Array,
-      value: []
-    }
-  },
+  properties: {},
 
   _formatDate: function(unixTimecode) {
     const date = new Date(unixTimecode * 1000);
@@ -322,23 +324,7 @@ Polymer({
 
     return dateFormatted;
   },
-  // attached: function() {
-  //   const pages = this.manifest.items;
-  //   const pagesFiltered = pages.filter(item => {
-  //     if (typeof item.metadata !== "undefined") {
-  //       if (typeof item.metadata.type !== "undefined") {
-  //         if (item.metadata.type === "news") {
-  //           return true;
-  //         }
-  //       }
-  //     }
-  //     return false;
-  //   });
 
-  //   this.set("_items", pagesFiltered);
-
-  //   const archiveList = pagesFiltered.splice(5);
-  // },
   created: function() {
     this.__disposer = [];
     autorun(reaction => {

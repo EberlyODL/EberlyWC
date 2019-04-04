@@ -13,6 +13,7 @@ import "@polymer/iron-icons/iron-icons.js";
 import "@polymer/iron-pages/iron-pages.js";
 import "@lrnwebcomponents/simple-colors/simple-colors.js";
 import "@lrnwebcomponents/promo-tile/promo-tile.js";
+import "@lrnwebcomponents/scroll-button/scroll-button.js";
 import "./lib/haxtheme-home.js";
 import "./lib/haxtheme-news.js";
 import "./lib/haxtheme-team.js";
@@ -20,7 +21,6 @@ import "./lib/haxtheme-courses.js";
 import "./lib/haxtheme-blog.js";
 import "./lib/page-topbar.js";
 import "./lib/page-footer.js";
-import "./lib/page-scroll.js";
 
 /**
  * `odl-haxtheme`
@@ -47,8 +47,21 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
         }
 
         :root {
+          --site-rss-bg-color: var(--theme-color-2);
           --haxcms-base-styles-a-weight: bold;
           --haxcms-base-styles-a-font-size: 20px;
+          --site-breadcrumb-color: #a9a9a9;
+          --site-menu-button-button: {
+            background-color: var(--theme-color-2);
+            margin: 5px 0 15px;
+            border-radius: none;
+            color: var(--theme-color-4);
+          }
+          --site-rss-border-radius: 0;
+          --site-rss-bg-active: var(--theme-color-2);
+          --site-recent-content-block-item-link: {
+            color: var(--theme-color-1);
+          }
         }
 
         :host([hidden]) {
@@ -57,6 +70,20 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
 
         :host([edit-mode]) #slot {
           display: none;
+        }
+
+        scroll-button {
+          position: fixed;
+          right: 0;
+          bottom: 50px;
+          margin-right: 25px;
+          border: 1px solid #f5f5f5;
+          --scroll-button-button: {
+            background-color: var(--theme-color-2);
+          }
+          --scroll-button-button-active: {
+            background-color: var(--theme-color-2);
+          }
         }
 
         site-top-menu {
@@ -114,7 +141,7 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
           </div>
         </haxtheme-blog>
       </iron-pages>
-      <page-scroll></page-scroll>
+      <scroll-button></scroll-button>
       <page-footer></page-footer>
     `;
   }

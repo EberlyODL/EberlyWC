@@ -3,6 +3,7 @@ import "@polymer/iron-image/iron-image.js";
 import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-store.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/query/site-query.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/blocks/site-recent-content-block.js";
+import "@lrnwebcomponents/haxcms-elements/lib/ui-components/site/site-rss-button.js";
 import { autorun, toJS } from "mobx";
 import "./page-banner.js";
 Polymer({
@@ -14,6 +15,10 @@ Polymer({
         --theme-color-1: #363533;
         --theme-color-2: #e2801e;
         --theme-color-4: #fff;
+      }
+
+      a {
+        text-decoration: none;
       }
 
       h2 {
@@ -47,47 +52,93 @@ Polymer({
       }
 
       #card_wrap {
+        display: flex;
         background-color: var(--theme-color-4);
         margin: 15px;
         padding: 15px;
         box-shadow: 0 1px 2px #dcdcdc;
       }
 
-      #card_image {
-        margin-right: 15px;
-        float: left;
-      }
-
       @media screen and (max-width: 768px) {
-        #card_image {
-          float: none;
+        #card_wrap {
+          display: flex;
+          flex-direction: column;
         }
       }
 
       @media screen and (max-width: 768px) {
         #card_image iron-image {
           width: 100% !important;
-          height: 200px;
+          height: 180px !important;
+          border: none !important;
         }
+      }
+
+      #card_image {
+        padding-right: 5px;
       }
 
       #card_image iron-image {
         height: 220px;
         width: 175px;
+        border-left: solid 6px var(--theme-color-2);
       }
 
-      #card_heading h2 {
+      .card_info {
+        padding-left: 15px;
+      }
+
+      @media screen and (max-width: 768px) {
+        .card_info {
+          padding: 0;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .title h2 {
+          margin-top: 5px;
+          font-size: 24px;
+        }
+      }
+
+      .title a {
+        color: var(--theme-color-1);
+      }
+
+      .title a:hover {
         color: var(--theme-color-2);
-        margin: 11px 0px 5px;
-        font-weight: bold;
       }
 
-      #card_heading a {
-        text-decoration: none;
+      @media screen and (max-width: 768px) {
+        .date h2 {
+          font-size: 18px !important;
+        }
       }
 
-      #post_date {
-        margin-bottom: 5px;
+      .date h2 {
+        font-size: 20px;
+        color: var(--theme-color-1);
+      }
+
+      #author {
+        color: var(--theme-color-1);
+      }
+
+      #author_info {
+        display: flex;
+        align-items: center;
+        margin: 5px 0 5px;
+      }
+
+      iron-image#author_image {
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+      #card_description {
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: 300;
       }
 
       .sidebar_wrap {
@@ -125,24 +176,42 @@ Polymer({
         --site-recent-content-block-header-color: #e2801e;
       }
 
-      #card_description {
-        margin-bottom: 10px;
-        font-size: 18px;
-        font-weight: 300;
+
+      @media screen and (max-width: 768px) {
+        .card_header_info {
+          border-left: solid 4px var(--theme-color-2);
+          padding-left: 10px;
+        }
       }
 
-      #card_footer iron-image {
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        margin-right: 5px;
+      site-breadcrumb {
+        margin-top: 10px;
+        margin-left: 15px;
       }
 
-      #card_footer {
+      @media screen and (max-width: 768px) {
+        site-breadcrumb {
+          margin: 10px 0 0 15px;
+        }
+      }
+
+      #share_actions {
+        background-color: var(--theme-color-4); 
         display: flex;
-        align-items: center;
-        padding-right: 15px;
+        justify-content: space-around;
+        padding: 10px;
+        margin-top: 10px;        
       }
+
+      @media screen and (max-width: 768px) {
+        #share_actions {
+          width: 85%;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 15px;
+        }
+      }
+ 
     </style>
     <page-banner
       image="files/theme-images/page-banners/news_banner.png"
@@ -160,32 +229,36 @@ Polymer({
           <dom-repeat items="[[__items]]" mutable-data>
             <template>
               <div id="card_wrap">
-                <div id="card_image">
+              <div id="card_image">
                   <iron-image
                     sizing="cover"
                     src="[[item.metadata.fields.image]]"
                   ></iron-image>
                 </div>
-                <div id="card_heading">
-                  <a href\$="[[item.location]]">
-                    <h2>[[item.title]]</h2>
-                  </a>
+                <div class="card_info">
+                  <div class="card_header_info">
+                  <div class="title">
+                    <a href\$="[[item.location]]">
+                      <h2>[[item.title]]</h2>
+                    </a>
+                  </div>
+                  <div class="date">
+                    <h2>[[_formatDate(item.metadata.created)]]</h2>
+                  </div>
+                  <div id="author_info">
+                    <iron-image
+                      id="author_image"
+                      style="width:45px; height:45px;"
+                      sizing="cover"
+                      src="[[item.metadata.authorImage]]">
+                    </iron-image>
+                    <div id="author">By: [[item.metadata.author]]</div>
+                  </div>
                 </div>
-                <div id="post_date">
-                  <span>[[_formatDate(item.metadata.created)]]</span>
-                </div>
-                <div id="card_description">
+                  <div id="card_description">
                   <span>[[item.description]]</span>
                 </div>
-                <div id="card_footer">
-                  <iron-image
-                    id="author_image"
-                    sizing="cover"
-                    src="[[item.metadata.authorImage]]"
-                  ></iron-image>
-                  <div id="author_name">[[item.metadata.author]]</div>
-                </div>
-              </div>
+                  </div>
             </template>
           </dom-repeat>
         </div>
@@ -212,6 +285,10 @@ Polymer({
               start-index="5"
             >
             </site-recent-content-block>
+          </div>
+          <div id="share_actions">
+            <site-rss-button type="rss"></site-rss-button>
+            <site-rss-button type="atom"></site-rss-button>
           </div>
         </div>
       </div>
