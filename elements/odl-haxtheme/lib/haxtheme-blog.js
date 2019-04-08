@@ -135,7 +135,7 @@ Polymer({
         margin-top: 45px;
         border-left: solid 2px #dcdcdc;
         padding-left: 20px;
-        height: 500px;
+        height: 600px;
       }
 
       @media screen and (max-width: 768px) {
@@ -302,6 +302,7 @@ Polymer({
               conditions='{"metadata.type": "news"}'
               result="{{__items}}" 
               limit="5"
+              sort
               >
             </site-recent-content-block>
           </div>

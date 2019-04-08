@@ -75,7 +75,7 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
         scroll-button {
           position: fixed;
           right: 0;
-          bottom: 50px;
+          bottom: 65px;
           margin-right: 25px;
           border: 1px solid #f5f5f5;
           --scroll-button-button: {

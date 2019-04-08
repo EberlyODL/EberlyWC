@@ -43,11 +43,13 @@ Polymer({
 
       .news_page_feed {
         width: 75%;
+        margin-top: 20px;
       }
 
       @media screen and (max-width: 768px) {
         .news_page_feed {
           width: 100%;
+          margin-top: 10px;
         }
       }
 
@@ -143,12 +145,19 @@ Polymer({
 
       .sidebar_wrap {
         width: 25%;
-        margin-top: 25px;
+        margin-top: 45px;
+        border-left: solid 2px #dcdcdc;
+        padding-left: 20px;
+        height: 600px;
       }
 
       @media screen and (max-width: 768px) {
-        .sidebar_wrap {
+       .sidebar_wrap {
           width: 100%;
+          height: auto;
+          border: none;
+          padding-left: 0;
+          margin-top: 10px;
         }
       }
 
@@ -225,6 +234,7 @@ Polymer({
             result="{{__items}}"
             conditions='{"metadata.type": "news"}'
             limit="5"
+            sort
           ></site-query>
           <dom-repeat items="[[__items]]" mutable-data>
             <template>
@@ -283,6 +293,7 @@ Polymer({
               result="{{__items}}"
               limit="5"
               start-index="5"
+              sort
             >
             </site-recent-content-block>
           </div>
