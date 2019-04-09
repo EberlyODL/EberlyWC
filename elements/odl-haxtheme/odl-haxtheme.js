@@ -19,6 +19,7 @@ import "./lib/haxtheme-news.js";
 import "./lib/haxtheme-team.js";
 import "./lib/haxtheme-courses.js";
 import "./lib/haxtheme-blog.js";
+import "./lib/link-preview.js";
 import "./lib/page-topbar.js";
 import "./lib/page-footer.js";
 
@@ -48,6 +49,7 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
 
         :root {
           --site-rss-bg-color: var(--theme-color-2);
+          --haxcms-base-styles-a-color: #2196f3;
           --haxcms-base-styles-a-weight: bold;
           --haxcms-base-styles-a-font-size: 20px;
           --site-breadcrumb-color: #a9a9a9;

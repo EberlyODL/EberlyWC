@@ -8,6 +8,7 @@
 
 :root {
   --site-rss-bg-color: var(--theme-color-2);
+  --haxcms-base-styles-a-color: #2196f3;
   --haxcms-base-styles-a-weight: bold;
   --haxcms-base-styles-a-font-size: 20px;
   --site-breadcrumb-color: #a9a9a9;
@@ -34,7 +35,6 @@
 :host([edit-mode]) #slot {
   display: none;
 }
-
 
 scroll-button {
     position: fixed;

@@ -19,6 +19,7 @@ import "./lib/haxtheme-news.js";
 import "./lib/haxtheme-team.js";
 import "./lib/haxtheme-courses.js";
 import "./lib/haxtheme-blog.js";
+import "./lib/link-preview.js";
 import "./lib/page-topbar.js";
 import "./lib/page-footer.js";
 
