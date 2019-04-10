@@ -19,6 +19,7 @@ import "./lib/haxtheme-news.js";
 import "./lib/haxtheme-team.js";
 import "./lib/haxtheme-courses.js";
 import "./lib/haxtheme-blog.js";
+import "./lib/haxtheme-profile.js";
 import "./lib/link-preview.js";
 import "./lib/page-topbar.js";
 import "./lib/page-footer.js";
@@ -76,6 +77,11 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
       if (location.pathname.startsWith("/blog-posts/")) {
         this.HAXCMSThemeWiring.connect(this, this.$.blog.$.contentcontainer);
         this.selectedPage = 4;
+      }
+
+      if (location.pathname.startsWith("/team-directory/")) {
+        this.HAXCMSThemeWiring.connect(this, this.$.profile.$.contentcontainer);
+        this.selectedPage = 5;
       }
 
       window.scrollTo(0, 0);

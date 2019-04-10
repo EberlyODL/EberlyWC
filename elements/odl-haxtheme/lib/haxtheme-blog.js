@@ -70,15 +70,6 @@ Polymer({
         }
       }
 
-      .news_page_feed {
-        width: 75%;
-      }
-
-      @media screen and (max-width: 768px) {
-        .news_page_feed {
-          width: 100%;
-        }
-      }
 
       #card_wrap {
         background-color: var(--theme-color-4);

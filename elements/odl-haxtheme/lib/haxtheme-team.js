@@ -1,5 +1,6 @@
 import { html, Polymer } from "@polymer/polymer/polymer-legacy.js";
 import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-store.js";
+import "@lrnwebcomponents/haxcms-elements/lib/ui-components/query/site-query.js";
 import { autorun, toJS } from "mobx";
 import "./page-banner.js";
 import "./team-card.js";
@@ -25,56 +26,29 @@ Polymer({
       alt="Office of Digital Learning Team"
     ></page-banner>
     <div id="team_card">
-      <template is="dom-repeat" items="[[_items]]">
-        <team-card
-          name="[[item.title]]"
-          image="[[item.metadata.image]]"
-          item="[[item]]"
-          position="[[item.metadata.jobTitle]]"
-        ></team-card>
+      <site-query
+        result="{{__items}}"
+        conditions='{"metadata.type": "team"}'
+        sort
+      ></site-query>
+      <dom-repeat items="[[__items]]" mutable-data>
+        <template>
+        <a href="[[item.location]]">
+          <team-card
+            name="[[item.metadata.fields.name]]"
+            image="[[item.metadata.fields.image]]"
+            item="[[item]]"
+            position="[[item.metadata.fields.jobTitle]]"
+          ></team-card>
+        </a>
       </template>
     </div>
   `,
 
   is: "haxtheme-team",
 
-  properties: {
-    /**
-     * Type of data to select from site.json
-     */
-    type: {
-      type: String,
-      value: "team",
-      reflectToAttribute: true
-    },
-    /**
-     * Items from sites.json
-     */
-    _items: {
-      type: Array,
-      value: []
-    }
-  },
+  properties: {},
 
-  attached: function() {
-    const pages = this.manifest.items;
-    const pagesFiltered = pages.filter(item => {
-      if (typeof item.metadata !== "undefined") {
-        if (typeof item.metadata.type !== "undefined") {
-          if (item.metadata.type === "team") {
-            return true;
-          }
-        }
-      }
-      return false;
-    });
-
-    // const pagesTrimmed = pagesFiltered.slice(2);
-    // this.set("_items", pagesTrimmed);
-    this.set("_items", pagesFiltered);
-
-    // To do - Will need to sort by date created.
-  },
   created: function() {
     this.__disposer = autorun(() => {
       this.manifest = toJS(store.routerManifest);

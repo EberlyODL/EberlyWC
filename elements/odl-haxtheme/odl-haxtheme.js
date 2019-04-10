@@ -19,6 +19,7 @@ import "./lib/haxtheme-news.js";
 import "./lib/haxtheme-team.js";
 import "./lib/haxtheme-courses.js";
 import "./lib/haxtheme-blog.js";
+import "./lib/haxtheme-profile.js";
 import "./lib/link-preview.js";
 import "./lib/page-topbar.js";
 import "./lib/page-footer.js";
@@ -135,13 +136,14 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
         <haxtheme-news></haxtheme-news>
         <haxtheme-team></haxtheme-team>
         <haxtheme-courses></haxtheme-courses>
-        <haxtheme-blog id="blog">
+        <haxtheme-blog id="blog"> </haxtheme-blog>
+        <haxtheme-profile id="profile">
           <div id="contentcontainer">
             <div id="slot">
               <slot></slot>
             </div>
           </div>
-        </haxtheme-blog>
+        </haxtheme-profile>
       </iron-pages>
       <scroll-button></scroll-button>
       <page-footer></page-footer>
@@ -236,6 +238,11 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
       if (location.pathname.startsWith("/blog-posts/")) {
         this.HAXCMSThemeWiring.connect(this, this.$.blog.$.contentcontainer);
         this.selectedPage = 4;
+      }
+
+      if (location.pathname.startsWith("/team-directory/")) {
+        this.HAXCMSThemeWiring.connect(this, this.$.profile.$.contentcontainer);
+        this.selectedPage = 5;
       }
 
       window.scrollTo(0, 0);
