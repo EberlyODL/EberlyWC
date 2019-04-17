@@ -44,7 +44,7 @@ Polymer({
         line-height: 1.6;
       }
 
-      .news_container {
+      .blog_container {
         display: flex;
         width: 75%;
         margin-left: auto;
@@ -52,19 +52,19 @@ Polymer({
       }
 
       @media screen and (max-width: 768px) {
-        #news_wrap {
+        #blog_wrap {
           padding: 15px;
         }
       }
 
-      #news_inner_wrap {
+      #blog_inner_wrap {
         width: 90%;
         margin-right: 20px;
       }
 
 
       @media screen and (max-width: 768px) {
-        .news_container {
+        .blog_container {
           flex-direction: column;
           width: 98%;
         }
@@ -178,6 +178,15 @@ Polymer({
         padding-left: 15px;
       }
 
+      #author a {
+        text-decoration: none;
+        color: var(--theme-color-1);
+      }
+
+      #author a:hover {
+        color: var( --theme-color-2);
+      }
+
       #author_info {
         display: flex;
         align-items: center;
@@ -240,9 +249,9 @@ Polymer({
     </style>
     
     <page-banner image="[[activeItem.metadata.fields.image]]" text="[[activeItem.metadata.tagLine]]" alt="Gateway to the Sciences"></page-banner>
-    <div id="news_wrap">
-      <div class="news_container">
-        <div id="news_inner_wrap">
+    <div id="blog_wrap">
+      <div class="blog_container">
+        <div id="blog_inner_wrap">
             <site-breadcrumb></site-breadcrumb>
           <div class="publish_credentials">
             <div class="title">
@@ -258,7 +267,9 @@ Polymer({
                 sizing="cover"
                 src="[[activeItem.metadata.authorImage]]">
               </iron-image>
-              <div id="author">By: [[activeItem.metadata.author]]</div>
+              <div id="author">By:
+                <a href="/team-directory/[[activeItem.metadata.fields.authorId]]">[[activeItem.metadata.author]]</a> 
+              </div>
             </div>
           </div>
           <div id="share_actions">
@@ -315,6 +326,14 @@ Polymer({
     });
 
     return dateFormatted;
+  },
+
+  __authorConditions: function(activeItem) {
+    const condition = {
+      "metadata.type": "news",
+      "metadata.fields.authorId": activeItem.id
+    };
+    return condition;
   },
 
   created: function() {

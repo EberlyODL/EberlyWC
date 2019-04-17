@@ -18,6 +18,7 @@
     border-radius: none;
     color: var(--theme-color-4);
   };
+  --site-menu-button-tooltip-bg: var(--theme-color-1);
   --site-rss-border-radius: 0;
   --site-rss-bg-active: var(--theme-color-2);
   --site-recent-content-block-item-link: {

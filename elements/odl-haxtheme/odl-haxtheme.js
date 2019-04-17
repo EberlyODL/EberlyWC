@@ -60,6 +60,7 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
             border-radius: none;
             color: var(--theme-color-4);
           }
+          --site-menu-button-tooltip-bg: var(--theme-color-1);
           --site-rss-border-radius: 0;
           --site-rss-bg-active: var(--theme-color-2);
           --site-recent-content-block-item-link: {
@@ -132,7 +133,13 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
       <page-topbar></page-topbar>
       <site-top-menu></site-top-menu>
       <iron-pages selected="[[selectedPage]]">
-        <haxtheme-home id="homeelement"> </haxtheme-home>
+        <haxtheme-home id="homeelement">
+          <div id="contentcontainer">
+            <div id="slot">
+              <slot></slot>
+            </div>
+          </div>
+        </haxtheme-home>
         <haxtheme-news></haxtheme-news>
         <haxtheme-team></haxtheme-team>
         <haxtheme-courses></haxtheme-courses>

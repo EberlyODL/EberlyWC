@@ -24,8 +24,8 @@ Polymer({
       }
 
       #card_image {
-        width: 300px;
-        height: 300px;
+        width: 280px;
+        height: 280px;
         display: flex;
         align-items: center;
         border-radius: 50%;
@@ -35,8 +35,8 @@ Polymer({
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 300px;
-        width: 300px;
+        height: 280px;
+        width: 280px;
         background: rgba(0, 0, 0, 0.8);
         border-radius: 50%;
         color: #fff;
@@ -62,7 +62,6 @@ Polymer({
         margin-bottom: 7px;
       }
     </style>
-    <!-- <paper-button on-tap="__setPage"> -->
     <div id="card_wrap">
       <div id="card_image" class="image">
         <div id="info_container">
@@ -73,7 +72,6 @@ Polymer({
         </div>
       </div>
     </div>
-    <!-- </paper-button> -->
   `,
 
   is: "team-card",
@@ -106,8 +104,6 @@ Polymer({
     }
   },
 
-  // __setPage: function () {
-  //   },
   __updateStyles: function(newValue) {
     this.updateStyles({ "--card-image": `url(${newValue})` });
   }

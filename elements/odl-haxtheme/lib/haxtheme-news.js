@@ -122,10 +122,14 @@ Polymer({
         color: var(--theme-color-1);
       }
 
-      #author {
+      #author a {
         color: var(--theme-color-1);
       }
 
+      #author a:hover {
+        color: var(--theme-color-2);
+      }
+      
       #author_info {
         display: flex;
         align-items: center;
@@ -262,7 +266,9 @@ Polymer({
                       sizing="cover"
                       src="[[item.metadata.authorImage]]">
                     </iron-image>
-                    <div id="author">By: [[item.metadata.author]]</div>
+                    <div id="author">By:
+                      <a href="/team-directory/[[item.metadata.fields.authorId]]">[[item.metadata.author]]</a> 
+                    </div>
                   </div>
                 </div>
                   <div id="card_description">

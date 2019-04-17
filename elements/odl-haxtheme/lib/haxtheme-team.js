@@ -14,35 +14,59 @@ Polymer({
       #team_card {
         display: flex;
         flex-wrap: wrap;
-        width: 66%;
         justify-content: center;
-        margin-left: auto;
-        margin-right: auto;
+        width: 65%;
+        margin: 25px auto 0 auto;
+        padding-bottom: 25px;
       }
     </style>
     <page-banner
-      image="files/theme-images/page-banners/haxtheme-team-banner.jpg"
-      text="Our Team"
-      alt="Office of Digital Learning Team"
-    ></page-banner>
+      image="files/theme-images/page-banners/team_banner.jpg"
+      text="Team"
+      alt="Office of Digital Learning Team">
+    </page-banner>
     <div id="team_card">
       <site-query
         result="{{__items}}"
         conditions='{"metadata.type": "team"}'
-        sort
-      ></site-query>
+        sort>
+      </site-query>
       <dom-repeat items="[[__items]]" mutable-data>
         <template>
-        <a href="[[item.location]]">
-          <team-card
-            name="[[item.metadata.fields.name]]"
-            image="[[item.metadata.fields.image]]"
-            item="[[item]]"
-            position="[[item.metadata.fields.jobTitle]]"
-          ></team-card>
-        </a>
-      </template>
-    </div>
+          <a href="[[item.location]]">
+            <team-card
+              name="[[item.metadata.fields.name]]"
+              image="[[item.metadata.fields.image]]"
+              item="[[item]]"
+              position="[[item.metadata.fields.jobTitle]]">
+            </team-card>
+          </a>
+        </template>
+      </div>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   `,
 
   is: "haxtheme-team",

@@ -5,13 +5,17 @@
 <site-top-menu></site-top-menu>
 <iron-pages selected="[[selectedPage]]">
     <haxtheme-home id="homeelement">
-
+        <div id="contentcontainer">
+            <div id="slot">
+              <slot></slot>
+            </div>
+          </div>
     </haxtheme-home>
     <haxtheme-news></haxtheme-news>
     <haxtheme-team></haxtheme-team>
     <haxtheme-courses></haxtheme-courses>
     <haxtheme-blog id="blog">
-       
+
     </haxtheme-blog>
     <haxtheme-profile id="profile">
         <div id="contentcontainer">
