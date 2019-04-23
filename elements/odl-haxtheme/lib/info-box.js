@@ -69,7 +69,7 @@ Polymer({
       </div>
       <div class="action_button">
         <a href\$="#">
-          <paper-button noink="" id="learn">
+          <paper-button noink id="learn">
             <div class="title">Learn More</div>
             <iron-icon icon="chevron-right"></iron-icon>
           </paper-button>

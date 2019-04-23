@@ -5,6 +5,7 @@ import "./info-box.js";
 import "./news-feed.js";
 import "./videos-feed.js";
 import "./testimonials-feed.js";
+import "./page-feature.js";
 Polymer({
   _template: html`
     <style>
@@ -27,6 +28,10 @@ Polymer({
         background-color: var(--theme-color-1);
         display: flex;
         justify-content: center;
+      }
+
+      promo-tile {
+        --button-hover-color: none;
       }
 
       #promo_tile_wrap {
@@ -148,10 +153,12 @@ Polymer({
         tools for any pedagogy. Dream it and we'll build it.
       </span>
     </info-box>
+    <div class="projects_header">Projects</div>
     <div id="promo_tile_wrap">
       <div class="promo_tile">
         <promo-tile
           title="ELMS:LN"
+          label="Create"
           image="files/theme-images/promo-tiles/elmsln-tile.png"
           alt="ELMS:LN"
           url="https://www.elmsln.org/"
@@ -163,6 +170,7 @@ Polymer({
       <div class="promo_tile">
         <promo-tile
           title="Virtual Reality"
+          label="Explore"
           image="files/theme-images/promo-tiles/vr-tile.png"
           alt="student using
           VR goggles"
@@ -175,6 +183,7 @@ Polymer({
       <div class="promo_tile">
         <promo-tile
           title="HAX"
+          label="Build"
           image="files/theme-images/promo-tiles/hax-tile.png"
           alt="user
           enjoying the HAX authoring experience"
@@ -187,6 +196,7 @@ Polymer({
       <div class="promo_tile">
         <promo-tile
           title="One Button Studio"
+          label="Film"
           image="files/theme-images/promo-tiles/obs-tile.png"
           alt="camera
           filming video"
@@ -197,6 +207,22 @@ Polymer({
         </promo-tile>
       </div>
     </div>
+
+    <page-feature
+      title="Faculty Spotlight"
+      subtitle="Louis Leblond"
+      info="Director of Online Education in Physics"
+      image="files/feature-images/louie_feature.jpg"
+      alt="Louis presenting at TLT Symposium"
+    >
+      Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Quisque velit
+      nisi, pretium ut lacinia in, elementum id enim. Nulla quis lorem ut libero
+      malesuada feugiat. Cras ultricies ligula sed magna dictum porta. Donec
+      sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget
+      consectetur sed, convallis at tellus.Vivamus magna justo, lacinia eget
+      consectetur sed, convallis at tellus.Vivamus magna justo, lacinia eget
+      consectetur sed, convallis at tellus.</page-feature
+    >
 
     <div id="content_wrap">
       <div id="news_wrap" class="news_items">
