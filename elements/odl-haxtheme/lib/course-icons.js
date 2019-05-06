@@ -1,6 +1,9 @@
-<script type="module" src="@polymer/iron-icon/iron-icon.js"></script>
-<script type="module" src="@polymer/iron-iconset-svg/iron-iconset-svg.js"></script>
-<iron-iconset-svg name="courseicons" size="100">
+import "@polymer/iron-icon/iron-icon.js";
+import "@polymer/iron-iconset-svg/iron-iconset-svg.js";
+var $_documentContainer = document.createElement("div");
+$_documentContainer.setAttribute("style", "display: none;");
+
+$_documentContainer.innerHTML = `<iron-iconset-svg name="courseicons" size="100">
   <svg>
     <defs>
 		<g id="astro001">
@@ -700,4 +703,6 @@
 			</g>
 		</defs>
 	</svg>
-</iron-iconset-svg>
+</iron-iconset-svg>`;
+
+document.head.appendChild($_documentContainer);

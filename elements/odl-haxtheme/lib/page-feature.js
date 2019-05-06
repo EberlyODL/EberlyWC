@@ -7,6 +7,7 @@ Polymer({
     <style>
       :host {
         display: block;
+        --image-background: "";
         --theme-color-1: #363533;
         --theme-color-2: #e2801e;
         --theme-color-4: #fff;
@@ -18,10 +19,22 @@ Polymer({
         font-size: 40px;
       }
 
+      @media screen and (max-width: 768px) {
+        h1 {
+          font-size: 28px;
+        }
+      }
+
       h2 {
         margin: 0;
         font-weight: 100;
         font-size: 32px;
+      }
+
+      @media screen and (max-width: 768px) {
+        h2 {
+          font-size: 22px;
+        }
       }
 
       #feature_wrap {
@@ -37,24 +50,23 @@ Polymer({
           flex-direction: column;
           height: auto;
           padding: 0;
+          background-color: transparent;
         }
       }
 
-      #feature_image iron-image {
-        height: 350px;
-        width: 600px;
+      #feature_image {
+        background-image: var(--image-background);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 45%;
+        height: 400px;
         border-left: solid 6px var(--theme-color-2);
       }
 
       @media screen and (max-width: 1012px) {
-        #feature_image iron-image {
-          height: 350px;
-          width: 1012px;
-        }
-      }
-
-      @media screen and (max-width: 1124px) {
-        #feature_image iron-image {
+        #feature_image {
+          width: 100%;
           border: none;
         }
       }
@@ -87,6 +99,11 @@ Polymer({
         margin: 20px 0 0 20px;
       }
 
+      iron-image#sub_image {
+        border-radius: 50%;
+        margin: 10px 10px 0 0;
+      }
+
       #description {
         padding: 25px 25px 15px;
       }
@@ -102,6 +119,13 @@ Polymer({
         margin: 0 25px 25px 0;
       }
 
+      @media screen and (max-width: 768px) {
+        #action_button {
+          justify-content: center;
+          margin: 0;
+        }
+      }
+
       paper-button#feature {
         color: var(--theme-color-2);
       }
@@ -112,9 +136,7 @@ Polymer({
       }
     </style>
     <div id="feature_wrap">
-      <div id="feature_image">
-        <iron-image sizing="cover" src="[[image]]" alt="[[alt]]"></iron-image>
-      </div>
+      <div id="feature_image"></div>
       <div id="feature_description_wrap">
         <div id="title_wrap">
           <div id="title">
@@ -129,7 +151,7 @@ Polymer({
           <slot></slot>
         </div>
         <div id="action_button">
-          <a href\$="#">
+          <a href\$="[[url]]">
             <paper-button noink id="feature">
               <div class="title">Read More</div>
               <iron-icon icon="chevron-right"></iron-icon>
@@ -147,6 +169,14 @@ Polymer({
      * Image source
      */
     image: {
+      type: String,
+      value: "",
+      reflectToAttribute: true
+    },
+    /**
+     * subimage source
+     */
+    subimage: {
       type: String,
       value: "",
       reflectToAttribute: true
@@ -182,6 +212,20 @@ Polymer({
       type: String,
       value: "",
       reflectToAttribute: true
+    },
+    /**
+     * Url for feature
+     */
+    url: {
+      type: String,
+      value: "",
+      reflectToAttribute: true
     }
+  },
+
+  observers: ["__updateImage(image)"],
+
+  __updateImage: function(image) {
+    this.updateStyles({ "--image-background": `url(${image})` });
   }
 });

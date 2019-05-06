@@ -1,4 +1,5 @@
 import { html, Polymer } from "@polymer/polymer/polymer-legacy.js";
+import "@lrnwebcomponents/haxcms-elements/lib/ui-components/query/site-query.js";
 import "@polymer/paper-button/paper-button.js";
 import "./homepage-banner.js";
 import "./info-box.js";
@@ -17,27 +18,30 @@ Polymer({
         --theme-color-4: #fff;
       }
 
-      .feed_header h2 {
-        margin: 0;
-        color: var(--theme-color-4);
-        font-size: 38px;
-        font-weight: normal;
+      promo-tile {
+        --button-hover-color: none;
       }
 
-      .feed_header {
-        background-color: var(--theme-color-1);
+      #promo_tile_header {
         display: flex;
         justify-content: center;
       }
 
-      promo-tile {
-        --button-hover-color: none;
+      #promo_tile_header h2 {
+        margin: 0;
+        font-size: 36px;
+        font-weight: 400;
       }
 
       #promo_tile_wrap {
         display: flex;
         flex-wrap: wrap;
-        width: 100%;
+      }
+
+      @media screen and (max-width: 1124px) {
+        #promo_tile_wrap {
+          padding: 0;
+        }
       }
 
       #promo_tile_wrap > * {
@@ -55,91 +59,6 @@ Polymer({
           width: 25%;
         }
       }
-
-      #content_wrap {
-        display: flex;
-      }
-
-      @media screen and (max-width: 700px) {
-        #content_wrap {
-          flex-direction: column;
-        }
-      }
-
-      .news_items {
-        width: 33.3%;
-      }
-
-      @media screen and (max-width: 700px) {
-        .news_items {
-          width: 100%;
-        }
-      }
-
-      #news_wrap {
-        background-color: var(--theme-color-3);
-      }
-
-      .action_button {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 10px;
-      }
-
-      paper-button#news {
-        display: flex;
-        justify-content: center;
-        background-color: var(--theme-color-2);
-        color: var(--theme-color-4);
-        border-radius: 0;
-        margin-bottom: 10px;
-      }
-
-      #video_wrap {
-        background-color: var(--theme-color-3);
-      }
-
-      paper-button#videos {
-        display: flex;
-        justify-content: center;
-        background-color: var(--theme-color-2);
-        color: var(--theme-color-4);
-        border-radius: 0;
-        margin-bottom: 10px;
-      }
-
-      #testimonial_wrap {
-        background-color: var(--theme-color-3);
-      }
-
-      paper-button#highlights {
-        display: flex;
-        justify-content: center;
-        background-color: var(--theme-color-2);
-        color: var(--theme-color-4);
-        border-radius: 0;
-        margin-bottom: 10px;
-      }
-
-      .video {
-        margin-bottom: 15px;
-        background-color: #fff;
-        box-shadow: 0 1px 2px #dcdcdc;
-        padding: 16px;
-      }
-
-      .video_title {
-        background-color: var(--theme-color-1);
-        padding: 4px 10px;
-        margin-top: -5px;
-      }
-
-      .video_title h2 {
-        font-weight: normal;
-        color: #fff;
-        margin: 11px 0px 11px;
-        font-size: 18px;
-      }
     </style>
     <homepage-banner
       image="files/theme-images/page-banners/odl_homepage_banner.png"
@@ -153,7 +72,7 @@ Polymer({
         tools for any pedagogy. Dream it and we'll build it.
       </span>
     </info-box>
-    <div class="projects_header">Projects</div>
+    <div id="promo_tile_header"></div>
     <div id="promo_tile_wrap">
       <div class="promo_tile">
         <promo-tile
@@ -207,101 +126,57 @@ Polymer({
         </promo-tile>
       </div>
     </div>
-
-    <page-feature
-      title="Faculty Spotlight"
-      subtitle="Louis Leblond"
-      info="Director of Online Education in Physics"
-      image="files/feature-images/louie_feature.jpg"
-      alt="Louis presenting at TLT Symposium"
-    >
-      Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Quisque velit
-      nisi, pretium ut lacinia in, elementum id enim. Nulla quis lorem ut libero
-      malesuada feugiat. Cras ultricies ligula sed magna dictum porta. Donec
-      sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget
-      consectetur sed, convallis at tellus.Vivamus magna justo, lacinia eget
-      consectetur sed, convallis at tellus.Vivamus magna justo, lacinia eget
-      consectetur sed, convallis at tellus.</page-feature
-    >
-
-    <div id="content_wrap">
-      <div id="news_wrap" class="news_items">
-        <news-feed></news-feed>
-        <div class="action_button">
-          <a href="news">
-            <paper-button noink="" id="news">
-              <div class="wrap_action">News</div>
-              <iron-icon icon="chevron-right"></iron-icon>
-            </paper-button>
-          </a>
-        </div>
-      </div>
-      <div id="video_wrap" class="news_items">
-        <videos-feed>
-          <div class="video">
-            <iframe
-              width="100%"
-              height="220"
-              src="https://www.youtube.com/embed/sCr3w_azmC8"
-              frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen=""
-            ></iframe>
-            <div class="video_title">
-              <h2>Chem 110 | Ions | Joseph Houck</h2>
-            </div>
-          </div>
-          <div class="video">
-            <iframe
-              width="100%"
-              height="220"
-              src="https://www.youtube.com/embed/8-PdyiAkkuI"
-              frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen=""
-            ></iframe>
-            <div class="video_title">
-              <h2>Tutorial | H5P | Charles Lavera</h2>
-            </div>
-          </div>
-          <div class="video">
-            <iframe
-              width="100%"
-              height="220"
-              src="https://www.youtube.com/embed/5zL1lmPwEt8"
-              frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen=""
-            ></iframe>
-            <div class="video_title">
-              <h2>Tutorial | Monorepos | Michael Potter</h2>
-            </div>
-          </div>
-        </videos-feed>
-        <div class="action_button">
-          <a href="videos">
-            <paper-button noink="" id="videos">
-              <div class="wrap_action">Videos</div>
-              <iron-icon icon="chevron-right"></iron-icon>
-            </paper-button>
-          </a>
-        </div>
-      </div>
-      <div id="testimonial_wrap" class="news_items">
-        <testimonials-feed>
-          <div id="contentcontainer">
-            <slot></slot>
-          </div>
-        </testimonials-feed>
-        <div class="action_button">
-          <a href="testimonials">
-            <paper-button noink="" id="highlights">
-              <div class="wrap_action">Testimonials</div>
-              <iron-icon icon="chevron-right"></iron-icon>
-            </paper-button>
-          </a>
-        </div>
-      </div>
+    <div id="page_feature">
+      <site-query
+        result="{{__newsitems}}"
+        conditions='{
+          "metadata.type": "news"
+        }'
+        limit="1"
+      ></site-query>
+      <dom-repeat items="[[__newsitems]]" mutable-data>
+        <template>
+          <page-feature
+            title="[[item.title]]"
+            subtitle="[[item.metadata.author]]"
+            url="[[item.location]]"
+            image="[[item.metadata.fields.image]]"
+            subimage="[[item.metadata.authorImage]]"
+            alt="Laptop with the word,'inspire' written on screen."
+          >
+            [[item.description]]</page-feature
+          >
+        </template>
+      </dom-repeat>
+    </div>
+    <div id="news_feed">
+      <news-feed></news-feed>
+    </div>
+    <div id="page_feature">
+      <site-query
+        result="{{__spotlightitems}}"
+        conditions='{
+          "metadata.type": "spotlight"
+        }'
+        limit="1"
+      ></site-query>
+      <dom-repeat items="[[__spotlightitems]]" mutable-data>
+        <template>
+          <page-feature
+            title="Faculty Spotlight"
+            subtitle="[[item.title]]"
+            info="Director of Online Education in Physics"
+            url="[[item.location]]"
+            image="[[item.metadata.fields.image]]"
+            alt="Louis discussing version control at TLT Symposium."
+          >
+            [[item.description]]</page-feature
+          >
+        </template>
+      </dom-repeat>
+    </div>
+    <div id="videos_feed">
+      <videos-feed></videos-feed>
     </div>
   `,
 

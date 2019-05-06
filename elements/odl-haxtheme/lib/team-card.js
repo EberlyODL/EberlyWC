@@ -1,5 +1,6 @@
 import { html, Polymer } from "@polymer/polymer/polymer-legacy.js";
 import "@polymer/iron-image/iron-image.js";
+import "./haxtheme-icons.js";
 Polymer({
   _template: html`
     <style>
