@@ -3,8 +3,10 @@
   font-family: "Roboto", sans-serif;
   --theme-color-1: #363533;
   --theme-color-2: #e2801e;
-  --theme-color-4: #fff;
+  --theme-color-4: #fff; 
 }
+
+
 
 :root {
   --site-rss-bg-color: var(--theme-color-2);

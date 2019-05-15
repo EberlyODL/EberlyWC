@@ -141,6 +141,10 @@ Polymer({
         margin-top: 5px;
       }
 
+      #action_button a {
+        text-decoration: none;
+      }
+
       paper-button#news {
         color: var(--theme-color-2);
       }
