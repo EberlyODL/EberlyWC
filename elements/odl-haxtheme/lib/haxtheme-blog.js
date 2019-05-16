@@ -285,7 +285,7 @@ Polymer({
               <h2>Tags:</h2>
             </div>
             <template is="dom-repeat" items="[[activeItem.metadata.tags]]" as="tag">
-            <a href="">[[tag]]</a> 
+            <a href="#">[[tag]]</a> 
             </template>
            </div>
            <div id="prev_next_btns">

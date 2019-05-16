@@ -252,7 +252,7 @@ Polymer({
                 <div class="card_info">
                   <div class="card_header_info">
                   <div class="title">
-                    <a href\$="[[item.location]]">
+                    <a href$="[[item.location]]">
                       <h2>[[item.title]]</h2>
                     </a>
                   </div>

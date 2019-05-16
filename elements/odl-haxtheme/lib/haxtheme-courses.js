@@ -54,7 +54,8 @@ Polymer({
               <course-card
                 number="[[item.title]]"
                 icon="[[item.metadata.icon]]"
-                name="[[item.name]]">
+                name="[[item.name]]"
+                url="[[item.location]]">
               </course-card>
             </template>
         </div>

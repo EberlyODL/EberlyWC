@@ -3,23 +3,26 @@
   font-family: "Roboto", sans-serif;
   --theme-color-1: #363533;
   --theme-color-2: #e2801e;
-  --theme-color-4: #fff; 
+  --theme-color-4: #fff;
 }
-
-
 
 :root {
   --site-rss-bg-color: var(--theme-color-2);
-  --haxcms-base-styles-a-color: #2196f3;
+  --haxcms-base-styles-a-color: #040607;
   --haxcms-base-styles-a-weight: bold;
   --haxcms-base-styles-a-font-size: 20px;
   --site-breadcrumb-color: #a9a9a9;
+  --site-breadcrumb-text-decoration: none;
   --site-menu-button-button: {
     background-color: var(--theme-color-2);
     margin: 5px 0 15px;
     border-radius: none;
     color: var(--theme-color-4);
   };
+  --site-menu-button-link: {
+    text-decoration: none;
+  };
+ 
   --site-menu-button-tooltip-bg: var(--theme-color-1);
   --site-rss-border-radius: 0;
   --site-rss-bg-active: var(--theme-color-2);

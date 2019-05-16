@@ -15,6 +15,11 @@ Polymer({
         min-height: 250px;
       }
 
+      a {
+        text-decoration: none;
+        color: var(--theme-color-1);
+      }
+
       #card_wrap {
         display: flex;
         flex-direction: column;
@@ -37,13 +42,15 @@ Polymer({
         height: 120px;
       }
     </style>
-    <div id="card_wrap">
-      <div id="course_number">[[number]]</div>
-      <div id="course_icon">
-        <iron-icon icon="[[icon]]"></iron-icon>
+    <a href$="[[url]]">
+      <div id="card_wrap">
+        <div id="course_number">[[number]]</div>
+        <div id="course_icon">
+          <iron-icon icon="[[icon]]"></iron-icon>
+        </div>
+        <div id="course_name">[[name]]</div>
       </div>
-      <div id="course_name">[[name]]</div>
-    </div>
+    </a>
   `,
 
   is: "course-card",
@@ -69,6 +76,14 @@ Polymer({
      * Course Name
      */
     name: {
+      type: String,
+      value: "",
+      reflectToAttribute: true
+    },
+    /**
+     * Course URL
+     */
+    url: {
       type: String,
       value: "",
       reflectToAttribute: true

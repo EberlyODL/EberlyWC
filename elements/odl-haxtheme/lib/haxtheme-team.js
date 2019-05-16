@@ -11,6 +11,11 @@ Polymer({
         display: block;
         background-color: #f5f5f5;
       }
+      
+      a {
+        text-decoration: none;
+      }
+
       #team_card {
         display: flex;
         flex-wrap: wrap;

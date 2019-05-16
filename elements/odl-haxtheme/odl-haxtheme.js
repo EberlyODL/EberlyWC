@@ -18,6 +18,7 @@ import "./lib/haxtheme-home.js";
 import "./lib/haxtheme-news.js";
 import "./lib/haxtheme-team.js";
 import "./lib/haxtheme-courses.js";
+import "./lib/haxtheme-course.js";
 import "./lib/haxtheme-blog.js";
 import "./lib/haxtheme-profile.js";
 import "./lib/link-preview.js";
@@ -50,16 +51,21 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
 
         :root {
           --site-rss-bg-color: var(--theme-color-2);
-          --haxcms-base-styles-a-color: #2196f3;
+          --haxcms-base-styles-a-color: #040607;
           --haxcms-base-styles-a-weight: bold;
           --haxcms-base-styles-a-font-size: 20px;
           --site-breadcrumb-color: #a9a9a9;
+          --site-breadcrumb-text-decoration: none;
           --site-menu-button-button: {
             background-color: var(--theme-color-2);
             margin: 5px 0 15px;
             border-radius: none;
             color: var(--theme-color-4);
           }
+          --site-menu-button-link: {
+            text-decoration: none;
+          }
+
           --site-menu-button-tooltip-bg: var(--theme-color-1);
           --site-rss-border-radius: 0;
           --site-rss-bg-active: var(--theme-color-2);
@@ -144,13 +150,14 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
         <haxtheme-team></haxtheme-team>
         <haxtheme-courses></haxtheme-courses>
         <haxtheme-blog id="blog"> </haxtheme-blog>
-        <haxtheme-profile id="profile">
+        <haxtheme-profile id="profile"> </haxtheme-profile>
+        <haxtheme-course id="course">
           <div id="contentcontainer">
             <div id="slot">
               <slot></slot>
             </div>
           </div>
-        </haxtheme-profile>
+        </haxtheme-course>
       </iron-pages>
       <scroll-button></scroll-button>
       <page-footer></page-footer>
@@ -250,6 +257,11 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
       if (location.pathname.startsWith("/team-directory/")) {
         this.HAXCMSThemeWiring.connect(this, this.$.profile.$.contentcontainer);
         this.selectedPage = 5;
+      }
+
+      if (location.pathname.startsWith("/courses/")) {
+        this.HAXCMSThemeWiring.connect(this, this.$.course.$.contentcontainer);
+        this.selectedPage = 6;
       }
 
       window.scrollTo(0, 0);
