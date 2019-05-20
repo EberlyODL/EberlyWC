@@ -1,0 +1,14 @@
+<div id="container">
+  ${!this.loading && !this.success
+    ? html`
+      <div id="button">
+        <button @click=${this._clicked}>
+          <slot></slot>
+        </button>
+      </div>
+    `
+    : ''
+  }
+  <div id="state">
+  </div>
+</div>

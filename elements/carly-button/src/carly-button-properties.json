@@ -1,0 +1,8 @@
+{
+  "success": {
+    "type": "Boolean"
+  },
+  "loading": {
+    "type": "Boolean"
+  }
+}

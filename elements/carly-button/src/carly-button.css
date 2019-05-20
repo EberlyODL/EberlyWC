@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+:host([hidden]) {
+  display: none;
+}
+
+#container {
+  display: flex;
+  align-items: center;
+}
+
+#state {
+  width: 75px;
+  height: 75px;
+}
