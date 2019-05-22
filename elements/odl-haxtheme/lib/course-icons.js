@@ -7,7 +7,7 @@ $_documentContainer.innerHTML = `<iron-iconset-svg name="courseicons" size="100"
   <svg>
     <defs>
 		<g id="astro001">
-			<circle cx="49.24" cy="50.46" r="29.33" style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:5px" />
+			<circle cx="49.24" cy="50.46" r="29.33" style="fill:none;stroke:#dcdcdc;stroke-miterlimit:10;stroke-width:5px" />
 			<ellipse cx="45.88" cy="37.01" rx="4.92" ry="4.15" />
 			<ellipse cx="55.39" cy="46.46" rx="3.69" ry="4.81" transform="translate(-12.32 21.13) rotate(-19.48)"/>
 			<ellipse cx="64.19" cy="37.74" rx="2.32" ry="3.19" transform="translate(-7.35 58.41) rotate(-46.57)" />
@@ -482,10 +482,10 @@ $_documentContainer.innerHTML = `<iron-iconset-svg name="courseicons" size="100"
 				<path fill="none" d="M42.331,40.054c0,0,13.007,17.115,25.58,23.242
 					c0,0,4.985,2.43,5.872,7.652s-4.353,8.779-4.353,8.779s-7.907,5.191-12.601-2.798c0,0-0.719-1.374-1.172-3.026
 					c-0.454-1.652-7.401-22.822-14.653-32.91"/>
-				<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M42.11,40.596
+				<path fill="none" stroke="#dcdcdc" stroke-width="2" stroke-miterlimit="10" d="M42.11,40.596
 					c10.572,13.625,24.108,23.106,24.108,23.106c3.339,2.754,4.016,6.623,4.016,6.623c0.756,5.23-2.008,7.745-2.008,7.745
 					s-2.979,3.169-7.403,0.637c0,0-2.888-1.232-4.264-4.593c-1.376-3.361-9.002-25.726-14.975-33.249"/>
-				<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M41.736,40.702L63.345,66.25
+				<path fill="none" stroke="#dcdcdc" stroke-width="2" stroke-miterlimit="10" d="M41.736,40.702L63.345,66.25
 					c0,0,7.763,8.567,6.21,12.314c0,0-3.772,4.028-10.085-7.991c0,0-14.903-27.328-18.062-29.801"/>				
 			</g>
 		</defs>
@@ -572,8 +572,8 @@ $_documentContainer.innerHTML = `<iron-iconset-svg name="courseicons" size="100"
 			<g id="frnsc210">
 				<path d="M76.373,72.234c0.518,0.506,0.448,1.418-0.156,2.037l-1.999,2.048c-0.604,0.619-1.514,0.711-2.032,0.205L54.418,59.178
 					c-0.518-0.506-0.448-1.418,0.156-2.037l1.999-2.048c0.604-0.619,1.514-0.711,2.032-0.205L76.373,72.234z"/>
-				<circle fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" cx="41.904" cy="41.488" r="15.67"/>
-				<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="52.317" y1="53.198" x2="56.712" y2="57.347"/>
+				<circle fill="none" stroke="#dcdcdc" stroke-width="4" stroke-miterlimit="10" cx="41.904" cy="41.488" r="15.67"/>
+				<line fill="none" stroke="#dcdcdc" stroke-width="4" stroke-miterlimit="10" x1="52.317" y1="53.198" x2="56.712" y2="57.347"/>
 				
 			</g>
 		</defs>
@@ -589,30 +589,30 @@ $_documentContainer.innerHTML = `<iron-iconset-svg name="courseicons" size="100"
 		</defs>
 		<defs>
 			<g id="math021">
-				<path fill="#231F20" d="M35.807,37.958c-1.593,0-2.594,0.864-2.594,3.14v3.412H28.48v-3.094c0-5.096,2.548-8.008,7.462-8.008
+				<path fill="#dcdcdc" d="M35.807,37.958c-1.593,0-2.594,0.864-2.594,3.14v3.412H28.48v-3.094c0-5.096,2.548-8.008,7.462-8.008
 				c4.915,0,7.462,2.912,7.462,8.008c0,10.011-9.965,13.741-9.965,18.975c0,0.228,0,0.455,0.045,0.683h9.464v4.55H28.48V61.71
 				c0-9.373,9.919-10.921,9.919-20.112C38.4,38.731,37.399,37.958,35.807,37.958z"/>
-				<path fill="#231F20" d="M59.758,44.389L56.27,54.703l3.731,10.92h-3.519l-2.73-8.402l-2.761,8.402h-3.124l3.731-10.92
+				<path fill="#dcdcdc" d="M59.758,44.389L56.27,54.703l3.731,10.92h-3.519l-2.73-8.402l-2.761,8.402h-3.124l3.731-10.92
 					l-3.489-10.314h3.459l2.518,7.826l2.578-7.826H59.758z"/>
-				<path fill="#231F20" d="M66.555,30.494c-1.062,0-1.729,0.576-1.729,2.093v2.275H61.67V32.8c0-3.397,1.699-5.339,4.976-5.339
+				<path fill="#dcdcdc" d="M66.555,30.494c-1.062,0-1.729,0.576-1.729,2.093v2.275H61.67V32.8c0-3.397,1.699-5.339,4.976-5.339
 					s4.975,1.941,4.975,5.339c0,6.673-6.644,9.161-6.644,12.649c0,0.151,0,0.303,0.03,0.455h6.31v3.033H61.67v-2.608
 					c0-6.249,6.613-7.28,6.613-13.408C68.283,31.01,67.616,30.494,66.555,30.494z"/>
 			</g>
 		</defs>
 		<defs>
 			<g id="math022">
-				<path fill="#231F20" d="M21.795,73.653c-2.207-2.785-4.074-6.044-5.6-9.777c-1.525-3.732-2.289-7.6-2.289-11.599
+				<path fill="#dcdcdc" d="M21.795,73.653c-2.207-2.785-4.074-6.044-5.6-9.777c-1.525-3.732-2.289-7.6-2.289-11.599
 				c0-3.525,0.57-6.903,1.711-10.133c1.334-3.747,3.393-7.48,6.178-11.199h2.866c-1.792,3.082-2.978,5.281-3.555,6.6
 				c-0.904,2.044-1.615,4.178-2.134,6.399c-0.637,2.771-0.955,5.556-0.955,8.355c0,7.125,2.214,14.243,6.644,21.354H21.795z"/>
-				<path fill="#231F20" d="M35.451,36.411c-1.592,0-2.594,0.864-2.594,3.14v3.412h-4.731v-3.094c0-5.096,2.548-8.008,7.462-8.008
+				<path fill="#dcdcdc" d="M35.451,36.411c-1.592,0-2.594,0.864-2.594,3.14v3.412h-4.731v-3.094c0-5.096,2.548-8.008,7.462-8.008
 				s7.463,2.912,7.463,8.008c0,10.011-9.966,13.741-9.966,18.975c0,0.228,0,0.455,0.046,0.683h9.465v4.55h-14.47v-3.913
 				c0-9.373,9.919-10.921,9.919-20.112C38.045,37.185,37.044,36.411,35.451,36.411z"/>
-				<path fill="#231F20" d="M59.402,42.842l-3.488,10.314l3.731,10.92h-3.519l-2.73-8.402l-2.761,8.402h-3.124l3.731-10.92
+				<path fill="#dcdcdc" d="M59.402,42.842l-3.488,10.314l3.731,10.92h-3.519l-2.73-8.402l-2.761,8.402h-3.124l3.731-10.92
 				l-3.489-10.314h3.459l2.518,7.826l2.578-7.826H59.402z"/>
-				<path fill="#231F20" d="M65.724,73.653h-2.867c4.43-7.11,6.645-14.229,6.645-21.354c0-2.785-0.319-5.548-0.956-8.289
+				<path fill="#dcdcdc" d="M65.724,73.653h-2.867c4.43-7.11,6.645-14.229,6.645-21.354c0-2.785-0.319-5.548-0.956-8.289
 				c-0.503-2.222-1.207-4.354-2.11-6.399c-0.578-1.333-1.771-3.555-3.578-6.666h2.867c2.784,3.719,4.844,7.452,6.177,11.199
 				c1.141,3.229,1.711,6.607,1.711,10.133c0,3.999-0.767,7.866-2.3,11.599C69.778,67.609,67.915,70.868,65.724,73.653z"/>
-				<path fill="#231F20" d="M81.354,28.946c-1.062,0-1.729,0.576-1.729,2.093v2.275h-3.155v-2.062c0-3.397,1.699-5.339,4.976-5.339
+				<path fill="#dcdcdc" d="M81.354,28.946c-1.062,0-1.729,0.576-1.729,2.093v2.275h-3.155v-2.062c0-3.397,1.699-5.339,4.976-5.339
 				s4.975,1.941,4.975,5.339c0,6.674-6.644,9.161-6.644,12.649c0,0.151,0,0.303,0.03,0.455h6.31v3.033h-9.646v-2.608
 				c0-6.249,6.613-7.28,6.613-13.408C83.082,29.462,82.415,28.946,81.354,28.946z"/>
 			</g>
@@ -624,7 +624,7 @@ $_documentContainer.innerHTML = `<iron-iconset-svg name="courseicons" size="100"
 		</defs>
 		<defs>
 			<g id="math034">
-				<path fill="#231F20" d="M48.162,28.765v-3.12h5.399v3.12c4.68,0.96,7.08,4.56,7.08,10.26v1.319h-6.24v-1.739
+				<path fill="#dcdcdc" d="M48.162,28.765v-3.12h5.399v3.12c4.68,0.96,7.08,4.56,7.08,10.26v1.319h-6.24v-1.739
 				c0-3-1.199-4.141-3.3-4.141c-2.1,0-3.3,1.141-3.3,4.141c0,8.64,12.899,9.06,12.899,21.059c0,5.7-2.46,9.359-7.14,10.319v3.061
 				h-5.399v-3.061c-4.74-0.96-7.14-4.619-7.14-10.319v-2.88h6.239v3.3c0,3,1.32,4.08,3.42,4.08c2.101,0,3.42-1.08,3.42-4.08
 				c0-8.64-12.899-9.06-12.899-21.059C41.202,33.385,43.542,29.784,48.162,28.765z"/>		
@@ -642,11 +642,11 @@ $_documentContainer.innerHTML = `<iron-iconset-svg name="courseicons" size="100"
 		</defs>
 		<defs>
 			<g id="math110">
-				<line fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="50.196" y1="20.841" x2="50.196" y2="72.5"/>
-				<line fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="77.221" y1="53.458" x2="24.103" y2="53.458"/>
-				<path fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				<line fill="none" stroke="#dcdcdc" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="50.196" y1="20.841" x2="50.196" y2="72.5"/>
+				<line fill="none" stroke="#dcdcdc" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="77.221" y1="53.458" x2="24.103" y2="53.458"/>
+				<path fill="none" stroke="#dcdcdc" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
 					M31.789,76.723c0,0,5.75-23.608,18.717-23.297"/>
-				<path fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				<path fill="none" stroke="#dcdcdc" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
 					M68.371,30.193c0,0-5.75,23.608-18.717,23.297"/>
 			</g>
 		</defs>
@@ -662,7 +662,7 @@ $_documentContainer.innerHTML = `<iron-iconset-svg name="courseicons" size="100"
 		</defs>
 		<defs>
 			<g id="math220">
-				<path d="M43.4,30.79c0-1.64-.57-2.09-1.48-2.09s-1.48.5-1.48,1.8v1.17H37.73v-1c0-2.91,1.46-4.58,4.27-4.58s4.26,1.67,4.26,4.58v.47c0,2-.62,3.18-2,3.75,1.43.62,2,2,2,3.82v1.43c0,2.92-1.45,4.58-4.26,4.58s-4.27-1.66-4.27-4.58V38.64h2.71v1.69c0,1.3.57,1.8,1.48,1.8s1.48-.44,1.48-2.06V38.64c0-1.69-.57-2.31-1.87-2.31h-1V33.72h1.11c1.07,0,1.72-.46,1.72-1.92Z" style="fill:#231f20"/><path d="M56.33,44.73c-2.89,0-4.47-1.67-4.47-4.58V38.72c0-1.74.52-3.1,1.77-3.8-1.2-.65-1.77-1.87-1.77-3.67v-.57c0-2.91,1.58-4.58,4.47-4.58s4.48,1.67,4.48,4.58v.57c0,1.8-.6,3-1.77,3.67,1.24.7,1.77,2.06,1.77,3.8v1.43C60.81,43.06,59.22,44.73,56.33,44.73ZM54.72,31.8c0,1.46.67,1.93,1.61,1.93s1.61-.47,1.61-1.93v-1c0-1.64-.7-2.08-1.61-2.08s-1.61.44-1.61,2.08Zm1.61,10.33c.91,0,1.59-.44,1.61-2.06V38.38c0-1.43-.59-2.05-1.61-2.05s-1.61.62-1.61,2.05v1.69C54.72,41.69,55.42,42.13,56.33,42.13Z" style="fill:#231f20"/><path d="M37.21,69.84l5.2-12.31h3.12V69.84h1.36v2.6H45.53v3.3H42.67v-3.3H37.21Zm5.46,0V63.1l-2.83,6.74Z" style="fill:#231f20"/><path d="M52,62.06c0-3.07,1.4-4.74,4.37-4.74,2.81,0,4.27,1.67,4.27,4.58v.47H58v-.65c0-1.3-.57-1.79-1.48-1.79s-1.59.49-1.59,2.23v3.33a2.73,2.73,0,0,1,2.65-1.61c2.11,0,3.18,1.48,3.18,4.16v3.33c0,2.92-1.54,4.58-4.35,4.58S52,74.29,52,71.37Zm2.86,6.22v3.27c0,1.31.57,1.77,1.48,1.77s1.49-.47,1.49-1.77V68.28c0-1.31-.58-1.8-1.49-1.8S54.9,67,54.9,68.28Z" style="fill:#231f20"/><polygon points="35.15 86.51 24.89 86.51 24.89 16.35 35.15 16.35 35.15 22.35 30.89 22.35 30.89 80.51 35.15 80.51 35.15 86.51" style="fill:#231f20"/><polygon points="74.22 86.51 63.95 86.51 63.95 80.51 68.22 80.51 68.22 22.35 63.95 22.35 63.95 16.35 74.22 16.35 74.22 86.51" style="fill:#231f20"/>
+				<path d="M43.4,30.79c0-1.64-.57-2.09-1.48-2.09s-1.48.5-1.48,1.8v1.17H37.73v-1c0-2.91,1.46-4.58,4.27-4.58s4.26,1.67,4.26,4.58v.47c0,2-.62,3.18-2,3.75,1.43.62,2,2,2,3.82v1.43c0,2.92-1.45,4.58-4.26,4.58s-4.27-1.66-4.27-4.58V38.64h2.71v1.69c0,1.3.57,1.8,1.48,1.8s1.48-.44,1.48-2.06V38.64c0-1.69-.57-2.31-1.87-2.31h-1V33.72h1.11c1.07,0,1.72-.46,1.72-1.92Z" style="fill:#dcdcdc"/><path d="M56.33,44.73c-2.89,0-4.47-1.67-4.47-4.58V38.72c0-1.74.52-3.1,1.77-3.8-1.2-.65-1.77-1.87-1.77-3.67v-.57c0-2.91,1.58-4.58,4.47-4.58s4.48,1.67,4.48,4.58v.57c0,1.8-.6,3-1.77,3.67,1.24.7,1.77,2.06,1.77,3.8v1.43C60.81,43.06,59.22,44.73,56.33,44.73ZM54.72,31.8c0,1.46.67,1.93,1.61,1.93s1.61-.47,1.61-1.93v-1c0-1.64-.7-2.08-1.61-2.08s-1.61.44-1.61,2.08Zm1.61,10.33c.91,0,1.59-.44,1.61-2.06V38.38c0-1.43-.59-2.05-1.61-2.05s-1.61.62-1.61,2.05v1.69C54.72,41.69,55.42,42.13,56.33,42.13Z" style="fill:#dcdcdc"/><path d="M37.21,69.84l5.2-12.31h3.12V69.84h1.36v2.6H45.53v3.3H42.67v-3.3H37.21Zm5.46,0V63.1l-2.83,6.74Z" style="fill:#dcdcdc"/><path d="M52,62.06c0-3.07,1.4-4.74,4.37-4.74,2.81,0,4.27,1.67,4.27,4.58v.47H58v-.65c0-1.3-.57-1.79-1.48-1.79s-1.59.49-1.59,2.23v3.33a2.73,2.73,0,0,1,2.65-1.61c2.11,0,3.18,1.48,3.18,4.16v3.33c0,2.92-1.54,4.58-4.35,4.58S52,74.29,52,71.37Zm2.86,6.22v3.27c0,1.31.57,1.77,1.48,1.77s1.49-.47,1.49-1.77V68.28c0-1.31-.58-1.8-1.49-1.8S54.9,67,54.9,68.28Z" style="fill:#dcdcdc"/><polygon points="35.15 86.51 24.89 86.51 24.89 16.35 35.15 16.35 35.15 22.35 30.89 22.35 30.89 80.51 35.15 80.51 35.15 86.51" style="fill:#dcdcdc"/><polygon points="74.22 86.51 63.95 86.51 63.95 80.51 68.22 80.51 68.22 22.35 63.95 22.35 63.95 16.35 74.22 16.35 74.22 86.51" style="fill:#dcdcdc"/>
 			</g>
 		</defs>
 		<defs>
@@ -672,9 +672,9 @@ $_documentContainer.innerHTML = `<iron-iconset-svg name="courseicons" size="100"
 		</defs>
 		<defs>
 			<g id="math436">
-				<line fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="50.5" y1="23.487" x2="50.5" y2="79.315"/>
-				<line fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="77.525" y1="52.214" x2="24.407" y2="52.214"/>
-				<line fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="36.473" y1="23.487" x2="75.95" y2="62.963"/>	
+				<line fill="none" stroke="#dcdcdc" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="50.5" y1="23.487" x2="50.5" y2="79.315"/>
+				<line fill="none" stroke="#dcdcdc" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="77.525" y1="52.214" x2="24.407" y2="52.214"/>
+				<line fill="none" stroke="#dcdcdc" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="36.473" y1="23.487" x2="75.95" y2="62.963"/>	
 			</g>
 		</defs>
 		<defs>
@@ -689,12 +689,12 @@ $_documentContainer.innerHTML = `<iron-iconset-svg name="courseicons" size="100"
 		</defs>
 		<defs>
 			<g id="phys010">
-				<ellipse transform="matrix(0.4981 0.8671 -0.8671 0.4981 67.6654 -16.9628)" fill="none" stroke="#231F20" stroke-width="4" stroke-miterlimit="10" cx="48.486" cy="49.973" rx="28.779" ry="7.571"/>
-				<ellipse transform="matrix(-0.4929 0.8701 -0.8701 -0.4929 116.2665 32.5203)" fill="none" stroke="#231F20" stroke-width="4" stroke-miterlimit="10" cx="48.656" cy="50.143" rx="28.779" ry="7.571"/>
-				<ellipse transform="matrix(-1 0.0047 -0.0047 -1 97.5483 100.0551)" fill="none" stroke="#231F20" stroke-width="4" stroke-miterlimit="10" cx="48.656" cy="50.143" rx="28.779" ry="7.571"/>
-				<circle fill="#231F20" stroke="#231F20" stroke-width="6" stroke-miterlimit="10" cx="27.635" cy="44.902" r="1.544"/>
-				<circle fill="#231F20" stroke="#231F20" stroke-width="6" stroke-miterlimit="10" cx="54.199" cy="70.363" r="1.544"/>
-				<circle fill="#231F20" stroke="#231F20" stroke-width="6" stroke-miterlimit="10" cx="63.195" cy="34.972" r="1.544"/>	
+				<ellipse transform="matrix(0.4981 0.8671 -0.8671 0.4981 67.6654 -16.9628)" fill="none" stroke="#dcdcdc" stroke-width="4" stroke-miterlimit="10" cx="48.486" cy="49.973" rx="28.779" ry="7.571"/>
+				<ellipse transform="matrix(-0.4929 0.8701 -0.8701 -0.4929 116.2665 32.5203)" fill="none" stroke="#dcdcdc" stroke-width="4" stroke-miterlimit="10" cx="48.656" cy="50.143" rx="28.779" ry="7.571"/>
+				<ellipse transform="matrix(-1 0.0047 -0.0047 -1 97.5483 100.0551)" fill="none" stroke="#dcdcdc" stroke-width="4" stroke-miterlimit="10" cx="48.656" cy="50.143" rx="28.779" ry="7.571"/>
+				<circle fill="#dcdcdc" stroke="#dcdcdc" stroke-width="6" stroke-miterlimit="10" cx="27.635" cy="44.902" r="1.544"/>
+				<circle fill="#dcdcdc" stroke="#dcdcdc" stroke-width="6" stroke-miterlimit="10" cx="54.199" cy="70.363" r="1.544"/>
+				<circle fill="#dcdcdc" stroke="#dcdcdc" stroke-width="6" stroke-miterlimit="10" cx="63.195" cy="34.972" r="1.544"/>	
 			</g>
 		</defs>
 		<defs>

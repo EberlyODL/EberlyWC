@@ -17,25 +17,25 @@ Polymer({
       }
 
       #team_card {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        /* grid-template-columns: auto auto; */
+        grid-template-columns: repeat(2, auto [col-start]);
         justify-content: center;
-        width: 65%;
-        margin: 25px auto 0 auto;
+        margin-top: 25px;
         padding-bottom: 25px;
       }
     </style>
+    <site-query
+      result="{{__items}}"
+      conditions='{"metadata.type": "team"}'
+      sort>
+    </site-query>
     <page-banner
       image="files/theme-images/page-banners/team_banner.jpg"
       text="Team"
       alt="Office of Digital Learning Team">
     </page-banner>
     <div id="team_card">
-      <site-query
-        result="{{__items}}"
-        conditions='{"metadata.type": "team"}'
-        sort>
-      </site-query>
       <dom-repeat items="[[__items]]" mutable-data>
         <template>
           <a href="[[item.location]]">

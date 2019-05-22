@@ -50,6 +50,7 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
         }
 
         :root {
+          --site-recent-content-block-active-color: #e2801e;
           --site-rss-bg-color: var(--theme-color-2);
           --haxcms-base-styles-a-color: #040607;
           --haxcms-base-styles-a-weight: bold;
@@ -62,6 +63,7 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
             border-radius: none;
             color: var(--theme-color-4);
           }
+
           --site-menu-button-link: {
             text-decoration: none;
           }

@@ -19,15 +19,14 @@ Polymer({
       }
 
       #course {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-column-gap: 1vw;
+        grid-row-gap: 1vw;
       }
 
       course-card {
-        display: flex;
-        justify-content: center;
-        margin: 10px;
-        width: 250px;
+        width: 100%;
       }
 
       course-card:hover {
@@ -36,6 +35,11 @@ Polymer({
 
   
     </style>
+    <site-query
+      result="{{__items}}"
+      conditions='{"metadata.type": "course"}'
+      sort
+    ></site-query>
     <page-banner
       image="files/theme-images/page-banners/course_banner.jpg"
       text="Courses"
@@ -44,14 +48,11 @@ Polymer({
     <div id="course_wrap">
       <div id="course_list">
         <div id="course">
-        <site-query
-            result="{{__items}}"
-            conditions='{"metadata.type": "course"}'
-            sort
-          ></site-query>
+
           <dom-repeat items="[[__items]]" mutable-data>
             <template>
               <course-card
+                image="[[item.metadata.fields.image]]"
                 number="[[item.title]]"
                 icon="[[item.metadata.icon]]"
                 name="[[item.name]]"

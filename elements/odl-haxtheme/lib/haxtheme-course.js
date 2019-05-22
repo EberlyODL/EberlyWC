@@ -1,6 +1,8 @@
 import { html, Polymer } from "@polymer/polymer/polymer-legacy.js";
 import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-store.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-breadcrumb.js";
+import "@lrnwebcomponents/haxcms-elements/lib/ui-components/blocks/site-recent-content-block.js";
+import "@lrnwebcomponents/video-player/video-player.js";
 import { autorun, toJS } from "mobx";
 import "./page-banner.js";
 import "./course-icons.js";
@@ -10,21 +12,23 @@ Polymer({
     <style>
       :host {
         display: block;
+        --theme-color-1: #363533;
+        --theme-color-2: #e2801e;
+        --site-recent-content-block-item-link: {
+          text-transform: uppercase;
+        }
       }
 
       h1 {
         margin: 25px 0 0;
         font-weight: 400;
+        text-transform: uppercase;
       }
 
       h2 {
         margin: 0;
         font-weight: 100;
         font-size: 26px;
-      }
-
-      site-breadcrumb {
-        margin-top: 10px;
       }
 
       .course_container {
@@ -60,6 +64,18 @@ Polymer({
         padding-left: 15px;
       }
 
+      #course_archive {
+        margin-bottom: 25px;
+      }
+
+      @media screen and (max-width: 768px) {
+        #course_archive {
+          width: 90%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
       #description {
         margin-top: 15px;
         font-size: 18px;
@@ -83,16 +99,59 @@ Polymer({
           margin-top: 10px;
         }
       }
+
+      #video_wrap {
+        margin: 15px 15px 15px 0;
+      }
+
+      #video_placehold {
+        display: flex;
+        justify-content: center;
+      }
+
+      iron-icon {
+        width: 400px;
+        height: 400px;
+        fill: #dcdcdc;
+        margin-bottom: -20px;
+      }
+
+      @media screen and (max-width: 768px) {
+        iron-icon {
+          width: 250px;
+          height: 250px;
+        }
+      }
+
+      site-recent-content-block .item-heading {
+        text-transform: uppercase;
+      }
     </style>
 
     <page-banner
-      video
-      vidsource="https://www.youtube.com/embed/I-hGBG7zJX4"
+      image="[[activeItem.metadata.fields.image]]"
+      text="[[activeItem.title]]"
+      alt="Alt text here"
     ></page-banner>
     <div id="course_wrap">
       <div class="course_container">
         <div class="course_inner_wrap">
           <site-breadcrumb></site-breadcrumb>
+
+          <template is="dom-if" if="[[activeItem.metadata.fields.video]]">
+            <div id="video_wrap">
+              <video-player
+                width="100%"
+                source="[[activeItem.metadata.fields.video]]"
+              ></video-player>
+            </div>
+          </template>
+
+          <template is="dom-if" if="[[!activeItem.metadata.fields.video]]">
+            <div id="video_placehold">
+              <iron-icon icon="[[activeItem.metadata.icon]]"></iron-icon>
+            </div>
+          </template>
 
           <div id="course_header">
             <div id="title">
@@ -143,6 +202,6 @@ Polymer({
   },
 
   __subjectSiteQueryCondition: function(activeItem) {
-    return { "metadata.subject": activeItem.metadata.subject };
+    return { "metadata.fields.subject": activeItem.metadata.fields.subject };
   }
 });

@@ -1,5 +1,4 @@
 import { html, Polymer } from "@polymer/polymer/polymer-legacy.js";
-import "@lrnwebcomponents/video-player/video-player.js";
 
 Polymer({
   _template: html`
@@ -12,38 +11,9 @@ Polymer({
         --theme-color-4: #fff;
       }
 
-      .video {
-        min-width: 100%;
-      }
-
-      video-player {
-        margin-top: 5px;
-      }
-
-      :host([video]) {
-        /* background-color: var(--theme-color-1); */
-      }
-
+      /* 
       :host([video]) .image_wrap {
-        display: flex;
-        justify-content: flex-start;
-      }
-
-      @media screen and (max-width: 768px) {
-        :host([video]) .image_wrap {
-          padding: 0;
-        }
-      }
-
-      :host([video]) .image_text {
-        display: none;
-      }
-
-      :host([video]) .image_text h2 {
-        color: #000;
-        font-weight: 400;
-        font-size: 40px;
-      }
+      } */
 
       .image_wrap {
         background-image: var(--image-background);
@@ -79,19 +49,7 @@ Polymer({
     </style>
     <div id="banner_wrap">
       <div class="image_wrap">
-        <template is="dom-if" if="[[!video]]">
-          <div class="banner_image"></div>
-        </template>
-        <template is="dom-if" if="[[video]]">
-          <div class="video">
-            <video-player
-              dark
-              sticky-corner
-              accent-color="orange"
-              source="[[vidsource]]"
-            ></video-player>
-          </div>
-        </template>
+        <div class="banner_image"></div>
         <div class="image_text">
           <h2>[[text]]</h2>
         </div>
@@ -122,22 +80,6 @@ Polymer({
      * Alt text for image
      */
     alt: {
-      type: String,
-      value: "",
-      reflectToAttribute: true
-    },
-    /**
-     * Video
-     */
-    video: {
-      type: Boolean,
-      value: false,
-      reflectToAttribute: true
-    },
-    /**
-     * Video Source
-     */
-    vidsource: {
       type: String,
       value: "",
       reflectToAttribute: true

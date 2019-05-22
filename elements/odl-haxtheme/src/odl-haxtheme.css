@@ -7,6 +7,7 @@
 }
 
 :root {
+  --site-recent-content-block-active-color: #e2801e;
   --site-rss-bg-color: var(--theme-color-2);
   --haxcms-base-styles-a-color: #040607;
   --haxcms-base-styles-a-weight: bold;
@@ -19,9 +20,13 @@
     border-radius: none;
     color: var(--theme-color-4);
   };
+  
+  
   --site-menu-button-link: {
     text-decoration: none;
   };
+
+
  
   --site-menu-button-tooltip-bg: var(--theme-color-1);
   --site-rss-border-radius: 0;
@@ -29,6 +34,7 @@
   --site-recent-content-block-item-link: {
     color: var(--theme-color-1);
   };
+  
 }
 
 :host([hidden]) {

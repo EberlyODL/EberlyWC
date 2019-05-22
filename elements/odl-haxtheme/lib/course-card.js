@@ -5,19 +5,18 @@ Polymer({
     <style>
       :host {
         display: block;
+        --image-background: "";
         --theme-color-1: #363533;
         --theme-color-2: #e2801e;
         --theme-color-4: #fff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         border: 2px solid #dcdcdc;
-        min-height: 250px;
       }
 
       a {
         text-decoration: none;
         color: var(--theme-color-1);
+        display: block;
+        width: 100%;
       }
 
       #card_wrap {
@@ -27,7 +26,7 @@ Polymer({
       }
 
       #course_number {
-        font-size: 32px;
+        font-size: 28px;
         text-transform: uppercase;
       }
 
@@ -35,19 +34,46 @@ Polymer({
         font-size: 18px;
         text-align: center;
         width: 90%;
+        margin-bottom: 15px;
+      }
+
+      #course_icon {
+        border-radius: 50%;
+        background-color: #fff;
+        border-radius: 50%;
+        position: relative;
+        bottom: 50px;
+        border: solid;
+        border-color: var(--theme-color-1);
+        border-width: 5px;
+        margin-bottom: -40px;
       }
 
       iron-icon {
-        width: 120px;
-        height: 120px;
+        width: 80px;
+        height: 80px;
+        fill: #363533;
+      }
+
+      #course_image {
+        background-image: var(--image-background);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: right center;
+        width: 100%;
+        height: 150px;
       }
     </style>
     <a href$="[[url]]">
       <div id="card_wrap">
-        <div id="course_number">[[number]]</div>
+        <div id="course_image"></div>
+
         <div id="course_icon">
           <iron-icon icon="[[icon]]"></iron-icon>
         </div>
+
+        <div id="course_number">[[number]]</div>
+
         <div id="course_name">[[name]]</div>
       </div>
     </a>
@@ -56,6 +82,14 @@ Polymer({
   is: "course-card",
 
   properties: {
+    /**
+     * Course Image
+     */
+    image: {
+      type: String,
+      value: "",
+      reflectToAttribute: true
+    },
     /**
      * Course Number
      */
@@ -88,5 +122,11 @@ Polymer({
       value: "",
       reflectToAttribute: true
     }
+  },
+
+  observers: ["__updateImage(image)"],
+
+  __updateImage: function(image) {
+    this.updateStyles({ "--image-background": `url(${image})` });
   }
 });
