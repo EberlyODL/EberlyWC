@@ -9,6 +9,7 @@ Polymer({
         --theme-color-1: #363533;
         --theme-color-2: #e2801e;
         --theme-color-4: #fff;
+        --page-banner-text-transform: none;
       }
 
       /* 
@@ -36,6 +37,7 @@ Polymer({
         margin: 0 5vw;
         padding: 2vw;
         text-align: center;
+        text-transform: var(--page-banner-text-transform);
       }
 
       .image_text h2 {

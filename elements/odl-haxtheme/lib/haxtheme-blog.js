@@ -15,6 +15,7 @@ Polymer({
       :host {
         display: block;
         background-color: #f5f5f5;
+        --haxcms-base-styles-a-color: #2196f3;
         --theme-color-1: #363533;
         --theme-color-2: #e2801e;
         --theme-color-4: #fff;

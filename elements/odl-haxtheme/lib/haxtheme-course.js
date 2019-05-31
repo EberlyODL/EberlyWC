@@ -31,9 +31,29 @@ Polymer({
         font-size: 26px;
       }
 
+      page-banner {
+        --page-banner-text-transform: uppercase;
+      }
+
+      site-breadcrumb {
+        margin-top: 10px;
+      }
+
+      @media screen and (max-width: 768px) {
+        site-breadcrumb {
+          margin: -15px 0 15px;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        #course_wrap {
+          padding: 15px;
+        }
+      }
+
       .course_container {
         display: flex;
-        width: 80%;
+        width: 75%;
         margin-left: auto;
         margin-right: auto;
       }
@@ -46,8 +66,8 @@ Polymer({
       }
 
       .course_inner_wrap {
-        width: 75%;
-        margin-top: 20px;
+        width: 90%;
+        margin-right: 20px;
       }
 
       @media screen and (max-width: 768px) {
@@ -65,6 +85,7 @@ Polymer({
       }
 
       #course_archive {
+        width: 121%;
         margin-bottom: 25px;
       }
 
@@ -77,7 +98,7 @@ Polymer({
       }
 
       #description {
-        margin-top: 15px;
+        margin: 15px 0 25px 0;
         font-size: 18px;
         font-weight: 300;
       }
@@ -112,7 +133,7 @@ Polymer({
       iron-icon {
         width: 400px;
         height: 400px;
-        fill: #dcdcdc;
+        fill: #363533;
         margin-bottom: -20px;
       }
 
@@ -131,7 +152,7 @@ Polymer({
     <page-banner
       image="[[activeItem.metadata.fields.image]]"
       text="[[activeItem.title]]"
-      alt="Alt text here"
+      alt="[[activeItem.metadata.fields.imageAlt]]"
     ></page-banner>
     <div id="course_wrap">
       <div class="course_container">
@@ -164,6 +185,7 @@ Polymer({
 
           <div id="description">[[activeItem.description]]</div>
         </div>
+
         <div class="sidebar_wrap">
           <div id="course_archive">
             <site-recent-content-block

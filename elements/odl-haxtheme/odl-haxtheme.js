@@ -21,6 +21,7 @@ import "./lib/haxtheme-courses.js";
 import "./lib/haxtheme-course.js";
 import "./lib/haxtheme-blog.js";
 import "./lib/haxtheme-profile.js";
+import "./lib/haxtheme-syllabus.js";
 import "./lib/link-preview.js";
 import "./lib/page-topbar.js";
 import "./lib/page-footer.js";
@@ -40,130 +41,147 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
   // render function
   static get template() {
     return html`
-      <style>
-        :host {
-          display: block;
-          font-family: "Roboto", sans-serif;
-          --theme-color-1: #363533;
-          --theme-color-2: #e2801e;
-          --theme-color-4: #fff;
-        }
+<style>:host {
+  display: block;
+  font-family: "Roboto", sans-serif;
+  --theme-color-1: #363533;
+  --theme-color-2: #e2801e;
+  --theme-color-4: #fff;
+}
 
-        :root {
-          --site-recent-content-block-active-color: #e2801e;
-          --site-rss-bg-color: var(--theme-color-2);
-          --haxcms-base-styles-a-color: #040607;
-          --haxcms-base-styles-a-weight: bold;
-          --haxcms-base-styles-a-font-size: 20px;
-          --site-breadcrumb-color: #a9a9a9;
-          --site-breadcrumb-text-decoration: none;
-          --site-menu-button-button: {
-            background-color: var(--theme-color-2);
-            margin: 5px 0 15px;
-            border-radius: none;
-            color: var(--theme-color-4);
-          }
+:root {
+  
+  --site-recent-content-block-active-color: #e2801e;
+  --site-rss-bg-color: var(--theme-color-2);
+  --haxcms-base-styles-a-color: #040607;
+  --haxcms-base-styles-a-weight: bold;
+  --haxcms-base-styles-a-font-size: 20px;
+  --site-breadcrumb-color: #a9a9a9;
+  --site-breadcrumb-text-decoration: none;
+  --site-menu-button-button: {
+    background-color: var(--theme-color-2);
+    margin: 5px 0 15px;
+    border-radius: none;
+    color: var(--theme-color-4);
+  };
+  
+  
+  --site-menu-button-link: {
+    text-decoration: none;
+  };
 
-          --site-menu-button-link: {
-            text-decoration: none;
-          }
 
-          --site-menu-button-tooltip-bg: var(--theme-color-1);
-          --site-rss-border-radius: 0;
-          --site-rss-bg-active: var(--theme-color-2);
-          --site-recent-content-block-item-link: {
-            color: var(--theme-color-1);
-          }
-        }
+ 
+  --site-menu-button-tooltip-bg: var(--theme-color-1);
+  --site-rss-border-radius: 0;
+  --site-rss-bg-active: var(--theme-color-2);
+  --site-recent-content-block-item-link: {
+    color: var(--theme-color-1);
+  };
+  
+}
 
-        :host([hidden]) {
-          display: none;
-        }
+:host([hidden]) {
+  display: none;
+}
 
-        :host([edit-mode]) #slot {
-          display: none;
-        }
 
-        scroll-button {
-          position: fixed;
-          right: 0;
-          bottom: 65px;
-          margin-right: 25px;
-          border: 1px solid #f5f5f5;
-          --scroll-button-button: {
-            background-color: var(--theme-color-2);
-          }
-          --scroll-button-button-active: {
-            background-color: var(--theme-color-2);
-          }
-        }
+:host([edit-mode]) #slot {
+  display: none;
+}
 
-        site-top-menu {
-          width: 100%;
-          --site-top-menu-button: {
-            padding: 15px 10px;
-            margin: 0;
-            width: 100%;
-            border-radius: 0;
-          }
-          --site-top-menu-button-hover: {
-            background-color: var(--theme-color-1);
-            color: white;
-          }
-          --site-top-menu-link-active: {
-            background-color: var(--theme-color-1);
-            color: white;
-          }
-          --site-top-menu-spacing: {
-            flex: 1 1 auto;
-          }
-          --site-top-menu-indicator: {
-            border-bottom: 4px solid white;
-          }
-          --site-top-meu-wrapper: {
-            background-color: var(--theme-color-2);
-            display: flex;
-            justify-content: stretch;
-          }
-          --site-top-menu-link: {
-            width: 100%;
-            background-color: var(--theme-color-2);
-            color: var(--theme-color-4);
-            text-decoration: none;
-            display: flex;
-            justify-content: center;
-            text-transform: uppercase;
-          }
-        }
-      </style>
-      <style include="simple-colors"></style>
+scroll-button {
+    position: fixed;
+    right: 0;
+    bottom: 65px;
+    margin-right: 25px;
+    border: 1px solid #f5f5f5;
+  --scroll-button-button: {
+    background-color: var(--theme-color-2);
+  };
+  --scroll-button-button-active: {
+    background-color: var(--theme-color-2);
+  }
+}
 
-      <page-topbar></page-topbar>
-      <site-top-menu></site-top-menu>
-      <iron-pages selected="[[selectedPage]]">
-        <haxtheme-home id="homeelement">
-          <div id="contentcontainer">
+site-top-menu {
+    width: 100%;
+  --site-top-menu-button: {
+    padding: 15px 10px;
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+  };
+  --site-top-menu-button-hover: {
+    background-color: var(--theme-color-1);
+    color: white;
+  };
+  --site-top-menu-link-active: {
+    background-color: var(--theme-color-1);
+    color: white;
+  };
+  --site-top-menu-spacing: {
+    flex: 1 1 auto;
+  };
+  --site-top-menu-indicator: {
+    border-bottom: 4px solid white;
+  };
+  --site-top-meu-wrapper: {
+    background-color: var(--theme-color-2);
+    display: flex;
+    justify-content: stretch;
+  };
+  --site-top-menu-link: {
+    width: 100%;
+    background-color: var(--theme-color-2);
+    color: var(--theme-color-4);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+  };
+}
+
+
+
+
+
+
+</style>
+<style include="simple-colors"></style>
+
+
+<page-topbar></page-topbar>
+<site-top-menu></site-top-menu>
+<iron-pages selected="[[selectedPage]]">
+    <haxtheme-home id="homeelement">
+    </haxtheme-home>
+    <haxtheme-news></haxtheme-news>
+    <haxtheme-team></haxtheme-team>
+    <haxtheme-courses></haxtheme-courses>
+    <haxtheme-blog id="blog">
+        <div id="contentcontainer">
             <div id="slot">
               <slot></slot>
             </div>
           </div>
-        </haxtheme-home>
-        <haxtheme-news></haxtheme-news>
-        <haxtheme-team></haxtheme-team>
-        <haxtheme-courses></haxtheme-courses>
-        <haxtheme-blog id="blog"> </haxtheme-blog>
-        <haxtheme-profile id="profile"> </haxtheme-profile>
-        <haxtheme-course id="course">
-          <div id="contentcontainer">
-            <div id="slot">
-              <slot></slot>
-            </div>
-          </div>
-        </haxtheme-course>
-      </iron-pages>
-      <scroll-button></scroll-button>
-      <page-footer></page-footer>
-    `;
+    </haxtheme-blog>
+    <haxtheme-profile id="profile">
+
+    </haxtheme-profile>
+    <haxtheme-course id="course">
+      </div>
+    </haxtheme-course>
+    <haxtheme-syllabus id="syllabus">
+      <div id="contentcontainer">
+        <div id="slot">
+          <slot></slot>
+        </div>
+      </div>
+    </haxtheme-syllabus>
+</iron-pages>
+<scroll-button></scroll-button>
+<page-footer></page-footer>`;
   }
 
   // properties available to the custom element for data binding
@@ -264,6 +282,14 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
       if (location.pathname.startsWith("/courses/")) {
         this.HAXCMSThemeWiring.connect(this, this.$.course.$.contentcontainer);
         this.selectedPage = 6;
+      }
+
+      if (location.pathname.startsWith("/syllabi/")) {
+        this.HAXCMSThemeWiring.connect(
+          this,
+          this.$.syllabus.$.contentcontainer
+        );
+        this.selectedPage = 7;
       }
 
       window.scrollTo(0, 0);

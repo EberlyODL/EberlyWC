@@ -21,6 +21,7 @@ import "./lib/haxtheme-courses.js";
 import "./lib/haxtheme-course.js";
 import "./lib/haxtheme-blog.js";
 import "./lib/haxtheme-profile.js";
+import "./lib/haxtheme-syllabus.js";
 import "./lib/link-preview.js";
 import "./lib/page-topbar.js";
 import "./lib/page-footer.js";
@@ -88,6 +89,14 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
       if (location.pathname.startsWith("/courses/")) {
         this.HAXCMSThemeWiring.connect(this, this.$.course.$.contentcontainer);
         this.selectedPage = 6;
+      }
+
+      if (location.pathname.startsWith("/syllabi/")) {
+        this.HAXCMSThemeWiring.connect(
+          this,
+          this.$.syllabus.$.contentcontainer
+        );
+        this.selectedPage = 7;
       }
 
       window.scrollTo(0, 0);
