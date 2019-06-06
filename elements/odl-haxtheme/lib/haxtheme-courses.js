@@ -15,14 +15,14 @@ Polymer({
 
       #course_wrap {
         width: 80%;
-        margin: 15px auto 15px auto;
+        margin: 25px auto 15px auto;
       }
 
       #course {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        grid-column-gap: 1vw;
-        grid-row-gap: 1vw;
+        grid-column-gap: 2vw;
+        grid-row-gap: 2vw;
       }
 
       course-card {
