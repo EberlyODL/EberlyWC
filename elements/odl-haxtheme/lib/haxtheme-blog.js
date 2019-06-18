@@ -6,7 +6,7 @@ import "@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-brea
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/blocks/site-recent-content-block.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/site/site-print-button.js";
 
-import { autorun, toJS } from "mobx";
+import { autorun, toJS } from "mobx/lib/mobx.module.js";
 import "./page-banner.js";
 
 Polymer({
@@ -14,42 +14,45 @@ Polymer({
     <style>
       :host {
         display: block;
-        background-color: #f5f5f5;
-        --haxcms-base-styles-a-color: #2196f3;
         --theme-color-1: #363533;
         --theme-color-2: #e2801e;
         --theme-color-4: #fff;
-        --site-print-button-button: {
-          color: #a9a9a9;
-        }
       }
 
       h1 {
-        margin: 25px 0 0;
-        font-weight: 400;
+        margin: var(--haxtheme-blog-h1-margin, 25px 0 0);
+        font-weight: var(--haxtheme-blog-h1-font-weight);
+        font-size: var(--haxtheme-blog-h1-font-size);
+        @apply --haxtheme-blog-h1;
       }
 
       h2 {
-        margin: 0;
-        font-weight: 100;
-        font-size: 26px;
-      }
-
-      site-breadcrumb {
-        margin-top: 10px;
+        margin: var(--haxtheme-blog-h2-margin, 0);
+        font-weight: var(--haxtheme-blog-h2-font-weight);
+        font-size: var(--haxtheme-blog-h2-font-size);
+        @apply --haxtheme-blog-h2;
       }
 
       #contentcontainer {
-        font-size: 1.1rem;
-        font-weight: 300;
-        line-height: 1.6;
+        font-size: var(--haxtheme-blog-contentcontainer-font-size);
+        font-weight: var(--haxtheme-blog-contentcontainer-font-weight);
+        line-height: var(--haxtheme-blog-contentcontainer-line-height);
+        @apply --haxtheme-blog-contentcontainer;
       }
 
       .blog_container {
-        display: flex;
-        width: 75%;
-        margin-left: auto;
-        margin-right: auto;
+        display: var(--haxtheme-blog-blog-container-display, flex);
+        width: var(--haxtheme-blog-blog-container-width, 75%);
+        margin: var(--haxtheme-blog-blog-container-margin, 0 auto 0 auto);
+        @apply --haxtheme-blog-blog-container;
+      }
+
+      @media screen and (max-width: 768px) {
+        .blog_container {
+          flex-direction: var(--haxtheme-blog-blog-container-flex-direction, column);
+          width: var(--haxtheme-blog-blog-container-mobile-width, 98%);
+          @apply --haxtheme-blog-blog-container-mobile;
+        }
       }
 
       @media screen and (max-width: 768px) {
@@ -64,62 +67,14 @@ Polymer({
       }
 
 
-      @media screen and (max-width: 768px) {
-        .blog_container {
-          flex-direction: column;
-          width: 98%;
-        }
-      }
 
 
-      #card_wrap {
-        background-color: var(--theme-color-4);
-        margin: 25px;
-        padding: 15px;
-        box-shadow: 0 1px 2px #dcdcdc;
-      }
-
-      #card_image {
-        margin-right: 15px;
-        float: left;
-      }
-
-      @media screen and (max-width: 768px) {
-        #card_image {
-          float: none;
-        }
-      }
-
-      @media screen and (max-width: 768px) {
-        #card_image iron-image {
-          width: 100% !important;
-          height: 200px;
-        }
-      }
-
-      #card_image iron-image {
-        height: 220px;
-        width: 175px;
-      }
-
-      #card_heading h2 {
-        color: var(--theme-color-2);
-        margin: 11px 0px 5px;
-        font-weight: bold;
-      }
-
-      #card_heading a {
-        text-decoration: none;
-      }
-
-      #post_date {
-        margin-bottom: 5px;
-      }
 
       #share_actions {
-        display: flex;
-        justify-content: flex-end;
-        margin-top: -20px;
+        display: var(--haxtheme-blog-share-actions-display, flex);
+        justify-content: var(--haxtheme-blog-share-actions-justify--site-recent-content-block-active-color, flex-end);
+        margin-top: var(--haxtheme-blog-margin-top, -20px);
+        @apply --haxtheme-blog-share-actions;
       }
 
       .sidebar_wrap {
@@ -153,25 +108,6 @@ Polymer({
         }
       }
 
-      #card_description {
-        margin-bottom: 10px;
-        font-size: 18px;
-        font-weight: 300;
-      }
-
-      #card_footer iron-image {
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        margin-right: 5px;
-      }
-
-      #card_footer {
-        display: flex;
-        align-items: center;
-        padding-right: 15px;
-      }
-
       .publish_credentials {
         border-left: solid;
         border-left-width: 4px;
@@ -199,11 +135,6 @@ Polymer({
         margin-right: 10px;
       }
 
-      #article-interactions {
-        display: flex;
-        justify-content: flex-end;
-      }
-
       #taxonomy {
         display: flex;
         align-items: center;
@@ -212,7 +143,7 @@ Polymer({
 
       #taxonomy a {
         text-decoration: none;
-        font-size: 24px;
+        font-size: var(--haxtheme-blog-taxonomy-a-font-size, 24px);
         font-weight: 300;
         color: var(--theme-color-2);
         margin-right: 10px;
@@ -237,6 +168,10 @@ Polymer({
         justify-content: space-between;
       }
 
+      site-breadcrumb {
+        margin-top: 10px;
+      }
+
       @media screen and (max-width: 768px) {
         site-breadcrumb {
           margin: 0 0 30px;
@@ -247,6 +182,7 @@ Polymer({
         --site-recent-content-block-header-color: #e2801e;
         --site-recent-content-block-active-color: var(--theme-color-2);
       }
+
     </style>
     
     <page-banner image="[[activeItem.metadata.fields.image]]" text="[[activeItem.metadata.tagLine]]" alt="Gateway to the Sciences"></page-banner>
@@ -327,14 +263,6 @@ Polymer({
     });
 
     return dateFormatted;
-  },
-
-  __authorConditions: function(activeItem) {
-    const condition = {
-      "metadata.type": "news",
-      "metadata.fields.authorId": activeItem.id
-    };
-    return condition;
   },
 
   created: function() {

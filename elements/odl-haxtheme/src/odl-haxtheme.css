@@ -4,15 +4,18 @@
   --theme-color-1: #363533;
   --theme-color-2: #e2801e;
   --theme-color-4: #fff;
+  --site-print-button-button: {
+    color: #a9a9a9;
+  }
 }
 
 :root {
   
   --site-recent-content-block-active-color: #e2801e;
   --site-rss-bg-color: var(--theme-color-2);
-  --haxcms-base-styles-a-color: #040607;
+  /* --haxcms-base-styles-a-color: #040607;
   --haxcms-base-styles-a-weight: bold;
-  --haxcms-base-styles-a-font-size: 20px;
+  --haxcms-base-styles-a-font-size: 20px; */
   --site-breadcrumb-color: #a9a9a9;
   --site-breadcrumb-text-decoration: none;
   --site-menu-button-button: {
@@ -100,9 +103,6 @@ site-top-menu {
     text-transform: uppercase;
   };
 }
-
-
-
 
 
 
