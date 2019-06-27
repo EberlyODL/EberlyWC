@@ -22,8 +22,8 @@ Polymer({
       a:active,
       a:focus,
       a:hover {
-        color: var(--haxtheme-syllabus-a-hover-color, #2196f3);
-        text-decoration: var(--haxtheme-syllabus-a-hover-text-decoration, none);
+        color: var(--haxtheme-syllabus-a-hover-color);
+        text-decoration: var(--haxtheme-syllabus-a-hover-text-decoration);
         @apply --haxtheme-syllabus-a-hover;
       }
 
@@ -83,14 +83,15 @@ Polymer({
       }
 
       #syllabus_wrap {
-        width: 75%;
-        margin-left: auto;
-        margin-right: auto;
+        width: var(--haxtheme-syllabus-syllabus-wrap-width, 75%);
+        margin: var(--haxtheme-syllabus-syllabus-wrap-margin, 0 auto 0 auto);
+        @apply --haxtheme-syllabus-syllabus-wrap;
       }
 
       @media screen and (max-width: 768px) {
         #syllabus_wrap {
-          width: 90%;
+          width: var(--haxtheme-syllabus-syllabus-wrap-width-mobile, 90%);
+          @apply --haxtheme-syllabus-syllabus-wrap-mobile;
         }
       }
 
@@ -99,7 +100,7 @@ Polymer({
       }
 
       site-breadcrumb {
-        margin-top: 10px;
+        margin: var(--haxtheme-syllabus-site-breadcrumb-margin);
       }
     </style>
 

@@ -59,6 +59,21 @@ Polymer({
           width: 25%;
         }
       }
+
+      @media screen and (max-width: 1124px) {
+        page-feature {
+          width: 100%;
+          border-bottom: solid 2px #dcdcdc;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        page-feature {
+          width: 90%;
+        }
+      }
     </style>
     <homepage-banner
       image="files/theme-images/page-banners/odl_homepage_banner.png"
@@ -137,8 +152,9 @@ Polymer({
       <dom-repeat items="[[__newsitems]]" mutable-data>
         <template>
           <page-feature
-            title="[[item.title]]"
-            subtitle="[[item.metadata.author]]"
+            title="Top News"
+            subtitle="[[item.title]]"
+            info="[[item.metadata.author]]"
             url="[[item.location]]"
             image="[[item.metadata.fields.image]]"
             subimage="[[item.metadata.authorImage]]"

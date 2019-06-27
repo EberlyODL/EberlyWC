@@ -7,140 +7,252 @@ Polymer({
     <style>
       :host {
         display: block;
-        --image-background: "";
-        --theme-color-1: #363533;
-        --theme-color-2: #e2801e;
-        --theme-color-4: #fff;
       }
 
       a {
-        text-decoration: none;
+        text-decoration: var(--haxtheme-page-feature-a-text-decoration);
+        @apply --haxtheme-page-feature-a;
       }
 
       h1 {
-        margin: 0;
-        font-weight: 400;
-        font-size: 40px;
+        font-size: var(--haxtheme-page-feature-h1-font-size);
+        margin: var(--haxtheme-page-feature-h1-margin, 0);
+        line-height: var(--haxtheme-page-feature-h1-line-height, 1);
+        font-weight: var(--haxtheme-page-feature-h1-font-weight);
+        @apply --haxtheme-page-feature-h1;
       }
 
       @media screen and (max-width: 768px) {
         h1 {
-          font-size: 28px;
+          font-size: var(--haxtheme-page-feature-h1-font-size-mobile, 28px);
+          @apply --haxtheme-page-feature-h1-mobile;
         }
       }
 
       h2 {
-        margin: 0;
-        font-weight: 100;
-        font-size: 32px;
+        font-size: var(--haxtheme-page-feature-h2-font-size, 32px);
+        margin: var(--haxtheme-page-feature-h2-margin, 0);
+        font-weight: var(--haxtheme-page-feature-h2-font-weight);
+        @apply --haxtheme-page-feature-h2;
       }
 
       @media screen and (max-width: 768px) {
         h2 {
-          font-size: 22px;
+          font-size: var(--haxtheme-page-feature-h2-font-size-mobile, 24px);
+          @apply --haxtheme-page-feature-h2-mobile;
         }
       }
 
       #feature_wrap {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--theme-color-1);
-        padding: 50px 0 50px 12px;
+        display: var(--haxtheme-page-feature-feature-wrap-display, flex);
+        justify-content: var(
+          --haxtheme-page-feature-wrap-justify-content,
+          center
+        );
+        align-items: var(--haxtheme-page-feature-wrap-align-items, center);
+        background-color: var(--haxtheme-page-feature-wrap-background-color);
+        padding: var(--haxtheme-page-feature-wrap-padding, 50px 0 50px 12px);
+        @apply --haxtheme-page-feature-feature-wrap;
       }
 
       @media screen and (max-width: 1012px) {
         #feature_wrap {
-          flex-direction: column;
-          height: auto;
-          padding: 0;
-          background-color: transparent;
+          flex-direction: var(
+            --haxtheme-page-feature-feature-wrap-flex-direction-mobile,
+            column
+          );
+          height: var(--haxtheme-page-feature-feature-wrap-height-mobile, auto);
+          padding: var(--haxtheme-page-feature-feature-wrap-padding, 0);
+          background-color: var(
+            --haxtheme-page-feature-feature-wrap-background-color,
+            transparent
+          );
+          @apply --haxtheme-page-feature-feature-wrap-mobile;
         }
       }
 
       #feature_image {
-        background-image: var(--image-background);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        width: 45%;
-        height: 400px;
-        border-left: solid 6px var(--theme-color-2);
+        background-repeat: var(
+          --haxtheme-page-feature-feature-image-background-repeat,
+          no-repeat
+        );
+        background-size: var(
+          --haxtheme-page-feature-feature-image-background-size,
+          cover
+        );
+        background-position: var(
+          --haxtheme-page-feature-feature-image-background-position,
+          center
+        );
+        width: var(--haxtheme-page-feature-feature-image-width, 45%);
+        height: var(--haxtheme-page-feature-feature-image-height, 400px);
+        @apply --haxtheme-page-feature-feature-image;
       }
 
       @media screen and (max-width: 1012px) {
         #feature_image {
-          width: 100%;
-          border: none;
+          height: var(
+            --haxtheme-page-feature-feature-image-height-mobile,
+            200px
+          );
+          margin: var(
+            --haxtheme-page-feature-feature-image-margin-mobile,
+            15px 0 0 0
+          );
+          width: var(--haxtheme-page-feature-feature-image-width-mobile, 100%);
+          @apply --haxtheme-page-feature-feature-image-mobile;
         }
       }
 
       #feature_description_wrap {
-        background-color: var(--theme-color-4);
-        height: auto;
-        width: 720px;
-        z-index: 1;
-        margin: 0 25px 0 -30px;
-        box-shadow: 1px 2px 7px var(--theme-color-1);
+        background-color: var(
+          --haxtheme-page-feature-feature-description-wrap-background-color
+        );
+        height: var(
+          --haxtheme-page-feature-feature-description-wrap-height,
+          auto
+        );
+        width: var(
+          --haxtheme-page-feature-feature-description-wrap-width,
+          720px
+        );
+        z-index: var(
+          --haxtheme-page-feature-feature-description-wrap-z-index,
+          1
+        );
+        margin: var(
+          --haxtheme-page-feature-feature-description-wrap-margin,
+          0 25px 0 -30px
+        );
+        box-shadow: var(
+          --haxtheme-page-feature-feature-description-wrap-box-shadow,
+          1px 2px 7px
+            var(
+              --haxtheme-page-feature-feature-description-wrap-box-shadow-color
+            )
+        );
+        @apply --haxtheme-page-feature-feature-description-wrap;
       }
 
       @media screen and (max-width: 1124px) {
         #feature_description_wrap {
-          width: 100%;
-          z-index: 0;
-          box-shadow: none;
-          margin: 0;
+          width: var(
+            --haxtheme-page-feature-feature-description-wrap-width-mobile,
+            100%
+          );
+          z-index: var(
+            --haxtheme-page-feature-feature-description-wrap-z-index-mobile,
+            0
+          );
+          box-shadow: var(
+            --haxtheme-page-feature-feature-description-wrap-box-shadow,
+            none
+          );
+          margin: var(
+            --haxtheme-page-feature-feature-description-wrap-margin,
+            0
+          );
+          @apply --haxtheme-page-feature-feature-description-wrap-mobile;
         }
       }
 
       #title_wrap {
-        display: flex;
-        flex-direction: column;
-        border-left: solid;
-        border-left-width: 4px;
-        border-left-color: var(--theme-color-2);
-        padding-left: 15px;
-        margin: 20px 0 0 20px;
+        display: var(--haxtheme-page-feature-title-wrap-display, flex);
+        flex-direction: var(
+          --haxtheme-page-feature-title-wrap-flex-direction,
+          column
+        );
+        border-left: var(--haxtheme-page-feature-title-wrap-border-left);
+        border-left-width: var(
+          --haxtheme-page-feature-title-wrap-border-left-width
+        );
+        border-left-color: var(
+          --haxtheme-page-feature-title-wrap-border-left-color
+        );
+        padding: var(--haxtheme-page-feature-title-wrap-padding, 0 0 0 15px);
+        margin: var(--haxtheme-page-feature-title-wrap-margin, 20px 0 0 20px);
+        @apply --haxtheme-page-feature-title-wrap;
       }
 
-      iron-image#sub_image {
-        border-radius: 50%;
-        margin: 10px 10px 0 0;
+      @media screen and (max-width: 768px) {
+        #title_wrap {
+          margin: var(
+            --haxtheme-page-feature-title-wrap-margin-mobile,
+            20px 0 0 0
+          );
+          @apply --haxtheme-page-feature-title-wrap-mobile;
+        }
       }
 
       #description {
-        padding: 25px 25px 15px;
+        font-size: var(--haxtheme-page-feature-description-font-size);
+        font-weight: var(--haxtheme-page-feature-description-font-weight);
+        line-height: var(--haxtheme-page-feature-description-line-height);
+        padding: var(
+          --haxtheme-page-feature-description-padding,
+          25px 25px 15px
+        );
+        @apply --haxtheme-page-feature-description;
+      }
+
+      @media screen and (max-width: 768px) {
+        #description {
+          padding: var(
+            --haxtheme-page-feature-description-padding-mobile,
+            25px 0 0 0
+          );
+          margin: var(
+            --haxtheme-page-feature-description-margin-mobile,
+            0 0 25px 0
+          );
+          @apply --haxtheme-page-feature-description-mobile;
+        }
       }
 
       #sub_info {
-        font-size: 18px;
-        font-weight: 200;
+        font-size: var(--haxtheme-page-feature-sub-info-font-size, 20px);
+        font-weight: var(--haxtheme-page-feature-sub-info-font-weight);
+        margin: var(--haxtheme-page-feature-sub-info-margin, -12px 0 0 0);
+        @apply --haxtheme-page-feature-sub-info;
       }
 
       #action_button {
-        display: flex;
-        justify-content: flex-end;
-        margin: 0 25px 25px 0;
+        display: var(--haxtheme-page-feature-action-button-display, flex);
+        justify-content: var(
+          --haxtheme-page-feature-action-button-justify-content,
+          flex-end
+        );
+        margin: var(
+          --haxtheme-page-feature-action-button-margin,
+          0 25px 25px 0
+        );
+        @apply --haxtheme-page-feature-action-button;
       }
 
       @media screen and (max-width: 768px) {
         #action_button {
-          justify-content: center;
-          margin: 0;
+          justify-content: var(
+            --haxtheme-page-feature-action-button-justify-content-mobile,
+            center
+          );
+          margin: var(--haxtheme-page-feature-action-button-margin-mobile, 0);
+          @apply --haxtheme-page-feature-action-button-mobile;
         }
       }
 
       paper-button#feature {
-        color: var(--theme-color-2);
+        color: var(--haxtheme-page-feature-paper-button-feature-color);
+        @apply --haxtheme-page-feature-paper-button-feature;
       }
 
       paper-button#feature:hover,
       paper-button#feature:focus {
-        color: var(--theme-color-1);
+        color: var(--haxtheme-page-feature-paper-button-feature-color-active);
+        @apply --haxtheme-page-feature-paper-button-feature-active;
       }
     </style>
     <div id="feature_wrap">
-      <div id="feature_image"></div>
+      <div id="feature_image" style$="background-image:url([[image]])"></div>
       <div id="feature_description_wrap">
         <div id="title_wrap">
           <div id="title">
@@ -225,11 +337,5 @@ Polymer({
       value: "",
       reflectToAttribute: true
     }
-  },
-
-  observers: ["__updateImage(image)"],
-
-  __updateImage: function(image) {
-    this.updateStyles({ "--image-background": `url(${image})` });
   }
 });

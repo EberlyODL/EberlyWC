@@ -56,7 +56,7 @@ class OdlHaxtheme extends HAXCMSTheme(SimpleColors) {
   
   --site-recent-content-block-active-color: #e2801e;
   --site-rss-bg-color: var(--theme-color-2);
-  
+
   --site-breadcrumb-color: #a9a9a9;
   --site-breadcrumb-text-decoration: none;
   --site-menu-button-button: {
@@ -90,6 +90,7 @@ class OdlHaxtheme extends HAXCMSTheme(SimpleColors) {
 :host([edit-mode]) #slot {
   display: none;
 }
+
 
 scroll-button {
     position: fixed;

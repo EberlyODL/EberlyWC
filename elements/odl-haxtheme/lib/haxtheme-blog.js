@@ -5,7 +5,6 @@ import "@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-menu
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-breadcrumb.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/blocks/site-recent-content-block.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/site/site-print-button.js";
-
 import { autorun, toJS } from "mobx/lib/mobx.module.js";
 import "./page-banner.js";
 
@@ -14,9 +13,6 @@ Polymer({
     <style>
       :host {
         display: block;
-        --theme-color-1: #363533;
-        --theme-color-2: #e2801e;
-        --theme-color-4: #fff;
       }
 
       h1 {
@@ -43,7 +39,7 @@ Polymer({
       .blog_container {
         display: var(--haxtheme-blog-blog-container-display, flex);
         width: var(--haxtheme-blog-blog-container-width, 75%);
-        margin: var(--haxtheme-blog-blog-container-margin, 0 auto 0 auto);
+        margin: var(--haxtheme-blog-blog-container-margin, 0 auto 0);
         @apply --haxtheme-blog-blog-container;
       }
 
@@ -57,18 +53,24 @@ Polymer({
 
       @media screen and (max-width: 768px) {
         #blog_wrap {
-          padding: 15px;
+          padding: var(--haxtheme-blog-blog-wrap-padding, 15px);
+          @apply --haxtheme-blog-blog-wrap-mobile;
         }
       }
 
       #blog_inner_wrap {
-        width: 90%;
-        margin-right: 20px;
+        width: var(--haxtheme-blog-blog-inner-wrap-width, 90%);
+        margin-right: var(--haxtheme-blog-blog-inner-wrap-margin-right, 20px);
+        @apply --haxtheme-blog-blog-inner-wrap;
       }
 
-
-
-
+      @media screen and (max-width: 768px) {
+        #blog_inner_wrap {
+          width: var(--haxtheme-blog-blog-inner-wrap-width-mobile, 95%);
+          margin: var(--haxtheme-blog-blog-inner-wrap-margin-mobile, 0 auto 0);
+          @apply --haxtheme-blog-blog-inner-wrap-mobile;
+        }
+      }
 
       #share_actions {
         display: var(--haxtheme-blog-share-actions-display, flex);
@@ -78,111 +80,127 @@ Polymer({
       }
 
       .sidebar_wrap {
-        width: 25%;
-        margin-top: 45px;
-        border-left: solid 2px #dcdcdc;
-        padding-left: 20px;
-        height: 600px;
+        width: var(--haxtheme-blog-sidebar-wrap-width);
+        margin: var(--haxtheme-blog-sidebar-wrap-margin);
+        border-left: var(--haxtheme-blog-sidebar-wrap-border-left);
+        border-left-width: var(--haxtheme-blog-sidebar-wrap-border-left-width);
+        border-left-color: var(--haxtheme-blog-sidebar-wrap-border-left-color);
+        height: var(--haxtheme-blog-sidebar-wrap-height);
+        padding: var(--haxtheme-blog-sidebar-wrap-padding);
+        @apply --haxtheme-blog-sidebar-wrap;
       }
 
       @media screen and (max-width: 768px) {
        .sidebar_wrap {
-          width: 100%;
-          height: auto;
-          border: none;
-          padding-left: 0;
-          margin-top: 10px;
+          width: var(--haxtheme-blog-side-bar-wrap-width-mobile);
+          height: var(--haxtheme-blog-sidebar-wrap-height-mobile);
+          border: var(--haxtheme-blog-sidebar-wrap-border-mobile);
+          padding: var(--haxtheme-blog-sidebar-wrap-padding-mobile);
+          margin: var(--haxtheme-blog-sidebar-wrap-margin-mobile);
+          @apply --haxtheme-blog-sidebar-wrap-mobile;
         }
       }
 
       #news_archive {
-        margin-bottom: 25px;
-        width: 121%;
+        margin-bottom: var(--haxtheme-blog-news-archive-margin-bottom, 25px);
+        width: var(--haxtheme-blog-news-archive-width, 121%);
+        @apply --haxtheme-blog-news-archive;
       }
 
       @media screen and (max-width: 768px) {
         #news_archive {
-          width: 100%;
-          margin-left: auto;
-          margin-right: auto;
+          width: var(--haxtheme-blog-news-archive-width-mobile, 100%);
+          margin: var(--haxtheme-blog-news-archive-margin-mobile, 0 auto 0 auto);
+          @apply --haxtheme-blog-news-archive-mobile;
         }
       }
 
       .publish_credentials {
-        border-left: solid;
-        border-left-width: 4px;
-        border-left-color: var( --theme-color-2);
+        border-left: var(--haxtheme-blog-publish-credentials-border-left);
+        border-left-width: var(--haxtheme-blog-publish-credentials-border-left-width);
+        border-left-color: var(--haxtheme-blog-accent-color);
+        padding-left: var(--haxtheme-blog-publish-credentials-padding-left, 15px);
         padding-left: 15px;
+        @apply --haxtheme-blog-publish-credentials;
       }
 
       #author a {
-        text-decoration: none;
-        color: var(--theme-color-1);
+        text-decoration: var(--haxtheme-blog-author-a-text-decoration);
+        color: var(--haxtheme-blog-author-a-color);
+        @apply --haxtheme-blog-author-a;
       }
 
       #author a:hover {
+        color: var(--haxtheme-blog-author-a-hover);
         color: var( --theme-color-2);
+        @apply --haxtheme-blog-author-a-hover;
       }
 
       #author_info {
-        display: flex;
-        align-items: center;
-        margin: 15px 0 15px;
+        display: var(--haxtheme-blog-author-info-display, flex);
+        align-items: var(--haxtheme-blog-author-info-align-items, center);
+        margin: var(--haxtheme-blog-author-margin, 15px 0 15px);
+        @apply --haxtheme-blog-author-info;
       }
 
       iron-image#author_image {
-        border-radius: 50%;
-        margin-right: 10px;
+        border-radius: var(--haxtheme-blog-iron-image-author-image-border-radius, 50%);
+        margin-right: var(--haxtheme-blog-iron-image-author-image-margin-right, 10px);
+        @apply --haxtheme-blog-iron-image-author-image;
       }
-
+  
       #taxonomy {
-        display: flex;
-        align-items: center;
-        margin: 15px 0 15px;
+        display: var(--haxtheme-blog-taxonomy-display, flex);
+        align-items: var(--haxtheme-blog-taxonomy-align-items, center);
+        margin: var(--haxtheme-blog-taxonomy-margin, 15px 0 15px);
+        @apply --haxtheme-blog-taxonomy;
       }
 
       #taxonomy a {
-        text-decoration: none;
-        font-size: var(--haxtheme-blog-taxonomy-a-font-size, 24px);
-        font-weight: 300;
-        color: var(--theme-color-2);
-        margin-right: 10px;
+        text-decoration: var(--haxtheme-blog-taxonomy-a-text-decoration);
+        font-size: var(--haxtheme-blog-taxonomy-a-font-size, 22px);
+        font-weight: var(--haxtheme-blog-taxonomy-a-font-weight);
+        color: var(--haxtheme-blog-taxonomy-a-color);
+        margin-right: var(--haxtheme-blog-taxonomy-a-margin-right, 10px);
+        @apply --haxtheme-blog-taxonomy-a;
+      }
+
+      #taxonomy a:hover {
+        font-weight: var(--haxtheme-blog-taxonomy-a-hover);
+        @apply --haxtheme-blog-taxonomy-a-hover;
       }
 
       @media screen and (max-width: 768px) {
         #taxonomy a {
-          font-size: 16px;
+          font-size: var(--haxtheme-blog-taxonomy-a-font-size-mobile, 18px);
+          @apply --haxtheme-blog-taxonomy-a-mobile;
         }
       }
 
-      #taxonomy a:hover {
-        font-weight: bold;
-      }
-
       .tag_wrap {
-        margin-right: 10px;
+        margin-right: var(--haxtheme-blog-tag-wrap-margin-right, 10px);
+        @apply --haxtheme-blog-tag-wrap;
       }
 
       #prev_next_btns {
-        display: flex;
-        justify-content: space-between;
+        display: var(--haxtheme-blog-prev-next-btns-display, flex);
+        justify-content: var(--haxtheme-blog-prev-next-btns-justify-content, space-between);
+        @apply --haxtheme-blog-prev-next-btns;
       }
 
       site-breadcrumb {
-        margin-top: 10px;
+        margin: var(--haxtheme-blog-site-breadcrumb-margin);
       }
 
       @media screen and (max-width: 768px) {
         site-breadcrumb {
-          margin: 0 0 30px;
+          margin: var(--haxtheme-blog-site-breadcrumb-margin-mobile, 0 0 30px);
         }
       }
 
       site-recent-content-block {
-        --site-recent-content-block-header-color: #e2801e;
-        --site-recent-content-block-active-color: var(--theme-color-2);
+      --site-recent-content-block-header-color: var(--odl-haxtheme-accent-color-2);
       }
-
     </style>
     
     <page-banner image="[[activeItem.metadata.fields.image]]" text="[[activeItem.metadata.tagLine]]" alt="Gateway to the Sciences"></page-banner>
