@@ -51,7 +51,7 @@ Polymer({
         @apply --haxtheme-news-feed-news-feed;
       }
 
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 1124px) {
         #news_feed {
           flex-wrap: var(--haxtheme-news-feed-news-feed-flex-wrap-mobile, nowrap);
           @apply --haxtheme-news-feed-news-feed-mobile;
@@ -138,6 +138,8 @@ Polymer({
 
       #author_name {
         margin: var(--haxtheme-news-feed-author-name-margin, 15px 0 0 0);
+        font-size: 18px;
+        font-weight: 400;
         @apply --haxtheme-news-feed-author-name
       }
 

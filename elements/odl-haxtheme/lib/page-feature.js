@@ -44,14 +44,8 @@ Polymer({
       }
 
       #feature_wrap {
-        display: var(--haxtheme-page-feature-feature-wrap-display, flex);
-        justify-content: var(
-          --haxtheme-page-feature-wrap-justify-content,
-          center
-        );
-        align-items: var(--haxtheme-page-feature-wrap-align-items, center);
         background-color: var(--haxtheme-page-feature-wrap-background-color);
-        padding: var(--haxtheme-page-feature-wrap-padding, 50px 0 50px 12px);
+        padding: var(--haxtheme-page-feature-wrap-padding, 40px 0 55px 0);
         @apply --haxtheme-page-feature-feature-wrap;
       }
 
@@ -62,12 +56,48 @@ Polymer({
             column
           );
           height: var(--haxtheme-page-feature-feature-wrap-height-mobile, auto);
-          padding: var(--haxtheme-page-feature-feature-wrap-padding, 0);
+          padding: var(--haxtheme-page-feature-feature-wrap-padding-mobile, 0);
           background-color: var(
-            --haxtheme-page-feature-feature-wrap-background-color,
+            --haxtheme-page-feature-feature-wrap-background-color-mobile,
             transparent
           );
           @apply --haxtheme-page-feature-feature-wrap-mobile;
+        }
+      }
+
+      #border {
+        display: var(--haxtheme-page-feature-border-display, flex);
+        justify-content: var(
+          --haxtheme-page-feature-border-justify-content,
+          center
+        );
+        align-items: var(--haxtheme-page-feature-border-align-items, center);
+        padding: var(--haxtheme-page-feature-border-padding, 40px 0 0 0);
+        width: var(--haxtheme-page-feature-border-width, 94%);
+        border-top: var(--haxtheme-page-feature-border-border-top, dashed);
+        border-top-width: var(
+          --haxtheme-page-feature-border-border-top-width,
+          4px
+        );
+        border-top-color: var(--haxtheme-page-feature-border-border-top-color);
+        margin: var(--haxtheme-page-feature-border-margin, 0 auto 0 auto);
+        @apply --haxtheme-page-feature-border;
+      }
+
+      @media screen and (max-width: 1012px) {
+        #border {
+          flex-direction: var(
+            --haxtheme-page-feature-border-flex-direction-mobile,
+            column
+          );
+          height: var(--haxtheme-page-feature-border-height-mobile, auto);
+          border: var(--haxtheme-page-feature-border-border-mobile, none);
+          padding: var(
+            --haxtheme-page-feature-border-padding-mobile,
+            5px 0 0 0
+          );
+          width: var(--haxtheme-page-feature-border-width, 100%);
+          @apply --haxtheme-page-feature-border-mobile;
         }
       }
 
@@ -84,7 +114,7 @@ Polymer({
           --haxtheme-page-feature-feature-image-background-position,
           center
         );
-        width: var(--haxtheme-page-feature-feature-image-width, 45%);
+        width: var(--haxtheme-page-feature-feature-image-width, 50%);
         height: var(--haxtheme-page-feature-feature-image-height, 400px);
         @apply --haxtheme-page-feature-feature-image;
       }
@@ -114,7 +144,7 @@ Polymer({
         );
         width: var(
           --haxtheme-page-feature-feature-description-wrap-width,
-          720px
+          780px
         );
         z-index: var(
           --haxtheme-page-feature-feature-description-wrap-z-index,
@@ -252,27 +282,29 @@ Polymer({
       }
     </style>
     <div id="feature_wrap">
-      <div id="feature_image" style$="background-image:url([[image]])"></div>
-      <div id="feature_description_wrap">
-        <div id="title_wrap">
-          <div id="title">
-            <h1>[[title]]</h1>
+      <div id="border">
+        <div id="feature_image" style$="background-image:url([[image]])"></div>
+        <div id="feature_description_wrap">
+          <div id="title_wrap">
+            <div id="title">
+              <h1>[[title]]</h1>
+            </div>
+            <div id="sub_title">
+              <h2>[[subtitle]]</h2>
+            </div>
+            <div id="sub_info">[[info]]</div>
           </div>
-          <div id="sub_title">
-            <h2>[[subtitle]]</h2>
+          <div id="description">
+            <slot></slot>
           </div>
-          <div id="sub_info">[[info]]</div>
-        </div>
-        <div id="description">
-          <slot></slot>
-        </div>
-        <div id="action_button">
-          <a href\$="[[url]]">
-            <paper-button noink id="feature">
-              <div class="title">Read More</div>
-              <iron-icon icon="chevron-right"></iron-icon>
-            </paper-button>
-          </a>
+          <div id="action_button">
+            <a href\$="[[url]]">
+              <paper-button noink id="feature">
+                <div class="title">Read More</div>
+                <iron-icon icon="chevron-right"></iron-icon>
+              </paper-button>
+            </a>
+          </div>
         </div>
       </div>
     </div>

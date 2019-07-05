@@ -12,8 +12,6 @@ Polymer({
     <style>
       :host {
         display: block;
-        --theme-color-1: #363533;
-        --theme-color-2: #e2801e;
         --site-recent-content-block-item-link: {
           text-transform: uppercase;
         }
@@ -150,37 +148,39 @@ Polymer({
       }
 
       #video_wrap {
-        margin: 15px 15px 15px 0;
+        margin: var(--haxtheme-course-video-wrap-margin, 15px 15px 15px 0);
+        @apply --haxtheme-course-video-wrap;
       }
 
       #video_placehold {
-        display: flex;
-        justify-content: center;
+        display: var(--haxtheme-course-video-placehold-display, flex);
+        justify-content: var(
+          --haxtheme-course-video-placehold-justify-content,
+          center
+        );
+        @apply --haxtheme-course-video-placehold;
       }
 
       iron-icon {
-        width: 400px;
-        height: 400px;
-        fill: #363533;
-        margin-bottom: -20px;
+        width: var(--haxtheme-course-iron-icon-width, 400px);
+        height: var(--haxtheme-course-iron-icon-height, 400px);
+        fill: var(--haxtheme-course-iron-icon-fill);
+        margin: var(--haxtheme-course-iron-icon-margin, 0 0 -20px 0);
+        @apply --haxtheme-course-iron-icon;
       }
 
       @media screen and (max-width: 768px) {
         iron-icon {
-          width: 250px;
-          height: 250px;
+          width: var(--haxtheme-course-iron-icon-width-mobile, 250px);
+          height: var(--haxtheme-course-iron-icon-height-mobile, 250px);
+          @apply --haxtheme-course-iron-icon-mobile;
         }
-      }
-
-      site-recent-content-block .item-heading {
-        text-transform: uppercase;
       }
 
       page-banner {
         --page-banner-text-transform: uppercase;
       }
     </style>
-
     <page-banner
       image="[[activeItem.metadata.fields.image]]"
       text="[[activeItem.title]]"
@@ -190,7 +190,6 @@ Polymer({
       <div class="course_container">
         <div class="course_inner_wrap">
           <site-breadcrumb></site-breadcrumb>
-
           <template is="dom-if" if="[[activeItem.metadata.fields.video]]">
             <div id="video_wrap">
               <video-player
@@ -199,13 +198,11 @@ Polymer({
               ></video-player>
             </div>
           </template>
-
           <template is="dom-if" if="[[!activeItem.metadata.fields.video]]">
             <div id="video_placehold">
               <iron-icon icon="[[activeItem.metadata.icon]]"></iron-icon>
             </div>
           </template>
-
           <div id="course_header">
             <div id="title">
               <h1>[[activeItem.title]]</h1>
@@ -214,10 +211,8 @@ Polymer({
               <h2>[[activeItem.name]]</h2>
             </div>
           </div>
-
           <div id="description">[[activeItem.description]]</div>
         </div>
-
         <div class="sidebar_wrap">
           <div id="course_archive">
             <site-recent-content-block

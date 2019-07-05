@@ -18,6 +18,16 @@ Polymer({
         --theme-color-4: #fff;
       }
 
+      info-box#about {
+        margin: 80px 0 15px 0;
+      }
+
+      @media screen and (max-width: 768px) {
+        info-box#about {
+          margin: 25px 0 0 0;
+        }
+      }
+
       promo-tile {
         --button-hover-color: none;
       }
@@ -27,15 +37,24 @@ Polymer({
         justify-content: center;
       }
 
-      #promo_tile_header h2 {
+      /* #promo_tile_header h2 {
         margin: 0;
         font-size: 36px;
         font-weight: 400;
-      }
+      } */
 
       #promo_tile_wrap {
         display: flex;
         flex-wrap: wrap;
+        border-top: solid;
+        border-top-width: 20px;
+        border-top-color: var(--theme-color-1);
+      }
+
+      @media screen and (max-width: 768px) {
+        #promo_tile_wrap {
+          border-top: none;
+        }
       }
 
       @media screen and (max-width: 1124px) {
@@ -71,7 +90,7 @@ Polymer({
 
       @media screen and (max-width: 768px) {
         page-feature {
-          width: 90%;
+          width: 94%;
         }
       }
     </style>
@@ -80,11 +99,11 @@ Polymer({
       alt="students receiving instruction in classroom"
       text="A creative studio for your classroom"
     ></homepage-banner>
-    <info-box>
+    <info-box id="about" title="What We Do" url="https://www.google.com">
       <span slot="action_text">
         The Office of Digital Learning (ODL) helps faculty and students make the
         most of digital learning technology. We collaboratively design and build
-        tools for any pedagogy. Dream it and we'll build it.
+        tools for any pedagogy; dream it and we will build it.
       </span>
     </info-box>
     <div id="promo_tile_header"></div>
@@ -106,8 +125,7 @@ Polymer({
           title="Virtual Reality"
           label="Explore"
           image="files/theme-images/promo-tiles/vr-tile.png"
-          alt="student using
-          VR goggles"
+          alt="A student using VR goggles"
           url="https://www.google.com"
         >
           Enter another dimension and add exciting virtual interactions to your
@@ -119,8 +137,7 @@ Polymer({
           title="HAX"
           label="Build"
           image="files/theme-images/promo-tiles/hax-tile.png"
-          alt="user
-          enjoying the HAX authoring experience"
+          alt="user enjoying the HAX authoring experience"
           url="https://haxtheweb.org"
         >
           Quickly create and edit accessible, high quality content using this
@@ -132,8 +149,7 @@ Polymer({
           title="One Button Studio"
           label="Film"
           image="files/theme-images/promo-tiles/obs-tile.png"
-          alt="camera
-          filming video"
+          alt="camera filming video"
           url="https://www.google.com"
         >
           Film engaging video content for your class with ease using our one
