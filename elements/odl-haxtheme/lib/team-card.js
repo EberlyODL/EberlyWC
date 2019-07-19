@@ -85,7 +85,6 @@ Polymer({
           --haxtheme-team-card-name-text-transform,
           uppercase
         );
-        padding: var(--haxtheme-team-card-name-padding, 0 0 10px 0);
         margin: var(--haxtheme-team-card-name-margin, 0 0 7px 0);
         border-bottom: var(--haxtheme-team-card-name-border-bottom, solid);
         border-bottom-width: var(

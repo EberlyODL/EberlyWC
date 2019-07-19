@@ -57,6 +57,7 @@ Polymer({
             <template>
               <course-card
                 image="[[item.metadata.fields.image]]"
+                alt="[[item.metadata.fields.imageAlt]]"
                 number="[[item.title]]"
                 icon="[[item.metadata.icon]]"
                 name="[[item.name]]"

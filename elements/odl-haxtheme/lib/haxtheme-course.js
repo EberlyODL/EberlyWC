@@ -32,6 +32,16 @@ Polymer({
         @apply --haxtheme-course-h2;
       }
 
+      h3 {
+        font-size: 20px;
+        font-weight: 400;
+        margin: 5px 0 0 0;
+      }
+
+      page-banner {
+        --page-banner-text-transform: uppercase;
+      }
+
       site-breadcrumb {
         margin: var(--haxtheme-course-site-breadcrumb-margin);
         @apply --haxtheme-course-site-breadcrumb;
@@ -177,8 +187,8 @@ Polymer({
         }
       }
 
-      page-banner {
-        --page-banner-text-transform: uppercase;
+      site-recent-content-block {
+        --site-recent-content-block-header-color: #e2801e;
       }
     </style>
     <page-banner
@@ -209,6 +219,9 @@ Polymer({
             </div>
             <div id="name">
               <h2>[[activeItem.name]]</h2>
+            </div>
+            <div id="credit">
+              <h3>Credits: [[activeItem.metadata.fields.credits]]</h3>
             </div>
           </div>
           <div id="description">[[activeItem.description]]</div>

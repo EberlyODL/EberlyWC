@@ -123,7 +123,7 @@ Polymer({
         #feature_image {
           height: var(
             --haxtheme-page-feature-feature-image-height-mobile,
-            200px
+            300px
           );
           margin: var(
             --haxtheme-page-feature-feature-image-margin-mobile,
@@ -283,7 +283,11 @@ Polymer({
     </style>
     <div id="feature_wrap">
       <div id="border">
-        <div id="feature_image" style$="background-image:url([[image]])"></div>
+        <div
+          id="feature_image"
+          style$="background-image:url([[image]])"
+          alt="[[alt]]"
+        ></div>
         <div id="feature_description_wrap">
           <div id="title_wrap">
             <div id="title">
@@ -317,14 +321,6 @@ Polymer({
      * Image source
      */
     image: {
-      type: String,
-      value: "",
-      reflectToAttribute: true
-    },
-    /**
-     * subimage source
-     */
-    subimage: {
       type: String,
       value: "",
       reflectToAttribute: true

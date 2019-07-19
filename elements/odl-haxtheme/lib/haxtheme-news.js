@@ -1,187 +1,93 @@
 import { html, Polymer } from "@polymer/polymer/polymer-legacy.js";
-import "@polymer/iron-image/iron-image.js";
 import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-store.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/query/site-query.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/blocks/site-recent-content-block.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/site/site-rss-button.js";
 import { autorun, toJS } from "mobx/lib/mobx.module.js";
 import "./page-banner.js";
+import "./news-card";
 Polymer({
   _template: html`
     <style>
       :host {
         display: block;
-        background-color: #f5f5f5;
-        --theme-color-1: #363533;
-        --theme-color-2: #e2801e;
-        --theme-color-4: #fff;
-      }
-
-      a {
-        text-decoration: none;
-      }
-
-      h2 {
-        margin: 0;
-        font-weight: normal;
-        font-size: 26px;
       }
 
       .news_container {
-        display: flex;
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
+        display: var(--haxtheme-news-news-container-display, flex);
+        width: var(--haxtheme-news-news-container-width, 80%);
+        margin: var(--haxtheme-news-news-container-margin, 0 auto 0 auto);
+        @apply --haxtheme-news-news-container;
       }
 
       @media screen and (max-width: 768px) {
         .news_container {
-          flex-direction: column;
-          width: 98%;
+          flex-direction: var(
+            --haxtheme-news-news-container-flex-direction-mobile,
+            column
+          );
+          width: var(--haxtheme-news-news-container-width-mobile, 98%);
+          @apply --haxtheme-news-news-container-mobile;
         }
       }
 
       .news_page_feed {
-        width: 75%;
-        margin-top: 20px;
+        width: var(--haxtheme-news-news-page-feed-width, 75%);
+        margin: var(--haxtheme-news-news-page-feed-margin, 20px 0 0 0);
+        @apply --haxtheme-news-news-page-feed;
       }
 
       @media screen and (max-width: 768px) {
         .news_page_feed {
-          width: 100%;
-          margin-top: 10px;
+          width: var(--haxtheme-news-news-page-feed-width-mobile, 100%);
+          margin: var(--haxtheme-news-news-page-feed-margin-mobile, 10px 0 0 0);
+          @apply --haxtheme-news-news-page-feed-mobile;
         }
-      }
-
-      #card_wrap {
-        display: flex;
-        background-color: var(--theme-color-4);
-        margin: 15px;
-        padding: 15px;
-        box-shadow: 0 1px 2px #dcdcdc;
-      }
-
-      @media screen and (max-width: 768px) {
-        #card_wrap {
-          display: flex;
-          flex-direction: column;
-        }
-      }
-
-      @media screen and (max-width: 768px) {
-        #card_image iron-image {
-          width: 100% !important;
-          height: 180px !important;
-          border: none !important;
-        }
-      }
-
-      #card_image {
-        padding-right: 5px;
-      }
-
-      #card_image iron-image {
-        height: 220px;
-        width: 175px;
-        border-left: solid 6px var(--theme-color-2);
-      }
-
-      .card_info {
-        padding-left: 15px;
-      }
-
-      @media screen and (max-width: 768px) {
-        .card_info {
-          padding: 0;
-        }
-      }
-
-      @media screen and (max-width: 768px) {
-        .title h2 {
-          margin-top: 5px;
-          font-size: 24px;
-        }
-      }
-
-      .title a {
-        color: var(--theme-color-1);
-      }
-
-      .title a:hover {
-        color: var(--theme-color-2);
-      }
-
-      @media screen and (max-width: 768px) {
-        .date h2 {
-          font-size: 18px !important;
-        }
-      }
-
-      .date h2 {
-        font-size: 20px;
-        color: var(--theme-color-1);
-      }
-
-      #author a {
-        color: var(--theme-color-1);
-      }
-
-      #author a:hover {
-        color: var(--theme-color-2);
-      }
-      
-      #author_info {
-        display: flex;
-        align-items: center;
-        margin: 5px 0 5px;
-      }
-
-      iron-image#author_image {
-        border-radius: 50%;
-        margin-right: 10px;
-      }
-
-      #card_description {
-        margin-top: 10px;
-        font-size: 18px;
-        font-weight: 300;
       }
 
       .sidebar_wrap {
-        width: 25%;
-        margin-top: 45px;
-        border-left: solid 2px #dcdcdc;
-        padding-left: 20px;
-        height: 600px;
+        width: var(--haxtheme-news-sidebar-wrap-width);
+        height: var(--haxtheme-news-sidebar-wrap-height);
+        margin: var(--haxtheme-news-sidebar-wrap-margin);
+        border-left: var(--haxtheme-news-sidebar-wrap-border-left);
+        border-left-width: var(--haxtheme-news-sidebar-wrap-border-left-width);
+        border-left-color: var(--haxtheme-news-sidebar-wrap-border-left-color);
+        padding: var(--haxtheme-news-sidebar-wrap-padding);
+        @apply --haxtheme-news-sidebar-wrap;
       }
 
       @media screen and (max-width: 768px) {
-       .sidebar_wrap {
-          width: 100%;
-          height: auto;
-          border: none;
-          padding-left: 0;
-          margin-top: 10px;
+        .sidebar_wrap {
+          width: var(--haxtheme-news-sidebar-wrap-width-mobile);
+          height: var(--haxtheme-news-sidebar-wrap-height-mobile);
+          border: var(--haxtheme-news-sidebar-wrap-border-left-mobile);
+          padding: var(--haxtheme-news-sidebar-wrap-padding-mobile);
+          margin: var(--haxtheme-news-sidebar-wrap-margin-mobile);
+          @apply --haxtheme-news-sidebar-wrap-mobile;
         }
       }
 
       @media screen and (max-width: 768px) {
         #twitter_feed {
-          width: 90%;
-          margin-left: auto;
-          margin-right: auto;
+          width: var(--haxtheme-news-twitter-feed-width-mobile, 90%);
+          margin: var(--haxtheme-news-twitter-margin-mobile, 0 auto 0 auto);
+          @apply --haxtheme-news-twitter-feed-mobile;
         }
       }
 
       #news_archive {
-        margin-bottom: 25px;
+        margin: var(--haxtheme-news-news-archive-margin, 0 0 25px 0);
+        @apply --haxtheme-news-news-archive;
       }
 
       @media screen and (max-width: 768px) {
         #news_archive {
-          width: 90%;
-          margin-left: auto;
-          margin-right: auto;
+          width: var(--haxtheme-news-news-archive-width-mobile, 90%);
+          margin: var(
+            --haxtheme-news-news-archive-margin-mobile,
+            0 auto 0 auto
+          );
+          @apply --haxtheme-news-news-archive-mobile;
         }
       }
 
@@ -189,42 +95,27 @@ Polymer({
         --site-recent-content-block-header-color: #e2801e;
       }
 
-
-      @media screen and (max-width: 768px) {
-        .card_header_info {
-          border-left: solid 4px var(--theme-color-2);
-          padding-left: 10px;
-        }
-      }
-
-      site-breadcrumb {
-        margin-top: 10px;
-        margin-left: 15px;
-      }
-
-      @media screen and (max-width: 768px) {
-        site-breadcrumb {
-          margin: 10px 0 0 15px;
-        }
-      }
-
       #share_actions {
-        background-color: var(--theme-color-4); 
-        display: flex;
-        justify-content: space-around;
-        padding: 10px;
-        margin-top: 10px;        
+        display: var(--haxtheme-news-share-actions-display, flex);
+        justify-content: var(
+          --haxtheme-news-share-actions-justify-content,
+          space-around
+        );
+        padding: var(--haxtheme-news-share-actions-padding, 10px);
+        margin: var(--haxtheme-news-share-actions-margin, 10px 0 0 0);
+        @apply --haxtheme-news-share-actions;
       }
 
       @media screen and (max-width: 768px) {
         #share_actions {
-          width: 85%;
-          margin-left: auto;
-          margin-right: auto;
-          margin-bottom: 15px;
+          width: var(--haxtheme-news-share-actions-width-mobile, 85%);
+          margin: var(
+            --haxtheme-news-share-actions-margin-mobile,
+            15px auto 15px auto
+          );
+          @apply --haxtheme-news-share-actions-mobile;
         }
       }
- 
     </style>
     <page-banner
       image="files/theme-images/page-banners/news_banner.png"
@@ -242,39 +133,17 @@ Polymer({
           ></site-query>
           <dom-repeat items="[[__items]]" mutable-data>
             <template>
-              <div id="card_wrap">
-              <div id="card_image">
-                  <iron-image
-                    sizing="cover"
-                    src="[[item.metadata.fields.image]]"
-                  ></iron-image>
-                </div>
-                <div class="card_info">
-                  <div class="card_header_info">
-                  <div class="title">
-                    <a href$="[[item.location]]">
-                      <h2>[[item.title]]</h2>
-                    </a>
-                  </div>
-                  <div class="date">
-                    <h2>[[_formatDate(item.metadata.created)]]</h2>
-                  </div>
-                  <div id="author_info">
-                    <iron-image
-                      id="author_image"
-                      style="width:45px; height:45px;"
-                      sizing="cover"
-                      src="[[item.metadata.authorImage]]">
-                    </iron-image>
-                    <div id="author">By:
-                      <a href="/team-directory/[[item.metadata.fields.authorId]]">[[item.metadata.author]]</a> 
-                    </div>
-                  </div>
-                </div>
-                  <div id="card_description">
-                  <span>[[item.description]]</span>
-                </div>
-                  </div>
+              <news-card
+                image="[[item.metadata.fields.image]]"
+                alt="[[item.metadata.fields.imageAlt]]"
+                title="[[item.title]]"
+                date="[[_formatDate(item.metadata.created)]]"
+                authorimage="[[item.metadata.authorImage]]"
+                author="[[item.metadata.author]]"
+                description="[[_trimDescription(item.description)]]"
+                url="[[item.location]]"
+              >
+              </news-card>
             </template>
           </dom-repeat>
         </div>
@@ -325,6 +194,11 @@ Polymer({
     });
 
     return dateFormatted;
+  },
+
+  _trimDescription: function(description) {
+    const trim = description.substring(0, 250) + "...";
+    return trim;
   },
 
   created: function() {

@@ -102,6 +102,12 @@ Polymer({
         @apply --haxtheme-news-feed-card-image;
       }
 
+      @media screen and (max-width: 1123px) {
+        #card_image iron-image {
+          height: 300px;
+        }
+      }
+
       #card_heading_wrap {
         border-left: var(--haxtheme-news-feed-card-heading-wrap-border-left);
         border-left-width: var(--haxtheme-news-feed-card-heading-wrap-border-left-width);

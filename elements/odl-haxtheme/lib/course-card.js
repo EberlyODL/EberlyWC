@@ -30,6 +30,7 @@ Polymer({
         text-transform: var(
           --haxtheme-course-card-course-number-text-transform
         );
+        line-height: 1.4;
         @apply --haxtheme-course-card-course-number;
       }
 
@@ -38,6 +39,7 @@ Polymer({
         text-align: var(--haxtheme-course-card-course-name-text-align, center);
         width: var(--haxtheme-course-card-course-name-width, 90%);
         margin: var(--haxtheme-course-card-course-name-margin, 0 0 15px 0);
+        line-height: 1.2;
         @apply --haxtheme-course-card-course-name;
       }
 
@@ -85,7 +87,11 @@ Polymer({
     </style>
     <a href$="[[url]]">
       <div id="card_wrap">
-        <div id="course_image" style$="background-image:url([[image]])"></div>
+        <div
+          id="course_image"
+          style$="background-image:url([[image]])"
+          alt="[[alt]]"
+        ></div>
         <div id="course_icon">
           <iron-icon icon="[[icon]]"></iron-icon>
         </div>
@@ -102,6 +108,14 @@ Polymer({
      * Course Image
      */
     image: {
+      type: String,
+      value: "",
+      reflectToAttribute: true
+    },
+    /**
+     * Image Alt Text
+     */
+    alt: {
       type: String,
       value: "",
       reflectToAttribute: true

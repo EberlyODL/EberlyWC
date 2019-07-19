@@ -103,7 +103,6 @@ Polymer({
         margin: var(--haxtheme-syllabus-site-breadcrumb-margin);
       }
     </style>
-
     <page-banner
       image="[[activeItem.metadata.fields.image]]"
       text="[[activeItem.title]]"
@@ -230,7 +229,6 @@ Polymer({
               </li>
             </ul>
           </div>
-
           <div class="policy">
             <h2>Educational Equity / Report Bias</h2>
             <div>

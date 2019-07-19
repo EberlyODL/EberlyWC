@@ -37,12 +37,6 @@ Polymer({
         justify-content: center;
       }
 
-      /* #promo_tile_header h2 {
-        margin: 0;
-        font-size: 36px;
-        font-weight: 400;
-      } */
-
       #promo_tile_wrap {
         display: flex;
         flex-wrap: wrap;
@@ -173,8 +167,7 @@ Polymer({
             info="[[item.metadata.author]]"
             url="[[item.location]]"
             image="[[item.metadata.fields.image]]"
-            subimage="[[item.metadata.authorImage]]"
-            alt="Laptop with the word,'inspire' written on screen."
+            alt="[[item.metadata.fields.imageAlt]]"
           >
             [[item.description]]</page-feature
           >
@@ -200,7 +193,7 @@ Polymer({
             info="Director of Online Education in Physics"
             url="[[item.location]]"
             image="[[item.metadata.fields.image]]"
-            alt="Louis discussing version control at TLT Symposium."
+            alt="[[item.metadata.fields.imageAlt]]"
           >
             [[item.description]]</page-feature
           >
