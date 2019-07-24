@@ -28,14 +28,14 @@ Polymer({
       h2 {
         font-size: var(--haxtheme-course-h2-font-size);
         font-weight: var(--haxtheme-course-h2-font-weight);
-        margin: var(--haxtheme-course-h2-margin, -12px 0 0 0);
+        margin: var(--haxtheme-course-h2-margin, -10px 0 0 0);
         @apply --haxtheme-course-h2;
       }
 
       h3 {
         font-size: 20px;
-        font-weight: 400;
-        margin: 5px 0 0 0;
+        font-weight: 100;
+        margin: -5px 0 0 0;
       }
 
       page-banner {
@@ -123,6 +123,10 @@ Polymer({
         }
       }
 
+      #credit {
+        margin: 5px 0 0 0;
+      }
+
       #description {
         font-size: var(--haxtheme-course-description-font-size);
         font-weight: var(--haxtheme-course-description-font-weight);
@@ -190,6 +194,10 @@ Polymer({
       site-recent-content-block {
         --site-recent-content-block-header-color: #e2801e;
       }
+
+      #prereqs {
+        display: flex;
+      }
     </style>
     <page-banner
       image="[[activeItem.metadata.fields.image]]"
@@ -223,7 +231,24 @@ Polymer({
             <div id="credit">
               <h3>Credits: [[activeItem.metadata.fields.credits]]</h3>
             </div>
+
+            <div id="prereqs">
+              <div class="prereq_title">
+                <h3>Prerequisites:</h3>
+              </div>
+
+              <template
+                is="dom-repeat"
+                items="[[activeItem.metadata.fields.prereqs]]"
+                as="prereq"
+              >
+                <a href="#">
+                  [[prereq]]
+                </a>
+              </template>
+            </div>
           </div>
+
           <div id="description">[[activeItem.description]]</div>
         </div>
         <div class="sidebar_wrap">
