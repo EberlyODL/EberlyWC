@@ -253,7 +253,6 @@ Polymer({
   properties: {},
 
   created: function() {
-    console.log(store);
     this.__disposer = [];
     autorun(reaction => {
       this.manifest = toJS(store.routerManifest);

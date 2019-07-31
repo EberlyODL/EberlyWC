@@ -1,7 +1,12 @@
-
+<!-- ATTENTION: The order of the elements below MUST match 
+  the order assigned inside odl-haxtheme.js -->
 
 <page-topbar></page-topbar>
-<site-top-menu></site-top-menu>
+<site-top-menu 
+  conditions='{
+    "parent": null
+  }'>
+</site-top-menu>
 <iron-pages selected="[[selectedPage]]">
     <haxtheme-home id="homeelement">
         <!-- <div id="contentcontainer">
@@ -13,12 +18,15 @@
     <haxtheme-news></haxtheme-news>
     <haxtheme-team></haxtheme-team>
     <haxtheme-courses></haxtheme-courses>
-    <haxtheme-blog id="blog">
+    <haxtheme-about id="about">
         <div id="contentcontainer">
             <div id="slot">
               <slot></slot>
             </div>
           </div>
+      </haxtheme-about>
+    <haxtheme-blog id="blog">
+      
     </haxtheme-blog>
     <haxtheme-profile id="profile">
 

@@ -15,6 +15,7 @@ import { SimpleColors } from "@lrnwebcomponents/simple-colors/simple-colors.js";
 import "@lrnwebcomponents/promo-tile/promo-tile.js";
 import "@lrnwebcomponents/scroll-button/scroll-button.js";
 import "./lib/haxtheme-home.js";
+import "./lib/haxtheme-about.js";
 import "./lib/haxtheme-news.js";
 import "./lib/haxtheme-team.js";
 import "./lib/haxtheme-courses.js";
@@ -74,21 +75,24 @@ class OdlHaxtheme extends HAXCMSTheme(SimpleColors) {
         case "courses":
           this.selectedPage = 3;
           break;
+        case "about":
+          this.selectedPage = 4;
+          break;
       }
 
       if (location.route.path.startsWith("blog-posts/")) {
         this.HAXCMSThemeWiring.connect(this, this.$.blog.$.contentcontainer);
-        this.selectedPage = 4;
+        this.selectedPage = 5;
       }
 
       if (location.route.path.startsWith("team-directory/")) {
         this.HAXCMSThemeWiring.connect(this, this.$.profile.$.contentcontainer);
-        this.selectedPage = 5;
+        this.selectedPage = 6;
       }
 
       if (location.route.path.startsWith("courses/")) {
         this.HAXCMSThemeWiring.connect(this, this.$.course.$.contentcontainer);
-        this.selectedPage = 6;
+        this.selectedPage = 7;
       }
 
       if (location.route.path.startsWith("syllabi/")) {
@@ -96,7 +100,12 @@ class OdlHaxtheme extends HAXCMSTheme(SimpleColors) {
           this,
           this.$.syllabus.$.contentcontainer
         );
-        this.selectedPage = 7;
+        this.selectedPage = 8;
+      }
+
+      if (location.route.path.startsWith("about/")) {
+        this.HAXCMSThemeWiring.connect(this, this.$.course.$.contentcontainer);
+        this.selectedPage = 9;
       }
 
       window.scrollTo(0, 0);

@@ -15,6 +15,7 @@ import { SimpleColors } from "@lrnwebcomponents/simple-colors/simple-colors.js";
 import "@lrnwebcomponents/promo-tile/promo-tile.js";
 import "@lrnwebcomponents/scroll-button/scroll-button.js";
 import "./lib/haxtheme-home.js";
+import "./lib/haxtheme-about.js";
 import "./lib/haxtheme-news.js";
 import "./lib/haxtheme-team.js";
 import "./lib/haxtheme-courses.js";
@@ -147,21 +148,29 @@ site-top-menu {
 
 
 </style>
+
 <page-topbar></page-topbar>
-<site-top-menu></site-top-menu>
+<site-top-menu 
+  conditions='{
+    "parent": null
+  }'>
+</site-top-menu>
 <iron-pages selected="[[selectedPage]]">
     <haxtheme-home id="homeelement">
     </haxtheme-home>
     <haxtheme-news></haxtheme-news>
     <haxtheme-team></haxtheme-team>
     <haxtheme-courses></haxtheme-courses>
-    <haxtheme-blog id="blog">
+    <haxtheme-about id="about">
         <div id="contentcontainer">
             <div id="slot">
               <slot></slot>
             </div>
           </div>
-    </haxtheme-blog>
+      </haxtheme-about>
+    <haxtheme-blog id="blog">
+
+          </haxtheme-blog>
     <haxtheme-profile id="profile">
 
     </haxtheme-profile>
@@ -267,21 +276,24 @@ site-top-menu {
         case "courses":
           this.selectedPage = 3;
           break;
+        case "about":
+          this.selectedPage = 4;
+          break;
       }
 
       if (location.route.path.startsWith("blog-posts/")) {
         this.HAXCMSThemeWiring.connect(this, this.$.blog.$.contentcontainer);
-        this.selectedPage = 4;
+        this.selectedPage = 5;
       }
 
       if (location.route.path.startsWith("team-directory/")) {
         this.HAXCMSThemeWiring.connect(this, this.$.profile.$.contentcontainer);
-        this.selectedPage = 5;
+        this.selectedPage = 6;
       }
 
       if (location.route.path.startsWith("courses/")) {
         this.HAXCMSThemeWiring.connect(this, this.$.course.$.contentcontainer);
-        this.selectedPage = 6;
+        this.selectedPage = 7;
       }
 
       if (location.route.path.startsWith("syllabi/")) {
@@ -289,7 +301,12 @@ site-top-menu {
           this,
           this.$.syllabus.$.contentcontainer
         );
-        this.selectedPage = 7;
+        this.selectedPage = 8;
+      }
+
+      if (location.route.path.startsWith("about/")) {
+        this.HAXCMSThemeWiring.connect(this, this.$.course.$.contentcontainer);
+        this.selectedPage = 9;
       }
 
       window.scrollTo(0, 0);
