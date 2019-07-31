@@ -1,44 +1,27 @@
 import { html, Polymer } from "@polymer/polymer/polymer-legacy.js";
+import "@lrnwebcomponents/haxcms-elements/lib/ui-components/site/site-search.js";
+import "@lrnwebcomponents/haxcms-elements/lib/ui-components/layout/site-modal.js";
 import "@polymer/iron-icon/iron-icon.js";
 Polymer({
   _template: html`
     <style>
       :host {
         display: block;
-        width: 15%;
-        --theme-color-5: #c3c3c3;
       }
 
       #search_wrap {
-        border: 1px solid var(--theme-color-5);
-        margin-right: 10px;
-        padding: 5px;
-      }
-
-      iron-icon {
-        color: var(--theme-color-5);
-      }
-
-      @media screen and (max-width: 1200px) {
-        :host {
-          width: 20%;
-        }
-      }
-
-      @media screen and (max-width: 700px) {
-        :host {
-          width: 30%;
-        }
-      }
-      @media screen and (max-width: 500px) {
-        :host {
-          width: 45%;
-          margin-right: -4px;
-        }
+        margin-right: 15px;
       }
     </style>
     <div id="search_wrap">
-      <iron-icon icon="search"></iron-icon>
+      <site-modal
+        disabled$="[[editMode]]"
+        icon="icons:search"
+        title="Search site"
+        button-label="Search"
+      >
+        <site-search></site-search>
+      </site-modal>
     </div>
   `,
 
