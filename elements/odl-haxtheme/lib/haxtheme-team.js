@@ -9,20 +9,27 @@ Polymer({
     <style>
       :host {
         display: block;
-        background-color: #f5f5f5;
       }
       
       a {
-        text-decoration: none;
+        text-decoration: var(--haxtheme-team-a-text-decoration);
+        @apply --haxtheme-team-a;
       }
 
       #team_card {
-        display: grid;
-        /* grid-template-columns: auto auto; */
-        grid-template-columns: repeat(2, auto [col-start]);
-        justify-content: center;
-        margin-top: 25px;
-        padding-bottom: 25px;
+        display: var(--haxtheme-team-team-card-display, grid);
+        grid-template-columns: var(--haxtheme-team-team-card-grid-template-columns, repeat(2, auto [col-start]));
+        justify-content: var(--haxtheme-team-team-card-justify-content, center);
+        margin: var(--haxtheme-team-team-card-margin, 25px 0 0 0);
+        padding: var(--haxtheme-team-team-card-padding, 0 0 25px 0);
+        @apply --haxtheme-team-card;
+      }
+
+      @media screen and (max-width: 768px) {
+        #team_card {
+          grid-template-columns: var(--haxtheme-team-team-card-grid-template-columns-mobile, repeat(1, auto [col-start]));
+          @apply --haxtheme-team-card-mobile;
+        }
       }
     </style>
     <site-query
@@ -48,30 +55,6 @@ Polymer({
           </a>
         </template>
       </div>
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   `,
 
   is: "haxtheme-team",

@@ -6,69 +6,88 @@ Polymer({
     <style>
       :host {
         display: block;
-        --theme-color-1: #363533;
-        --theme-color-2: #e2801e;
-        --theme-color-4: #fff;
+      }
+
+      a {
+        text-decoration: var(--haxtheme-info-box-a-text-decoration);
+        @apply --haxtheme-info-box-a;
+      }
+
+      h1 {
+        font-size: var(--haxtheme-info-box-h1-font-size);
+        font-weight: var(--haxtheme-info-box-h1-font-weight);
+        margin: var(--haxtheme-info-box-h1-margin, -11px 0 0 0);
+        @apply --haxtheme-info-box-h1;
       }
 
       #box_wrap {
-        background-color: var(--theme-color-1);
+        display: var(--haxtheme-info-box-box-wrap-display, flex);
+        flex-direction: var(
+          --haxtheme-info-box-box-wrap-flex-direction,
+          column
+        );
+        align-items: var(--haxtheme-info-box-box-wrap-align-items, center);
+        @apply --haxtheme-info-box-box-wrap;
+      }
+
+      #inner_wrap {
+        border-left: var(--haxtheme-info-box-inner-wrap-border-left);
+        border-left-width: var(
+          --haxtheme-info-box-inner-wrap-border-left-width
+        );
+        border-left-color: var(
+          --haxtheme-info-box-inner-wrap-border-left-color
+        );
+        padding: var(--haxtheme-info-box-inner-wrap-padding, 0 0 0 15px);
+        width: var(--haxtheme-info-box-inner-wrap-width, 85%);
+        @apply --haxtheme-info-box-inner-wrap;
       }
 
       .action_text {
-        padding: 75px 0 25px 0px;
-        width: 71%;
-        margin-top: -1px;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 24px;
-        font-weight: 100;
-        color: var(--theme-color-4);
-        line-height: 1.5;
+        font-size: var(--haxtheme-info-box-action-text-font-size, 22px);
+        font-weight: var(--haxtheme-info-box-action-text-font-weight);
+        line-height: var(--haxtheme-info-box-action-text-line-height);
+        @apply --haxtheme-info-box-action-text;
       }
 
       @media screen and (max-width: 700px) {
         .action_text {
-          width: 93%;
-          font-size: 18px;
-          padding: 20px 15px;
-          border-top: solid 5px var(--theme-color-2);
+          font-size: var(
+            --haxtheme-info-box-action-text-font-size-mobile,
+            18px
+          );
+          width: var(--haxtheme-info-box-action-text-width-mobile, 90%);
+          @apply --haxtheme-info-box-action-text-mobile;
         }
       }
 
       .action_button {
-        padding: 40px 11px 20px;
-        display: flex;
-        justify-content: center;
-        margin-top: -40px;
-      }
-
-      @media screen and (max-width: 700px) {
-        .action_button {
-          justify-content: center;
-          margin-top: -35px;
-          margin-right: 0;
-          padding-bottom: 15px;
-        }
+        margin: var(--haxtheme-info-box-action-button-margin, 12px 0 0 0);
+        @apply --haxtheme-info-box-action-button;
       }
 
       paper-button#learn {
-        color: var(--theme-color-4);
-        border: solid 1px var(--theme-color-4);
-        border-radius: 0;
+        color: var(--haxtheme-info-box-paper-button-color);
+        @apply --haxtheme-info-box-paper-button;
       }
 
       paper-button#learn:hover,
       paper-button#learn:focus {
-        background-color: var(--theme-color-2);
+        color: var(--haxtheme-info-box-paper-button-color-active);
+        @apply --haxtheme-info-box-paper-button-active;
       }
     </style>
     <div id="box_wrap">
-      <div class="action_text">
-        <slot name="action_text"></slot>
+      <div id="inner_wrap">
+        <div class="action_title">
+          <h1>[[title]]</h1>
+        </div>
+        <div class="action_text">
+          <slot name="action_text"></slot>
+        </div>
       </div>
       <div class="action_button">
-        <a href\$="#">
+        <a href\$="[[url]]">
           <paper-button noink id="learn">
             <div class="title">Learn More</div>
             <iron-icon icon="chevron-right"></iron-icon>
@@ -78,5 +97,24 @@ Polymer({
     </div>
   `,
 
-  is: "info-box"
+  is: "info-box",
+
+  properties: {
+    /**
+     * Title
+     */
+    title: {
+      type: String,
+      value: "",
+      reflectToAttribute: true
+    },
+    /**
+     * Url
+     */
+    url: {
+      type: String,
+      value: "",
+      reflectToAttribute: true
+    }
+  }
 });

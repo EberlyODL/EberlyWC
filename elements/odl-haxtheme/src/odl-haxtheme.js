@@ -11,10 +11,11 @@ import "@polymer/paper-card/paper-card.js";
 import "@polymer/paper-button/paper-button.js";
 import "@polymer/iron-icons/iron-icons.js";
 import "@polymer/iron-pages/iron-pages.js";
-import "@lrnwebcomponents/simple-colors/simple-colors.js";
+import { SimpleColors } from "@lrnwebcomponents/simple-colors/simple-colors.js";
 import "@lrnwebcomponents/promo-tile/promo-tile.js";
 import "@lrnwebcomponents/scroll-button/scroll-button.js";
 import "./lib/haxtheme-home.js";
+import "./lib/haxtheme-about.js";
 import "./lib/haxtheme-news.js";
 import "./lib/haxtheme-team.js";
 import "./lib/haxtheme-courses.js";
@@ -37,7 +38,7 @@ import "./lib/page-footer.js";
  * @polymer
  * @demo demo/index.html
  */
-class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
+class OdlHaxtheme extends HAXCMSTheme(SimpleColors) {
   /* REQUIRED FOR TOOLING DO NOT TOUCH */
 
   /**
@@ -61,42 +62,50 @@ class OdlHaxtheme extends HAXCMSTheme(PolymerElement) {
    */
   _locationChanged(location) {
     if (typeof location !== typeof undefined) {
-      switch (location.pathname) {
-        case "/home":
+      switch (location.route.name) {
+        case "home":
           this.selectedPage = 0;
           break;
-        case "/news":
+        case "news":
           this.selectedPage = 1;
           break;
-        case "/team":
+        case "team":
           this.selectedPage = 2;
           break;
-        case "/courses":
+        case "courses":
           this.selectedPage = 3;
+          break;
+        case "about":
+          this.selectedPage = 4;
           break;
       }
 
-      if (location.pathname.startsWith("/blog-posts/")) {
+      if (location.route.path.startsWith("blog-posts/")) {
         this.HAXCMSThemeWiring.connect(this, this.$.blog.$.contentcontainer);
-        this.selectedPage = 4;
-      }
-
-      if (location.pathname.startsWith("/team-directory/")) {
-        this.HAXCMSThemeWiring.connect(this, this.$.profile.$.contentcontainer);
         this.selectedPage = 5;
       }
 
-      if (location.pathname.startsWith("/courses/")) {
-        this.HAXCMSThemeWiring.connect(this, this.$.course.$.contentcontainer);
+      if (location.route.path.startsWith("team-directory/")) {
+        this.HAXCMSThemeWiring.connect(this, this.$.profile.$.contentcontainer);
         this.selectedPage = 6;
       }
 
-      if (location.pathname.startsWith("/syllabi/")) {
+      if (location.route.path.startsWith("courses/")) {
+        this.HAXCMSThemeWiring.connect(this, this.$.course.$.contentcontainer);
+        this.selectedPage = 7;
+      }
+
+      if (location.route.path.startsWith("syllabi/")) {
         this.HAXCMSThemeWiring.connect(
           this,
           this.$.syllabus.$.contentcontainer
         );
-        this.selectedPage = 7;
+        this.selectedPage = 8;
+      }
+
+      if (location.route.path.startsWith("about/")) {
+        this.HAXCMSThemeWiring.connect(this, this.$.course.$.contentcontainer);
+        this.selectedPage = 9;
       }
 
       window.scrollTo(0, 0);

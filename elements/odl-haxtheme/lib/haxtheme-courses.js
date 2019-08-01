@@ -14,26 +14,31 @@ Polymer({
       }
 
       #course_wrap {
-        width: 80%;
-        margin: 25px auto 15px auto;
+        width: var(--haxtheme-courses-course-wrap-width, 80%);
+        margin: var(--haxtheme-courses-course-wrap-margin, 25px auto 15px auto);
+        @apply --haxtheme-courses-course-wrap;
       }
 
       #course {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        grid-column-gap: 2vw;
-        grid-row-gap: 2vw;
+        display: var(--haxtheme-courses-course-display, grid);
+        grid-template-columns: var(--haxtheme-courses-course-grid-template-columns, repeat(auto-fit, minmax(250px, 1fr)));
+        grid-column-gap: var(--haxtheme-courses-course-grid-column-gap, 2vw);
+        grid-row-gap: var(--haxtheme-courses-course-grid-row-gap, 2vw);
+        @apply --haxtheme-courses-course;
       }
 
       course-card {
-        width: 100%;
+        width: var(--haxtheme-courses-course-card-width, 100%);
+        border: var(--haxtheme-courses-course-card-border, solid);
+        border-width: var(--haxtheme-courses-course-card-border-width, 2px);
+        border-color: var(--haxtheme-courses-course-card-border-color);
+        @apply --haxtheme-courses-course-card;
       }
 
       course-card:hover {
-        box-shadow: 1px 1px 5px #dcdcdc;
+        box-shadow: var(--haxtheme-courses-course-card-hover-box-shadow, 1px 1px 5px #dcdcdc);
+        @apply --haxtheme-courses-course-card-hover;
       }
-
-  
     </style>
     <site-query
       result="{{__items}}"
@@ -48,11 +53,11 @@ Polymer({
     <div id="course_wrap">
       <div id="course_list">
         <div id="course">
-
           <dom-repeat items="[[__items]]" mutable-data>
             <template>
               <course-card
                 image="[[item.metadata.fields.image]]"
+                alt="[[item.metadata.fields.imageAlt]]"
                 number="[[item.title]]"
                 icon="[[item.metadata.icon]]"
                 name="[[item.name]]"

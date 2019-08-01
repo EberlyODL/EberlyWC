@@ -5,55 +5,70 @@ Polymer({
     <style>
       :host {
         display: block;
-        --image-background: "";
-        --theme-color-1: #363533;
-        --theme-color-2: #e2801e;
-        --theme-color-4: #fff;
         --page-banner-text-transform: none;
       }
 
-      /* 
-      :host([video]) .image_wrap {
-      } */
-
       .image_wrap {
-        background-image: var(--image-background);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: right center;
-        width: 100%;
-        min-height: 32vw;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        flex: 1 1 auto;
-        margin: 0;
-        padding: 0;
+        background-repeat: var(
+          --haxtheme-page-banner-image-wrap-background-repeat,
+          no-repeat
+        );
+        background-size: var(
+          --haxtheme-page-banner-image-wrap-background-size,
+          cover
+        );
+        background-position: var(
+          --haxtheme-page-banner-image-wrap-background-position,
+          right center
+        );
+        width: var(--haxtheme-page-banner-image-wrap-width, 100%);
+        min-height: var(--haxtheme-page-banner-image-wrap-min-height, 32vw);
+        display: var(--haxtheme-page-banner-image-wrap-display, flex);
+        justify-content: var(
+          --haxtheme-page-banner-image-wrap-justify-content,
+          flex-end
+        );
+        align-items: var(--haxtheme-page-banner-image-wrap-align-items, center);
+        flex: var(--haxtheme-page-banner-image-wrap-flex, 1 1 auto);
+        margin: var(--haxtheme-page-banner-image-wrap-margin, 0);
+        padding: var(--haxtheme-page-banner-image-wrap-padding, 0);
+        @apply --haxtheme-page-banner-image-wrap;
       }
 
       .image_text {
-        background: rgba(0, 0, 0, 0.5);
-        width: calc(150px + (355 - 28) * ((100vw - 300px) / (1600 - 300)));
-        margin: 0 5vw;
-        padding: 2vw;
-        text-align: center;
+        background: var(
+          --haxtheme-page-banner-image-text-background,
+          rgba(0, 0, 0, 0.5)
+        );
+        width: var(
+          --haxtheme-page-banner-image-text-width,
+          calc(150px + (355 - 28) * ((100vw - 300px) / (1600 - 300)))
+        );
+        margin: var(--haxtheme-page-banner-image-text-margin, 0 5vw 0 5vw);
+        padding: var(--haxtheme-page-banner-image-text-padding, 2vw);
+        text-align: var(--haxtheme-page-banner-image-text-text-align, center);
         text-transform: var(--page-banner-text-transform);
+        @apply --haxtheme-page-banner-image-text;
       }
 
-      .image_text h2 {
-        color: var(--theme-color-4);
-        width: 100%;
-        font-weight: normal;
-        margin: 0;
-        padding: 0;
-        font-size: calc(23px + (72 - 28) * ((100vw - 300px) / (1600 - 300)));
+      .image_text h1 {
+        color: var(--haxtheme-page-banner-image-text-h1-color);
+        width: var(--haxtheme-page-banner-image-text-h1-width, 100%);
+        font-weight: var(--haxtheme-page-banner-image-text-h1-font-weight);
+        margin: var(--haxtheme-page-banner-image-text-h1-margin, 0);
+        padding: var(--haxtheme-page-banner-image-text-h1-padding, 0);
+        font-size: var(
+          --haxtheme-page-banner-image-text-h1-font-size,
+          calc(23px + (72 - 28) * ((100vw - 300px) / (1600 - 300)))
+        );
+        @apply --haxtheme-page-banner-image-text-h1;
       }
     </style>
     <div id="banner_wrap">
-      <div class="image_wrap">
+      <div class="image_wrap" style$="background-image:url([[image]])">
         <div class="banner_image"></div>
         <div class="image_text">
-          <h2>[[text]]</h2>
+          <h1>[[text]]</h1>
         </div>
       </div>
     </div>
@@ -86,11 +101,5 @@ Polymer({
       value: "",
       reflectToAttribute: true
     }
-  },
-
-  observers: ["__updateImage(image)"],
-
-  __updateImage: function(image) {
-    this.updateStyles({ "--image-background": `url(${image})` });
   }
 });

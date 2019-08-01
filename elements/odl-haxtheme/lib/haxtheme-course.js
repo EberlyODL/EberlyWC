@@ -12,23 +12,30 @@ Polymer({
     <style>
       :host {
         display: block;
-        --theme-color-1: #363533;
-        --theme-color-2: #e2801e;
         --site-recent-content-block-item-link: {
           text-transform: uppercase;
         }
       }
 
       h1 {
-        margin: 25px 0 0;
-        font-weight: 400;
-        text-transform: uppercase;
+        font-size: var(--haxtheme-course-h1-font-size);
+        font-weight: var(--haxtheme-course-h1-font-weight);
+        margin: var(--haxtheme-course-h1-margin, 25px 0 0 0);
+        text-transform: var(--haxtheme-course-h1-text-transform);
+        @apply --haxtheme-course-h1;
       }
 
       h2 {
-        margin: 0;
+        font-size: var(--haxtheme-course-h2-font-size);
+        font-weight: var(--haxtheme-course-h2-font-weight);
+        margin: var(--haxtheme-course-h2-margin, -10px 0 0 0);
+        @apply --haxtheme-course-h2;
+      }
+
+      h3 {
+        font-size: 20px;
         font-weight: 100;
-        font-size: 26px;
+        margin: -5px 0 0 0;
       }
 
       page-banner {
@@ -36,119 +43,162 @@ Polymer({
       }
 
       site-breadcrumb {
-        margin-top: 10px;
+        margin: var(--haxtheme-course-site-breadcrumb-margin);
+        @apply --haxtheme-course-site-breadcrumb;
       }
 
       @media screen and (max-width: 768px) {
         site-breadcrumb {
-          margin: -15px 0 15px;
+          margin: var(
+            --haxtheme-course-site-breadcrumb-margin-mobile,
+            -15px 0 15px
+          );
+          @apply --haxtheme-course-site-breadcrumb-mobile;
         }
       }
 
       @media screen and (max-width: 768px) {
         #course_wrap {
-          padding: 15px;
+          padding: var(--haxtheme-course-course-wrap-padding, 20px);
+          @apply --haxtheme-course-course-wrap-mobile;
         }
       }
 
       .course_container {
-        display: flex;
-        width: 75%;
-        margin-left: auto;
-        margin-right: auto;
+        display: var(--haxtheme-course-course-container-display, flex);
+        width: var(--haxtheme-course-course-container-width, 75%);
+        margin: var(--haxtheme-course-course-container-margin, 0 auto 0 auto);
+        @apply --haxtheme-course-course-container;
       }
 
       @media screen and (max-width: 768px) {
         .course_container {
-          flex-direction: column;
-          width: 98%;
+          flex-direction: var(
+            --haxtheme-course-course-container-flex-direction-mobile,
+            column
+          );
+          width: var(--haxtheme-course-course-container-width-mobile, 98%);
+          @apply --haxtheme-course-course-container-mobile;
         }
       }
 
       .course_inner_wrap {
-        width: 90%;
-        margin-right: 20px;
+        width: var(--haxtheme-course-course-inner-wrap-width, 90%);
+        margin: var(--haxtheme-course-course-inner-wrap-margin, 0 20px 0 0);
+        @apply --haxtheme-course-course-inner-wrap;
       }
 
       @media screen and (max-width: 768px) {
         .course_inner_wrap {
-          width: 100%;
-          margin-top: 10px;
+          width: var(--haxtheme-course-course-inner-wrap-width-mobile, 100%);
+          margin: var(
+            --haxtheme-course-course-inner-wrap-margin-mobile,
+            10px 0 0 0
+          );
+          @apply --haxtheme-course-course-inner-wrap-mobile;
         }
       }
 
       #course_header {
-        border-left: solid;
-        border-left-width: 4px;
-        border-left-color: var(--theme-color-2);
-        padding-left: 15px;
+        border-left: var(--haxtheme-course-course-header-border-left);
+        border-left-width: var(
+          --haxtheme-course-course-header-border-left-width
+        );
+        border-left-color: var(--haxtheme-course-course-header-border-color);
+        padding: var(--haxtheme-course-course-header-padding, 0 0 0 15px);
+        @apply --haxtheme-course-course-header;
       }
 
       #course_archive {
-        width: 121%;
-        margin-bottom: 25px;
+        width: var(--haxtheme-course-course-archive-width, 121%);
+        margin: var(--haxtheme-course-course-arhive-margin, 0 0 25px 0);
+        @apply --haxtheme-course-course-archive;
       }
 
       @media screen and (max-width: 768px) {
         #course_archive {
-          width: 90%;
-          margin-left: auto;
-          margin-right: auto;
+          width: var(--haxtheme-course-course-archive-width-mobile, 100%);
+          margin: var(--haxtheme-course-course-arhive-margin, 0 auto 0 auto);
+          @apply --haxtheme-course-course-archive-mobile;
         }
       }
 
+      #credit {
+        margin: 5px 0 0 0;
+      }
+
       #description {
-        margin: 15px 0 25px 0;
-        font-size: 18px;
-        font-weight: 300;
+        font-size: var(--haxtheme-course-description-font-size);
+        font-weight: var(--haxtheme-course-description-font-weight);
+        line-height: var(--haxtheme-course-description-line-height);
+        margin: var(--haxtheme-course-description-margin, 15px 0 25px 0);
+        @apply --haxtheme-course-course-description;
       }
 
       .sidebar_wrap {
-        width: 25%;
-        margin-top: 45px;
-        border-left: solid 2px #dcdcdc;
-        padding-left: 20px;
-        height: 600px;
+        width: var(--haxtheme-course-sidebar-wrap-width);
+        margin: var(--haxtheme-course-sidebar-wrap-margin);
+        border-left: var(--haxtheme-course-sidebar-wrap-border-left);
+        border-left-width: var(
+          --haxtheme-course-sidebar-wrap-border-left-width
+        );
+        border-left-color: var(
+          --haxtheme-course-sidebar-wrap-border-left-color
+        );
+        height: var(--haxtheme-course-sidebar-wrap-height);
+        padding: var(--haxtheme-course-sidebar-wrap-padding);
+        @apply --haxtheme-course-sidebar-wrap;
       }
 
       @media screen and (max-width: 768px) {
         .sidebar_wrap {
-          width: 100%;
-          height: auto;
-          border: none;
-          padding-left: 0;
-          margin-top: 10px;
+          width: var(--haxtheme-course-sidebar-wrap-width-mobile);
+          height: var(--haxtheme-course-sidebar-wrap-height-mobile);
+          border: var(--haxtheme-course-sidebar-wrap-border-mobile);
+          padding: var(--haxtheme-course-sidebar-wrap-padding-mobile);
+          margin: var(--haxtheme-course-sidebar-wrap-margin-mobile);
+          @apply --haxtheme-course-sidebar-wrap-mobile;
         }
       }
 
       #video_wrap {
-        margin: 15px 15px 15px 0;
+        margin: var(--haxtheme-course-video-wrap-margin, 15px 15px 15px 0);
+        @apply --haxtheme-course-video-wrap;
       }
 
       #video_placehold {
-        display: flex;
-        justify-content: center;
+        display: var(--haxtheme-course-video-placehold-display, flex);
+        justify-content: var(
+          --haxtheme-course-video-placehold-justify-content,
+          center
+        );
+        @apply --haxtheme-course-video-placehold;
       }
 
       iron-icon {
-        width: 400px;
-        height: 400px;
-        fill: #363533;
-        margin-bottom: -20px;
+        width: var(--haxtheme-course-iron-icon-width, 400px);
+        height: var(--haxtheme-course-iron-icon-height, 400px);
+        fill: var(--haxtheme-course-iron-icon-fill);
+        margin: var(--haxtheme-course-iron-icon-margin, 0 0 -20px 0);
+        @apply --haxtheme-course-iron-icon;
       }
 
       @media screen and (max-width: 768px) {
         iron-icon {
-          width: 250px;
-          height: 250px;
+          width: var(--haxtheme-course-iron-icon-width-mobile, 250px);
+          height: var(--haxtheme-course-iron-icon-height-mobile, 250px);
+          @apply --haxtheme-course-iron-icon-mobile;
         }
       }
 
-      site-recent-content-block .item-heading {
-        text-transform: uppercase;
+      site-recent-content-block {
+        --site-recent-content-block-header-color: #e2801e;
+      }
+
+      #prereqs {
+        display: flex;
       }
     </style>
-
     <page-banner
       image="[[activeItem.metadata.fields.image]]"
       text="[[activeItem.title]]"
@@ -158,7 +208,6 @@ Polymer({
       <div class="course_container">
         <div class="course_inner_wrap">
           <site-breadcrumb></site-breadcrumb>
-
           <template is="dom-if" if="[[activeItem.metadata.fields.video]]">
             <div id="video_wrap">
               <video-player
@@ -167,13 +216,11 @@ Polymer({
               ></video-player>
             </div>
           </template>
-
           <template is="dom-if" if="[[!activeItem.metadata.fields.video]]">
             <div id="video_placehold">
               <iron-icon icon="[[activeItem.metadata.icon]]"></iron-icon>
             </div>
           </template>
-
           <div id="course_header">
             <div id="title">
               <h1>[[activeItem.title]]</h1>
@@ -181,11 +228,29 @@ Polymer({
             <div id="name">
               <h2>[[activeItem.name]]</h2>
             </div>
+            <div id="credit">
+              <h3>Credits: [[activeItem.metadata.fields.credits]]</h3>
+            </div>
+
+            <div id="prereqs">
+              <div class="prereq_title">
+                <h3>Prerequisites:</h3>
+              </div>
+
+              <template
+                is="dom-repeat"
+                items="[[activeItem.metadata.fields.prereqs]]"
+                as="prereq"
+              >
+                <a href="#">
+                  [[prereq]]
+                </a>
+              </template>
+            </div>
           </div>
 
           <div id="description">[[activeItem.description]]</div>
         </div>
-
         <div class="sidebar_wrap">
           <div id="course_archive">
             <site-recent-content-block

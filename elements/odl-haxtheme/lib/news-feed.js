@@ -1,157 +1,190 @@
 import { html, Polymer } from "@polymer/polymer/polymer-legacy.js";
 import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-store.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/query/site-query.js";
-import "@polymer/iron-image/iron-image.js";
 import { autorun, toJS } from "mobx/lib/mobx.module.js";
+import "@polymer/iron-image/iron-image.js";
+
 Polymer({
   _template: html`
     <style>
       :host {
         display: block;
-        --theme-color-1: #363533;
-        --theme-color-2: #e2801e;
-        --theme-color-4: #fff;
-      }
-
-    
-
-      h2 {
-        margin: 0;
       }
 
       .feed_header {
-        display: flex;
-        justify-content: center;
-        margin-top: -50px;
+        display: var(--haxtheme-news-feed-feed-header-display, flex);
+        justify-content: var(--haxtheme-news-feed-feed-header-justify-content, center);
+        margin: var(--haxtheme-news-feed-feed-header-margin, -50px 0 0 0);
+        @apply --haxtheme-news-feed-feed-header;
       }
 
       @media screen and (max-width: 768px) {
         .feed_header {
-          margin-top: 0;
+          margin: var(--haxtheme-news-feed-feed-header-margin-mobile, 0);
+          @apply --haxtheme-news-feed-feed-header-mobile;
         }
       }
 
       .feed_header h2 {
-        margin: 0 0 20px 0;
-        font-weight: 400;
-        font-size: 34px;
-        background-color: var(--theme-color-2);
-        color: #fff;
-        padding: 15px;
+        margin: var(--haxtheme-news-feed-feed-header-h2-margin, 0 0 20px 0);
+        font-size: var(--haxtheme-news-feed-feed-header-h2-font-size, 34px);
+        font-weight: var(--haxtheme-news-feed-feed-header-h2-font-weight, 400);
+        background-color: var(--haxtheme-news-feed-feed-header-h2-background-color);
+        color: var(--haxtheme-news-feed-feed-header-h2-color);
+        padding: var(--haxtheme-news-feed-feed-header-h2-padding, 15px);
+        @apply --haxtheme-news-feed-feed-header-h2;
       }
 
       @media screen and (max-width: 768px) {
         .feed_header h2 {
-          display: flex;
-          justify-content: center;
-          width: 100%;
-          font-size: 28px;
-          margin: 0 0 15px 0;
+          display: var(--haxtheme-news-feed-feed-header-h2-display-mobile, flex);
+          justify-content: var(--haxtheme-news-feed-feed-header-h2-justify-content-mobile, center);
+          width: var(--haxtheme-news-feed-feed-header-h2-width-mobile, 100%);
+          font-size: var(--haxtheme-news-feed-feed-header-h2-font-size-mobile, 28px);
+          margin: var(--haxtheme-news-feed-feed-header-h2-margin-mobile, 0 0 15px 0);
+          @apply --haxtheme-news-feed-feed-header-h2-mobile;
         }
       }
 
       #news_feed {
-        display: flex;
-        flex-wrap: wrap;
+        display: var(--haxtheme-news-feed-news-feed-display, flex);
+        flex-wrap: var(--haxtheme-news-feed-news-feed-flex-wrap, wrap);
+        @apply --haxtheme-news-feed-news-feed;
+      }
+
+      @media screen and (min-width: 1124px) {
+        #news_feed {
+          flex-wrap: var(--haxtheme-news-feed-news-feed-flex-wrap-mobile, nowrap);
+          @apply --haxtheme-news-feed-news-feed-mobile;
+        }
       }
 
       #news_feed > *:not(site-query) {
-        width: 100%;
+        width: var(--haxtheme-news-feed-news-feed-width, 100%);
+        @apply --haxtheme-news-feed-news-feed-width;
       }
 
-      @media screen and (min-width: 768px) {
-        #news_feed {
-          flex-wrap: nowrap;
-        }
-      }
-      
       #news_feed_wrap {
-        margin: 20px;
+        margin: var(--haxtheme-news-feed-news-feed-wrap-margin, 20px);
+        @apply --haxtheme-news-feed-news-feed-wrap;
       }
 
       #card_wrap {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        border-right: solid 2px #dcdcdc;
-        padding: 0 40px;
+        display: var(--haxtheme-news-feed-card-wrap-display, flex);
+        flex-direction: var(--haxtheme-news-feed-card-wrap-flex-direction, column);
+        justify-content: var(--haxtheme-news-feed-card-wrap-justify-content, space-evenly);
+        border-right: var(--haxtheme-news-feed-card-wrap-border, solid);
+        border-right-width: var(--haxtheme-news-feed-card-wrap-border-width, 2px);
+        border-right-color: var(--haxtheme-news-feed-card-wrap-border-color);
+        padding: var(--haxtheme-news-feed-card-wrap-padding, 0 40px);
+        @apply --haxtheme-news-feed-card-wrap;
       }
 
       #card_wrap:last-of-type {
-        border-right: none;
+        border-right: var(--haxtheme-news-feed-card-wrap-last-of-border, none);
+        @apply --haxtheme-news-feed-card-wrap-last-of-border;
       }
 
       @media screen and (max-width: 768px) {
         #card_wrap {
-          padding: 0 0 15px 0;
-          border-right: none;
-          border-bottom: solid 2px #dcdcdc;
-          margin-bottom: 25px;
+          border-right: var(--haxtheme-news-feed-card-wrap-border-right-mobile, none);
+          border-bottom: var(--haxtheme-news-feed-card-wrap-border-bottom-mobile, solid);
+          border-bottom-width: var(--haxtheme-news-feed-card-wrap-border-bottom-width-mobile, 2px);
+          border-bottom-color: var(--haxtheme-news-feed-card-wrap-border-bottom-color-mobile);
+          margin: var(--haxtheme-news-feed-card-wrap-margin-mobile, 0 0 25px 0);
+          padding: var(--haxtheme-news-feed-card-wrap-padding-mobile, 0);
+          @apply --haxtheme-news-feed-card-wrap-mobile;
         }
       }
 
       #card_image iron-image {
-        height: 200px;
-        width: 100%;
+        height: var(--haxtheme-news-feed-card-image-height, 200px);
+        width: var(--haxtheme-news-feed-card-image-width, 100%);
+        @apply --haxtheme-news-feed-card-image;
+      }
+
+      @media screen and (max-width: 1123px) {
+        #card_image iron-image {
+          height: 300px;
+        }
       }
 
       #card_heading_wrap {
-        border-left: solid;
-        border-left-width: 4px;
-        border-left-color: var( --theme-color-2);
-        padding-left: 15px;
-        margin-top: 15px;
+        border-left: var(--haxtheme-news-feed-card-heading-wrap-border-left);
+        border-left-width: var(--haxtheme-news-feed-card-heading-wrap-border-left-width);
+        border-left-color: var(--haxtheme-news-feed-card-heading-wrap-border-left-color);
+        padding: var(--haxtheme-news-feed-card-heading-wrap-padding, 0 0 0 15px);
+        margin: var(--haxtheme-news-feed-card-heading-wrap-margin, 15px 0 0 0);
+        @apply --haxtheme-news-feed-card-heading-wrap;
       }
 
-      #card_heading h2 {
-        color: var(--theme-color-1);
-        font-weight: 400;
-        font-size: 22px;
+      #card_heading h1 {
+        color: var(--haxtheme-news-feed-card-heading-h1-color);
+        margin: var(--haxtheme-news-feed-card-heading-h1-margin, 0);
+        font-weight: var(--haxtheme-news-feed-card-heading-h1-font-weight);
+        font-size: var(--haxtheme-news-feed-card-heading-h1-font-size, 28px);
+        line-height: var(--haxtheme-news-feed-card-heading-h1-line-height, 1.2);
+        @apply --haxtheme-news-feed-card-heading-h1;
       }
-      #card_heading h2:hover {
-        color: var(--theme-color-2);
+      #card_heading h1:hover {
+        color: var(--haxtheme-news-feed-card-heading-h1-hover-color);
+        @apply --haxtheme-news-feed-card-heading-h1-hover;
       }
 
       #card_heading a {
-        text-decoration: none;
+        text-decoration: var(--haxtheme-news-feed-card-heading-a-text-decoration);
+        @apply --haxtheme-news-feed-card-heading-a;
       }
 
       #card_footer {
-        display: flex;
-        align-items: center;
-        margin-top: -5px;
+        display: var(--haxtheme-news-feed-card-footer-display, flex);
+        align-items: var(--haxtheme-news-feed-card-footer-align-items, center);
+        margin: var(--haxtheme-news-feed-card-footer-margin, -5px 0 0 0);
+        @apply --haxtheme-news-feed-card-footer
       }
 
       #author_name {
-        margin-top: 15px;
+        margin: var(--haxtheme-news-feed-author-name-margin, 15px 0 0 0);
+        font-size: 18px;
+        font-weight: 400;
+        @apply --haxtheme-news-feed-author-name
       }
 
       #card_description {
-        padding-top: 15px;
+        font-size: var(--haxtheme-news-feed-card-description-font-size);
+        font-weight: var(--haxtheme-news-feed-card-description-font-weight);
+        line-height: var(--haxtheme-news-feed-card-description-line-height);
+        padding: var(--haxtheme-news-feed-card-description-padding, 15px 0 0 0);
+        @apply --haxtheme-news-feed-card-description
       }
 
       iron-image#author_image {
-        border-radius: 50%;
-        margin: 15px 10px 0 0;
+        border-radius: var(--haxtheme-news-feed-author-image-border-radius, 50%);
+        margin: var(--haxtheme-news-feed-author-image-margin, 15px 10px 0 0);
+        @apply --haxtheme-news-feed-author-image
       }
 
       #action_button {
-        display: flex;
-        justify-content: center;
-        margin-top: 5px;
+        display: var(--haxtheme-news-feed-action-button-display, flex);
+        justify-content: var(--haxtheme-news-feed-action-justify-content, center);
+        margin: var(--haxtheme-news-feed-action-button-margin, 5px 0 0 0);
+        @apply --haxtheme-news-feed-action-button
       }
 
       #action_button a {
-        text-decoration: none;
+        text-decoration: var(--haxtheme-news-feed-action-button-a-text-decoration);
+        @apply --haxtheme-news-feed-action-button-a
       }
 
       paper-button#news {
-        color: var(--theme-color-2);
+        color: var(--haxtheme-news-feed-paper-button-color);
+        @apply --haxtheme-news-feed-paper-button
       }
 
       paper-button#news:hover,
       paper-button#news:focus {
-        color: var(--theme-color-1);
+        color: var(--haxtheme-news-feed-paper-button-color-active);
+        @apply --haxtheme-news-feed-paper-button-active
       }
     </style>
     <div id="news_feed_wrap">
@@ -180,7 +213,7 @@ Polymer({
             <div id="card_heading_wrap">
               <div id="card_heading">
                 <a href\$="[[item.location]]">
-                  <h2>[[item.title]]</h2>
+                  <h1>[[item.title]]</h1>
                 </a>
               </div>
               <div id="card_footer">
@@ -202,9 +235,6 @@ Polymer({
                 </paper-button>
               </a>
             </div>
-
-
-
           </div>
         </template>
     </div>
