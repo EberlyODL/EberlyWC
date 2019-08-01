@@ -269,7 +269,14 @@ Polymer({
 
   is: "haxtheme-course",
 
-  properties: {},
+  properties: {
+    activeItem: {
+      type: Object
+    },
+    manifest: {
+      type: Object
+    }
+  },
 
   created: function() {
     this.__disposer = [];
@@ -289,6 +296,12 @@ Polymer({
   },
 
   __subjectSiteQueryCondition: function(activeItem) {
-    return { "metadata.fields.subject": activeItem.metadata.fields.subject };
+    if (
+      activeItem.metadata &&
+      activeItem.metadata.fields &&
+      activeItem.metadata.fields.subject
+    ) {
+      return { "metadata.fields.subject": activeItem.metadata.fields.subject };
+    }
   }
 });

@@ -3,6 +3,7 @@ import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-st
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/query/site-query.js";
 import { autorun, toJS } from "mobx/lib/mobx.module.js";
 import "@polymer/iron-image/iron-image.js";
+
 Polymer({
   _template: html`
     <style>

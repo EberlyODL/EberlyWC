@@ -260,7 +260,6 @@ Polymer({
     });
     autorun(reaction => {
       this.activeItem = toJS(store.activeItem);
-      console.log(activeItem);
       this.__disposer.push(reaction);
     });
   },
