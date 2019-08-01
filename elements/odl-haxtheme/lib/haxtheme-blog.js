@@ -5,8 +5,7 @@ import "@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-menu
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-breadcrumb.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/blocks/site-recent-content-block.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/site/site-print-button.js";
-
-import { autorun, toJS } from "mobx";
+import { autorun, toJS } from "mobx/lib/mobx.module.js";
 import "./page-banner.js";
 
 Polymer({

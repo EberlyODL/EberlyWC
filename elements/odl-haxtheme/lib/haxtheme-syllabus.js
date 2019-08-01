@@ -2,7 +2,7 @@ import { html, Polymer } from "@polymer/polymer/polymer-legacy.js";
 import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-store.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-breadcrumb.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/site/site-print-button.js";
-import { autorun, toJS } from "mobx";
+import { autorun, toJS } from "mobx/lib/mobx.module.js";
 import "@polymer/iron-image/iron-image.js";
 import "./page-banner.js";
 
@@ -229,7 +229,6 @@ Polymer({
   properties: {},
 
   created: function() {
-    console.log(store);
     this.__disposer = [];
     autorun(reaction => {
       this.manifest = toJS(store.routerManifest);
@@ -237,7 +236,6 @@ Polymer({
     });
     autorun(reaction => {
       this.activeItem = toJS(store.activeItem);
-      console.log(activeItem);
       this.__disposer.push(reaction);
     });
   },

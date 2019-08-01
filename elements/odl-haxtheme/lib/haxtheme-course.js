@@ -3,7 +3,7 @@ import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-st
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-breadcrumb.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/blocks/site-recent-content-block.js";
 import "@lrnwebcomponents/video-player/video-player.js";
-import { autorun, toJS } from "mobx";
+import { autorun, toJS } from "mobx/lib/mobx.module.js";
 import "./page-banner.js";
 import "./course-icons.js";
 
@@ -204,7 +204,14 @@ Polymer({
 
   is: "haxtheme-course",
 
-  properties: {},
+  properties: {
+    activeItem: {
+      type: Object
+    },
+    manifest: {
+      type: Object
+    }
+  },
 
   created: function() {
     this.__disposer = [];
@@ -224,6 +231,12 @@ Polymer({
   },
 
   __subjectSiteQueryCondition: function(activeItem) {
-    return { "metadata.fields.subject": activeItem.metadata.fields.subject };
+    if (
+      activeItem.metadata &&
+      activeItem.metadata.fields &&
+      activeItem.metadata.fields.subject
+    ) {
+      return { "metadata.fields.subject": activeItem.metadata.fields.subject };
+    }
   }
 });

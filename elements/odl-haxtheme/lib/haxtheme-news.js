@@ -4,7 +4,7 @@ import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-st
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/query/site-query.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/blocks/site-recent-content-block.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/site/site-rss-button.js";
-import { autorun, toJS } from "mobx";
+import { autorun, toJS } from "mobx/lib/mobx.module.js";
 import "./page-banner.js";
 Polymer({
   _template: html`
