@@ -7,6 +7,10 @@
     "reflectToAttribute": true,
     "observer": "_editModeChanged"
   },
+  "activeItemContent": {
+    "type": String,
+    "observer": "_activeItemContentChanged"
+  },
   /**
    * Active item which is in JSON Outline Schema
    */

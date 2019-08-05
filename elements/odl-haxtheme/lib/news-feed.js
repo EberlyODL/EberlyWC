@@ -1,11 +1,10 @@
-import { html, Polymer } from "@polymer/polymer/polymer-legacy.js";
-import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-store.js";
+import { html, PolymerElement } from "@polymer/polymer/polymer-element.js";
 import "@lrnwebcomponents/haxcms-elements/lib/ui-components/query/site-query.js";
-import { autorun, toJS } from "mobx/lib/mobx.module.js";
-import "@polymer/iron-image/iron-image.js";
+import "@polymer/polymer/lib/elements/dom-repeat.js";
 
-Polymer({
-  _template: html`
+class NewsFeed extends PolymerElement {
+  static get template() {
+    return html`
     <style>
       :host {
         display: block;
@@ -239,23 +238,21 @@ Polymer({
         </template>
     </div>
   </div>
-  `,
-
-  is: "news-feed",
-
-  properties: {},
-
-  _trimDescription: function(description) {
+  `;
+  }
+  constructor() {
+    super();
+    import("@polymer/iron-image/iron-image.js");
+    import("@polymer/paper-button/paper-button.js");
+    import("@polymer/iron-icons/iron-icons.js");
+  }
+  static get tag() {
+    return "news-feed";
+  }
+  _trimDescription(description) {
     const trim = description.substring(0, 175) + "...";
     return trim;
-  },
-
-  created: function() {
-    this.__disposer = autorun(() => {
-      this.manifest = toJS(store.routerManifest);
-    });
-  },
-  detached: function() {
-    this.__disposer();
   }
-});
+}
+window.customElements.define(NewsFeed.tag, NewsFeed);
+export { NewsFeed };

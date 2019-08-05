@@ -1,44 +1,46 @@
-import { html, Polymer } from "@polymer/polymer/polymer-legacy.js";
+import { html, PolymerElement } from "@polymer/polymer/polymer-element.js";
 import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-store.js";
 import { autorun, toJS } from "mobx/lib/mobx.module.js";
+import "@polymer/polymer/lib/elements/dom-repeat.js";
 import "./team-card.js";
-Polymer({
-  _template: html`
-    <style>
-      :host {
-        display: block;
+class TeamList extends PolymerElement {
+  static get template() {
+    return html`
+      <style>
+        :host {
+          display: block;
+        }
+      </style>
+
+      <dom-repeat items="[[_items]]">
+        <template>
+          <team-card
+            name="[[item.title]]"
+            image="[[item.metadata.image]]"
+            item="[[item]]"
+            position="[[item.metadata.jobTitle]]"
+          ></team-card>
+        </template>
+      </dom-repeat>
+    `;
+  }
+  static get tag() {
+    return "team-list";
+  }
+  static get properties() {
+    return {
+      /**
+       * Items from sites.json
+       */
+      _items: {
+        type: Array,
+        value: []
       }
-    </style>
+    };
+  }
 
-    <template is="dom-repeat" items="[[_items]]">
-      <team-card
-        name="[[item.title]]"
-        image="[[item.metadata.image]]"
-        item="[[item]]"
-        position="[[item.metadata.jobTitle]]"
-      ></team-card>
-    </template>
-  `,
-  is: "team-list",
-  properties: {
-    /**
-     * Type of data to select from site.json
-     */
-    type: {
-      type: String,
-      value: "team",
-      reflectToAttribute: true
-    },
-    /**
-     * Items from sites.json
-     */
-    _items: {
-      type: Array,
-      value: []
-    }
-  },
-
-  attached: async function() {
+  connectedCallback() {
+    super.connectedCallback();
     const pages = this.manifest.items;
     const pagesFiltered = pages.filter(item => {
       if (typeof item.metadata !== "undefined") {
@@ -50,15 +52,18 @@ Polymer({
       }
       return false;
     });
-
     this.set("_items", pagesFiltered);
-  },
-  created: function() {
+  }
+  constructor() {
+    super();
     this.__disposer = autorun(() => {
       this.manifest = toJS(store.routerManifest);
     });
-  },
-  detached: function() {
-    this.__disposer();
   }
-});
+  disconnectedCallback() {
+    this.__disposer();
+    super.disconnectedCallback();
+  }
+}
+window.customElements.define(TeamList.tag, TeamList);
+export { TeamList };
