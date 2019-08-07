@@ -10,7 +10,8 @@
 }
 
 :root {
-  
+  --haxtheme-page-banner-image-text-h1-color: #FFFFFF;
+  --haxtheme-homepage-banner-image-text-h1-color: #FFFFFF;
   --site-recent-content-block-active-color: #e2801e;
   --site-rss-bg-color: var(--theme-color-2);
 
@@ -42,14 +43,6 @@
 :host([hidden]) {
   display: none;
 }
-
-/**
- * Hide the slotted content during edit mode. This must be here to work.
- */
-:host([edit-mode]) #slot {
-  display: none;
-}
-
 
 scroll-button {
     position: fixed;

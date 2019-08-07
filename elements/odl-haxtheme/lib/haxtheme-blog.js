@@ -1,15 +1,11 @@
-import { html, Polymer } from "@polymer/polymer/polymer-legacy.js";
-import "@polymer/iron-image/iron-image.js";
+import { html, PolymerElement } from "@polymer/polymer/polymer-element.js";
 import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-store.js";
-import "@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-menu-button.js";
-import "@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-breadcrumb.js";
-import "@lrnwebcomponents/haxcms-elements/lib/ui-components/blocks/site-recent-content-block.js";
-import "@lrnwebcomponents/haxcms-elements/lib/ui-components/site/site-print-button.js";
 import { autorun, toJS } from "mobx/lib/mobx.module.js";
 import "./page-banner.js";
 
-Polymer({
-  _template: html`
+class HaxThemeBlog extends PolymerElement {
+  static get template() {
+    return html`
     <style>
       :host {
         display: block;
@@ -71,7 +67,12 @@ Polymer({
           @apply --haxtheme-blog-blog-inner-wrap-mobile;
         }
       }
-
+      /**
+       * Hide the slotted content during edit mode. This must be here to work.
+       */
+      :host([edit-mode]) #slot {
+        display: none;
+      }
       #share_actions {
         display: var(--haxtheme-blog-share-actions-display, flex);
         justify-content: var(--haxtheme-blog-share-actions-justify--site-recent-content-block-active-color, flex-end);
@@ -266,37 +267,40 @@ Polymer({
         </div>
         </div>
       </div>
-    </div>`,
-
-  is: "haxtheme-blog",
-
-  properties: {},
-
-  _formatDate: function(unixTimecode) {
+    </div>`;
+  }
+  static get tag() {
+    return "haxtheme-blog";
+  }
+  _formatDate(unixTimecode) {
     const date = new Date(unixTimecode * 1000);
     const dateFormatted = date.toLocaleDateString("en-US", {
       year: "numeric",
       month: "long",
       day: "numeric"
     });
-
     return dateFormatted;
-  },
+  }
 
-  created: function() {
+  constructor() {
+    super();
+    import("@polymer/iron-image/iron-image.js");
+    import("@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-menu-button.js");
+    import("@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-breadcrumb.js");
+    import("@lrnwebcomponents/haxcms-elements/lib/ui-components/blocks/site-recent-content-block.js");
+    import("@lrnwebcomponents/haxcms-elements/lib/ui-components/site/site-print-button.js");
     this.__disposer = [];
-    autorun(reaction => {
-      this.manifest = toJS(store.routerManifest);
-      this.__disposer.push(reaction);
-    });
     autorun(reaction => {
       this.activeItem = toJS(store.activeItem);
       this.__disposer.push(reaction);
     });
-  },
-  detached: function() {
+  }
+  disconnectedCallback() {
     for (var i in this.__disposer) {
       this.__disposer[i].dispose();
     }
+    super.disconnectedCallback();
   }
-});
+}
+window.customElements.define(HaxThemeBlog.tag, HaxThemeBlog);
+export { HaxThemeBlog };

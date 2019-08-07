@@ -1,24 +1,23 @@
-import { html, Polymer } from "@polymer/polymer/polymer-legacy.js";
-import "@polymer/iron-image/iron-image.js";
-import "@polymer/paper-button/paper-button.js";
-import "@polymer/paper-tooltip/paper-tooltip.js";
-import "@polymer/iron-icon/iron-icon.js";
+import { html, PolymerElement } from "@polymer/polymer/polymer-element.js";
 import "./haxtheme-icons.js";
 import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-store.js";
-import "@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-menu-button.js";
-import "@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-breadcrumb.js";
-import "@lrnwebcomponents/haxcms-elements/lib/ui-components/blocks/site-recent-content-block.js";
 import { autorun, toJS } from "mobx/lib/mobx.module.js";
 
-Polymer({
-  _template: html`
+class HaxThemeProfile extends PolymerElement {
+  static get template() {
+    return html`
     <style>
       :host {
         display: block;
         --theme-color-1: #363533;
         --theme-color-2: #e2801e;
       }
-
+      /**
+       * Hide the slotted content during edit mode. This must be here to work.
+       */
+      :host([edit-mode]) #slot {
+        display: none;
+      }
       h1 {
         margin: 15px 0 0;
         font-weight: 400;
@@ -221,9 +220,6 @@ Polymer({
               </div>
             </div>
           </div>
-          
-
-
           <div id="contentcontainer">
               <div id="slot">
                 <slot></slot>
@@ -253,13 +249,20 @@ Polymer({
         </div>
         </div>
       </div>
-    </div>`,
-
-  is: "haxtheme-profile",
-
-  properties: {},
-
-  created: function() {
+    </div>`;
+  }
+  static get tag() {
+    return "haxtheme-profile";
+  }
+  constructor() {
+    super();
+    import("@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-menu-button.js");
+    import("@lrnwebcomponents/haxcms-elements/lib/ui-components/navigation/site-breadcrumb.js");
+    import("@lrnwebcomponents/haxcms-elements/lib/ui-components/blocks/site-recent-content-block.js");
+    import("@polymer/iron-image/iron-image.js");
+    import("@polymer/paper-button/paper-button.js");
+    import("@polymer/paper-tooltip/paper-tooltip.js");
+    import("@polymer/iron-icon/iron-icon.js");
     this.__disposer = [];
     autorun(reaction => {
       this.manifest = toJS(store.routerManifest);
@@ -269,18 +272,24 @@ Polymer({
       this.activeItem = toJS(store.activeItem);
       this.__disposer.push(reaction);
     });
-  },
-  detached: function() {
+  }
+  disconnectedCallback() {
     for (var i in this.__disposer) {
       this.__disposer[i].dispose();
     }
-  },
+    super.disconnectedCallback();
+  }
 
-  __recentPostsConditions: function(activeItem) {
-    const condition = {
-      "metadata.type": "news",
-      "metadata.fields.authorId": activeItem.id
-    };
+  __recentPostsConditions(activeItem) {
+    let condition = {};
+    if (activeItem !== null) {
+      condition = {
+        "metadata.type": "news",
+        "metadata.fields.authorId": activeItem.id
+      };
+    }
     return condition;
   }
-});
+}
+window.customElements.define(HaxThemeProfile.tag, HaxThemeProfile);
+export { HaxThemeProfile };

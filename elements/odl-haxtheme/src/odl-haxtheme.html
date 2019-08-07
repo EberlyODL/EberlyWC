@@ -4,47 +4,23 @@
 <page-topbar></page-topbar>
 <site-top-menu 
   conditions='{
-    "parent": null
+    "parent": null,
+    "location": {
+      "value": "syllabi",
+      "operator": "!="
+    }
   }'>
 </site-top-menu>
 <iron-pages selected="[[selectedPage]]">
-    <haxtheme-home id="homeelement">
-        <!-- <div id="contentcontainer">
-            <div id="slot">
-              <slot></slot>
-            </div>
-          </div> -->
-    </haxtheme-home>
-    <haxtheme-news></haxtheme-news>
-    <haxtheme-team></haxtheme-team>
-    <haxtheme-courses></haxtheme-courses>
-    <haxtheme-about id="about">
-        <div id="contentcontainer">
-            <div id="slot">
-              <slot></slot>
-            </div>
-          </div>
-      </haxtheme-about>
-    <haxtheme-blog id="blog">
-      
-    </haxtheme-blog>
-    <haxtheme-profile id="profile">
-
-    </haxtheme-profile>
-    <haxtheme-course id="course">
-      <!-- <div id="contentcontainer">
-        <div id="slot">
-          <slot></slot>
-        </div> -->
-      </div>
-    </haxtheme-course>
-    <haxtheme-syllabus id="syllabus">
-      <div id="contentcontainer">
-        <div id="slot">
-          <slot></slot>
-        </div>
-      </div>
-    </haxtheme-syllabus>
+    <haxtheme-home id="home" edit-mode$="[[editMode]]"></haxtheme-home>
+    <haxtheme-news id="news" edit-mode$="[[editMode]]"></haxtheme-news>
+    <haxtheme-team id="team" edit-mode$="[[editMode]]"></haxtheme-team>
+    <haxtheme-courses id="courses" edit-mode$="[[editMode]]"></haxtheme-courses>
+    <haxtheme-about id="about" edit-mode$="[[editMode]]"></haxtheme-about>
+    <haxtheme-blog id="blog" edit-mode$="[[editMode]]"></haxtheme-blog>
+    <haxtheme-profile id="profile" edit-mode$="[[editMode]]"></haxtheme-profile>
+    <haxtheme-course id="course" edit-mode$="[[editMode]]"></haxtheme-course>
+    <haxtheme-syllabus id="syllabus" edit-mode$="[[editMode]]"></haxtheme-syllabus>
 </iron-pages>
 <scroll-button></scroll-button>
 <page-footer></page-footer>
