@@ -973,53 +973,54 @@ export { CarlyButton };
  * @demo demo/index.html
  */
 class CarlyButton extends LitElement {
+  
   // render function
   render() {
     return html`
-      <style>
-        :host {
-          display: block;
-        }
+<style>:host {
+  display: block;
+}
 
-        :host([hidden]) {
-          display: none;
-        }
+:host([hidden]) {
+  display: none;
+}
 
-        #container {
-          display: flex;
-          align-items: center;
-        }
+#container {
+  display: flex;
+  align-items: center;
+}
 
-        #state {
-          width: 75px;
-          height: 75px;
-        }
-      </style>
-      <div id="container">
-        ${!this.loading && !this.success
-          ? html`
-              <div id="button">
-                <button @click=${this._clicked}>
-                  <slot></slot>
-                </button>
-              </div>
-            `
-          : ""}
-        <div id="state"></div>
+#state {
+  width: 75px;
+  height: 75px;
+}</style>
+<div id="container">
+  ${!this.loading && !this.success
+    ? html`
+      <div id="button">
+        <button @click=${this._clicked}>
+          <slot></slot>
+        </button>
       </div>
-    `;
+    `
+    : ''
+  }
+  <div id="state">
+  </div>
+</div>`;
   }
 
   // properties available to the custom element for data binding
   static get properties() {
     return {
-      success: {
-        type: "Boolean"
-      },
-      loading: {
-        type: "Boolean"
-      }
-    };
+  "success": {
+    "type": "Boolean"
+  },
+  "loading": {
+    "type": "Boolean"
+  }
+}
+;
   }
 
   /**

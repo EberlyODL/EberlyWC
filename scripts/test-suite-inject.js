@@ -35,7 +35,8 @@ function formatPaths(paths) {
   return paths.map(path => `        "${path}"`).join(",\n");
 }
 
-const withTests = _(elementNames).filter(hasTests);
+const withTests = _(elementNames)
+  .filter(hasTests);
 
 const testRelPaths = withTests.map(testPathRel("..")).value();
 
