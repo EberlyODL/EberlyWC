@@ -3,6 +3,7 @@
  * @license Apache-2.0, see License.md for full text.
  */
 import { LitElement, html, svg } from "lit-element";
+import "@eberlywc/eberlywc-animationctl-button/eberlywc-animationctl-button.js";
 
 /**
  * `hydrolysis-element`
@@ -34,7 +35,8 @@ class HydrolysisElement extends LitElement {
   // life cycle
   constructor() {
     super();
-    this.gsapCDN = "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"
+    this.gsapCDN = "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js";
+    this.__tl = null;
   }
 
   /**
@@ -140,20 +142,21 @@ class HydrolysisElement extends LitElement {
         });
 
       tl.pause();
+      this.__tl = tl;
 
       // listen for button clicks and play and pause the animation
-      this.shadowRoot
-        .querySelector("lrndesign-animationctrl")
-        .addEventListener("click", function(e) {
-          tl.play();
-          var name = e.detail.button;
-          if (name === "play") {
-          }
-          if (name === "replay") {
-            tl.progress(0);
-            tl.pause();
-          }
-        });
+      // this.shadowRoot
+      //   .querySelector("lrndesign-animationctrl")
+      //   .addEventListener("click", function(e) {
+      //     tl.play();
+      //     var name = e.detail.button;
+      //     if (name === "play") {
+      //     }
+      //     if (name === "replay") {
+      //       tl.progress(0);
+      //       tl.pause();
+      //     }
+      //   });
     });
   }
 
@@ -208,24 +211,21 @@ class HydrolysisElement extends LitElement {
   render() {
     return html`
       <h1>Hydrolysis Reaction</h1>
-      <lrndesign-animationctrl>
-        <lrndesign-animationctrl-button name="play" icon="play"
-          >asdf</lrndesign-animationctrl-button
-        >
-        <lrndesign-animationctrl-button name="replay" icon="replay"
-          >asdf</lrndesign-animationctrl-button
-        >
-      </lrndesign-animationctrl>
+      <eberlywc-animationctrl-button @click=${this.play}>play</eberlywc-animationctrl-button>
+      <eberlywc-animationctrl-button @click=${this.reset}>reset</eberlywc-animationctrl-button>
       ${this.renderSVG()}
     `;
   }
 
-  // static get observedAttributes() {
-  //   return [];
-  // }
-  // disconnectedCallback() {}
+  play() {
+    this.__tl.play();
+  }
+ 
+  reset() {
+    this.__tl.progress(0);
+    this.__tl.pause();
+  }
 
-  // attributeChangedCallback(attr, oldValue, newValue) {}
 }
 customElements.define("hydrolysis-element", HydrolysisElement);
 

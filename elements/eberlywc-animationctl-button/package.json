@@ -1,28 +1,33 @@
 {
-  "name": "@eberlywc/hydrolysis-element",
+  "name": "@eberlywc/eberlywc-animationctl-button",
   "wcfactory": {
-    "className": "HydrolysisElement",
+    "className": "EberlywcAnimationctlButton",
     "customElementClass": "LitElement",
-    "elementName": "hydrolysis-element",
+    "elementName": "eberlywc-animationctl-button",
     "generator-wcfactory-version": "0.8.4",
     "useHAX": false,
     "useSass": false,
     "files": {
-      "js": "src/hydrolysis-element.js"
+      "css": "src/eberlywc-animationctl-button.css",
+      "scss": "src/eberlywc-animationctl-button.scss",
+      "html": "src/eberlywc-animationctl-button.html",
+      "js": "src/eberlywc-animationctl-button.js",
+      "properties": "src/eberlywc-animationctl-button-properties.json",
+      "hax": "src/eberlywc-animationctl-button-hax.json"
     },
     "sharedHaxProps": [],
     "sharedProps": [],
     "sharedStyles": []
   },
   "version": "0.0.0",
-  "description": "",
+  "description": "Buttons that will be controls in javascript animations.",
   "repository": {
     "type": "git",
     "url": "git@github.com:EberlyODL/EberlyWC.git"
   },
-  "main": "hydrolysis-element.js",
-  "module": "hydrolysis-element.js",
-  "umd": "hydrolysis-element.umd.js",
+  "main": "eberlywc-animationctl-button.js",
+  "module": "eberlywc-animationctl-button.js",
+  "umd": "eberlywc-animationctl-button.umd.js",
   "scripts": {
     "test": "../../node_modules/.bin/wct --configFile ../../wct.conf.json node_modules/@lrnwebcomponents/haxcms-elements/test/",
     "start": "yarn run dev",
