@@ -215,7 +215,7 @@ class MaltoseElement extends LitElement {
 
   render() {
     return html`
-      <h1>Hydrolysis Reaction</h1>
+      <h1>Maltose Sucrose</h1>
       <eberlywc-animationctrl-button @click=${this.play}
         >play</eberlywc-animationctrl-button
       >
