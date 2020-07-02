@@ -102,20 +102,6 @@
   "dependencies": {
     "@lrnwebcomponents/deduping-fix": "2.4.0"
   },
-  "lint-staged": {
-    "linters": {
-      "*.{js,json}": [
-        "prettier --write",
-        "git add"
-      ]
-    },
-    "ignore": [
-      "elements/**/*.*.js",
-      "**/analysis-error.json",
-      "themes/**/*.*.js",
-      "libraries/**/*.js"
-    ]
-  },
   "keywords": [
     "yeoman-generator",
     "custom-elements",
@@ -143,5 +129,14 @@
     "hooks": {
       "pre-commit": "yarn run test-suite-inject > /dev/null && lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{js,json}": "prettier --write",
+    "*.{png,jpeg,jpg,gif,svg}": [
+        "imagemin-lint-staged",
+        "git add"
+    ],
+    "*.css": "stylelint --fix",
+    "*.scss": "stylelint --syntax=scss --fix"
   }
 }
