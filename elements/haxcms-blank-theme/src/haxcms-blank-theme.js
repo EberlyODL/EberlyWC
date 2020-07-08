@@ -5,7 +5,7 @@ class HaxcmsBlankTheme extends CleanOne {
   static get properties() {
     return {
       ...super.properties
-    }
+    };
   }
   constructor() {
     super();
