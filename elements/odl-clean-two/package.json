@@ -1,19 +1,14 @@
 {
-  "name": "@eberlywc/course-intro",
+  "name": "@eberlywc/odl-clean-two",
   "wcfactory": {
-    "className": "MaltoseElement",
+    "className": "OdlCleanTwo",
     "customElementClass": "LitElement",
-    "elementName": "course-intro",
+    "elementName": "odl-clean-two",
     "generator-wcfactory-version": "0.8.4",
     "useHAX": false,
     "useSass": false,
     "files": {
-      "css": "src/course-intro.css",
-      "scss": "src/course-intro.scss",
-      "html": "src/course-intro.html",
-      "js": "src/course-intro.js",
-      "properties": "src/course-intro-properties.json",
-      "hax": "src/course-intro-hax.json"
+      "js": "src/odl-clean-two.js"
     },
     "sharedHaxProps": [],
     "sharedProps": [],
@@ -25,9 +20,9 @@
     "type": "git",
     "url": "git@github.com:EberlyODL/eberlywc.git"
   },
-  "main": "course-intro.js",
-  "module": "course-intro.js",
-  "umd": "course-intro.umd.js",
+  "main": "odl-clean-two.js",
+  "module": "odl-clean-two.js",
+  "umd": "odl-clean-two.umd.js",
   "scripts": {
     "test": "../../node_modules/.bin/wct --configFile ../../wct.conf.json node_modules/@lrnwebcomponents/haxcms-elements/test/",
     "start": "yarn run dev",
@@ -42,8 +37,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@eberlywc/eberlywc-animationctl-button": "^0.0.4",
-    "@polymer/lit-element": "^0.6.1"
+    "@lrnwebcomponents/clean-two": "^2.6.21"
   },
   "devDependencies": {
     "@polymer/iron-component-page": "github:PolymerElements/iron-component-page",

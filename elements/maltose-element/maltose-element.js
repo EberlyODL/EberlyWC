@@ -6,7 +6,7 @@ import { LitElement, html, svg } from "@polymer/lit-element";
 import "@eberlywc/eberlywc-animationctl-button/eberlywc-animationctl-button.js";
 
 /**
- * `maltose-element`
+ * `course-intro`
  * ``
  *
  * @microcopy - language worth noting:
@@ -23,7 +23,7 @@ class MaltoseElement extends LitElement {
    * @notice function name must be here for tooling to operate correctly
    */
   tag() {
-    return "maltose-element";
+    return "course-intro";
   }
   static get properties() {
     return {
@@ -238,5 +238,5 @@ class MaltoseElement extends LitElement {
     this.__tl2.pause();
   }
 }
-customElements.define("maltose-element", MaltoseElement);
+customElements.define("course-intro", MaltoseElement);
 export { MaltoseElement };

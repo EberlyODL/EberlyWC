@@ -5,29 +5,29 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
     <script src="../node_modules/wct-browser-legacy/browser.js"></script>
-    <script type="module" src="../maltose-element.js"></script>
+    <script type="module" src="../course-intro.js"></script>
   </head>
   <body>
 
-    <maltose-element>
+    <course-intro>
       This is the element content.
-    </maltose-element>
+    </course-intro>
 <test-fixture id="BasicTestFixture">
   <template>
-    <maltose-element></maltose-element>
+    <course-intro></course-intro>
   </template>
 </test-fixture>
 
 <test-fixture id="ChangedPropertyTestFixture">
   <template>
-    <maltose-element></maltose-element>
+    <course-intro></course-intro>
   </template>
 </test-fixture>
 
 <script type="module">
-  suite('<maltose-element>', () => {
+  suite('<course-intro>', () => {
     test('it should upgrade', () => {
-      assert.instanceOf(document.querySelector('maltose-element'), customElements.get("maltose-element", 'maltose-element should be an instance of maltoseElement'));
+      assert.instanceOf(document.querySelector('course-intro'), customElements.get("course-intro", 'course-intro should be an instance of maltoseElement'));
     });
 
     /*test('setting a property on the element works', () => {

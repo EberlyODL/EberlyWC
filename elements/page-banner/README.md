@@ -1,4 +1,4 @@
-# &lt;maltose-element&gt;
+# &lt;course-intro&gt;
 
 Element
 > 
@@ -8,19 +8,19 @@ To use this web component in your project you can utilize one of the following s
 
 ```js
 /* In an existing JS module / web component */
-import '@eberlywc/maltose-element/maltose-element.js';
+import '@eberlywc/course-intro/course-intro.js';
 /* At top of an application with build routine */
-<script type="module" src="@eberlywc/maltose-element/maltose-element.js"></script>
+<script type="module" src="@eberlywc/course-intro/course-intro.js"></script>
 /* Alternatives for top of application */
 <script type="module">
-  import '@eberlywc/maltose-element/maltose-element.js';
+  import '@eberlywc/course-intro/course-intro.js';
   // imperative form
-  import {MaltoseElement} from '@eberlywc/maltose-element';
+  import {MaltoseElement} from '@eberlywc/course-intro';
   // if you don't have a build routine and need to reference directly
-  import './node_modules/@eberlywc/maltose-element/maltose-element.js';
+  import './node_modules/@eberlywc/course-intro/course-intro.js';
 </script>
 // via unpkg CDN (good for testing)
-<script type="module" src="https://unpkg.com/@eberlywc/maltose-element/maltose-element.js"></script>
+<script type="module" src="https://unpkg.com/@eberlywc/course-intro/course-intro.js"></script>
 ```
 
 ## Develop / Demo
