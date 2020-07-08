@@ -53,16 +53,16 @@ class MaltoseElement extends LitElement {
       var root = this;
       var tl = new TimelineMax();
       var tl2 = new TimelineMax();
-      var svg = this.shadowRoot.querySelector('#hexagons');
-      var ohleft = svg.getElementById('ohleft');
-      var h20 = svg.getElementById('h20');
-      var maltosecenter = svg.getElementById('maltosecenter');
-      var hright = svg.getElementById('hright');
-      var glucoseleft = svg.getElementById('glucoseleft');
-      var glucoseright = svg.getElementById('glucoseright');
-      var glucosehexright = svg.getElementById('glucosehexright');
-      var glucosehexleft = svg.getElementById('glucosehexleft');
-      var oright = svg.getElementById('oright');
+      var svg = this.shadowRoot.querySelector("#hexagons");
+      var ohleft = svg.getElementById("ohleft");
+      var h20 = svg.getElementById("h20");
+      var maltosecenter = svg.getElementById("maltosecenter");
+      var hright = svg.getElementById("hright");
+      var glucoseleft = svg.getElementById("glucoseleft");
+      var glucoseright = svg.getElementById("glucoseright");
+      var glucosehexright = svg.getElementById("glucosehexright");
+      var glucosehexleft = svg.getElementById("glucosehexleft");
+      var oright = svg.getElementById("oright");
 
       // Set Animate
       tl.set([h20, maltosecenter], {
@@ -75,39 +75,54 @@ class MaltoseElement extends LitElement {
         x: "+=25",
         ease: Power2.easeOut
       })
-      .to([hright], 1, {
-        y: "+=50",
-        x: "-=25",
-        ease: Power2.easeOut
-      })
-      .to([ohleft,hright], 1, {
-        x: "+=200",
-        y: "-=60",
-        ease: Power2.easeOut,
-        alpha: 0
-      })
-      .to([h20], .5, {
-        x: "-=10",
-      })
-      .to([h20, maltosecenter], .5, {
-        alpha: 1
-      })
-      .to([glucoseleft,glucoseright], .5, {
-        alpha: 0
-      })
-      .to([glucosehexleft], .5, {
-        x: "-=30",
-        ease: Power2.easeOut,
-      }, 3)
-      .to([glucosehexright], 1, {
-        x: "-=110",
-        ease: Power2.easeOut,
-      }, 3)
-      .to([oright], 1, {
-        x: "-=105",
-        y: "+=10",
-        ease: Power2.easeOut
-      }, 3);
+        .to([hright], 1, {
+          y: "+=50",
+          x: "-=25",
+          ease: Power2.easeOut
+        })
+        .to([ohleft, hright], 1, {
+          x: "+=200",
+          y: "-=60",
+          ease: Power2.easeOut,
+          alpha: 0
+        })
+        .to([h20], 0.5, {
+          x: "-=10"
+        })
+        .to([h20, maltosecenter], 0.5, {
+          alpha: 1
+        })
+        .to([glucoseleft, glucoseright], 0.5, {
+          alpha: 0
+        })
+        .to(
+          [glucosehexleft],
+          0.5,
+          {
+            x: "-=30",
+            ease: Power2.easeOut
+          },
+          3
+        )
+        .to(
+          [glucosehexright],
+          1,
+          {
+            x: "-=110",
+            ease: Power2.easeOut
+          },
+          3
+        )
+        .to(
+          [oright],
+          1,
+          {
+            x: "-=105",
+            y: "+=10",
+            ease: Power2.easeOut
+          },
+          3
+        );
 
       tl.pause();
       tl2.pause();

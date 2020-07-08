@@ -44,4 +44,3 @@ class OdlCleanTwo extends CleanTwo {
 }
 window.customElements.define(OdlCleanTwo.tag, OdlCleanTwo);
 export { OdlCleanTwo };
-
