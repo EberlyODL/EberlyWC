@@ -167,5 +167,5 @@ gulp.task("dev", gulp.series("merge", "analyze", "watch"));
 
 gulp.task(
   "default",
-  gulp.series("merge", "analyze", "build", "compile")
+  gulp.series("merge", "analyze")
 );
