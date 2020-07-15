@@ -104,4 +104,4 @@ class ThinSpinner extends LitElement {
 }
 customElements.define("thin-spinner", ThinSpinner);
 
-export { ThinSpinner }
+export { ThinSpinner };
