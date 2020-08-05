@@ -16,7 +16,7 @@
       "hax": "src/bodymovin-library-hax.json"
     }
   },
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Singleton for bodymovin library.",
   "repository": {
     "type": "git",
