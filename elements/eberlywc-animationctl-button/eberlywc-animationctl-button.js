@@ -2,7 +2,7 @@
  * Copyright 2020 PSU
  * @license Apache-2.0, see License.md for full text.
  */
-import { LitElement, html } from "@polymer/lit-element";
+import { LitElement, html, css } from "lit-element/lit-element.js";
 
 /**
  * `eberlywc-animationctl-button`
@@ -22,48 +22,11 @@ class EberlywcAnimationctlButton extends LitElement {
     return [
       css`
         :host {
-          display: block;
+          display: inline-block;
         }
 
         :host([hidden]) {
           display: none;
-        }
-
-        button {
-          background: #0f0f6d;
-          color: #ffffff;
-          cursor: pointer;
-          font-size: 2em;
-          padding: 1.5rem;
-          border: 0;
-          transition: all 0.5s;
-          border-radius: 10px;
-          width: auto;
-          position: relative;
-        }
-
-        button:after {
-          content: "\f054";
-          font-family: "Font Awesome 5 Pro";
-          font-weight: 400;
-          position: absolute;
-          left: 85%;
-          top: 31%;
-          right: 5%;
-          bottom: 0;
-          opacity: 0;
-        }
-
-        button:hover {
-          background: #2b2bff;
-          transition: all 0.5s;
-          border-radius: 10px;
-          box-shadow: 0px 6px 15px #0000ff61;
-          padding: 1.5rem 3.5rem 1.5rem 1.5rem;
-        }
-        button:hover:after {
-          opacity: 1;
-          transition: all 0.5s;
         }
       `
     ];

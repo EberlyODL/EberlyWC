@@ -2,11 +2,11 @@
  * Copyright 2020 PSU
  * @license Apache-2.0, see License.md for full text.
  */
-import { LitElement, html, svg } from "@polymer/lit-element";
+import { LitElement, html, svg } from "lit-element/lit-element.js";
 import "@eberlywc/eberlywc-animationctl-button/eberlywc-animationctl-button.js";
 
 /**
- * `course-intro`
+ * `maltose-element`
  * ``
  *
  * @microcopy - language worth noting:
@@ -23,7 +23,7 @@ class MaltoseElement extends LitElement {
    * @notice function name must be here for tooling to operate correctly
    */
   tag() {
-    return "course-intro";
+    return "maltose-element";
   }
   static get properties() {
     return {
@@ -253,5 +253,5 @@ class MaltoseElement extends LitElement {
     this.__tl2.pause();
   }
 }
-customElements.define("course-intro", MaltoseElement);
+customElements.define("maltose-element", MaltoseElement);
 export { MaltoseElement };

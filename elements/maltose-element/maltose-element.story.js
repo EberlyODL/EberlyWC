@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/polymer";
 import * as storybookBridge from "@storybook/addon-knobs/polymer";
-import { MaltoseElement } from "./course-intro.js";
+import { MaltoseElement } from "./maltose-element.js";
 import "@polymer/iron-demo-helpers/demo-snippet.js";
 // need to account for polymer goofiness when webpack rolls this up
 var template = require("raw-loader!./demo/index.html");
@@ -10,10 +10,10 @@ var array_matches = pattern.exec(template);
 template = array_matches[1];
 const stories = storiesOf("Element", module);
 stories.addDecorator(storybookBridge.withKnobs);
-stories.add("course-intro", () => {
+stories.add("maltose-element", () => {
   var binding = {};
   // start of tag for demo
-  let elementDemo = `<course-intro`;
+  let elementDemo = `<maltose-element`;
   // mix in properties defined on the class
   for (var key in MaltoseElement.properties) {
     // skip prototype
@@ -47,7 +47,7 @@ stories.add("course-intro", () => {
     }
   }
   const innerText = storybookBridge.text("Inner contents", "Element");
-  elementDemo += `> ${innerText}</course-intro>`;
+  elementDemo += `> ${innerText}</maltose-element>`;
   return `
   <h1>Live demo</h1>
   ${elementDemo}
