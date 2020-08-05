@@ -35,7 +35,8 @@ class HydrolysisElement extends LitElement {
   // life cycle
   constructor() {
     super();
-    this.gsapCDN = "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js";
+    this.gsapCDN =
+      "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js";
     this.__tl = null;
   }
 
@@ -211,8 +212,12 @@ class HydrolysisElement extends LitElement {
   render() {
     return html`
       <h1>Hydrolysis Reaction</h1>
-      <eberlywc-animationctrl-button @click=${this.play}>play</eberlywc-animationctrl-button>
-      <eberlywc-animationctrl-button @click=${this.reset}>reset</eberlywc-animationctrl-button>
+      <eberlywc-animationctrl-button @click=${this.play}
+        >play</eberlywc-animationctrl-button
+      >
+      <eberlywc-animationctrl-button @click=${this.reset}
+        >reset</eberlywc-animationctrl-button
+      >
       ${this.renderSVG()}
     `;
   }
@@ -220,12 +225,11 @@ class HydrolysisElement extends LitElement {
   play() {
     this.__tl.play();
   }
- 
+
   reset() {
     this.__tl.progress(0);
     this.__tl.pause();
   }
-
 }
 customElements.define("hydrolysis-element", HydrolysisElement);
 
