@@ -50,55 +50,58 @@ class BacterialCellDivision extends LitElement {
   firstUpdated() {
     import(this.gsapCDN).then(() => {
       var tl = new TimelineMax();
-      var playButton = this.shadowRoot.querySelector('#play-button');
-      var replayButton = this.shadowRoot.querySelector('#replay-button');
-      var svg = this.shadowRoot.querySelector('#bacteria');
-      var step1 = svg.getElementById('stepone');
-      var step2 = svg.getElementById('steptwo');
-      var step3 = svg.getElementById('stepthree');
-      var step4 = svg.getElementById('stepfour');
-      var step5 = svg.getElementById('stepfive');
-      var rightblob = svg.getElementById('rightblob');
-      var leftblob = svg.getElementById('leftblob');
-      var centerblob = svg.getElementById('centerblob');
-      var textleft = svg.getElementById('textleft');
-      var textright = svg.getElementById('textright');
+      var playButton = this.shadowRoot.querySelector("#play-button");
+      var replayButton = this.shadowRoot.querySelector("#replay-button");
+      var svg = this.shadowRoot.querySelector("#bacteria");
+      var step1 = svg.getElementById("stepone");
+      var step2 = svg.getElementById("steptwo");
+      var step3 = svg.getElementById("stepthree");
+      var step4 = svg.getElementById("stepfour");
+      var step5 = svg.getElementById("stepfive");
+      var rightblob = svg.getElementById("rightblob");
+      var leftblob = svg.getElementById("leftblob");
+      var centerblob = svg.getElementById("centerblob");
+      var textleft = svg.getElementById("textleft");
+      var textright = svg.getElementById("textright");
 
-      tl.set([step2, step3, step4, step5, rightblob, leftblob, textleft, textright], {
+      tl.set(
+        [step2, step3, step4, step5, rightblob, leftblob, textleft, textright],
+        {
+          display: "none"
+        }
+      );
+
+      tl.to([step1, centerblob], 0.5, {
         display: "none"
-      });
-
-      tl.to([step1, centerblob], .5, {
-          display: "none"
-        })
-        .to([step2], .5, {
-          display: "block",
-        })
-        .to([step2], .5, {
-          display: "none"
-        })
-        .to([step3], .5, {
-          display: "block",
-        })
-        .to([step3], .5, {
-          display: "none"
-        })
-        .to([step4], .5, {
-          display: "block",
-        })
-        .to([step4], .5, {
-          display: "none"
-        })
-        .to([step5], .5, {
-          display: "block",
-        })
-        .to([step5], .5, {
-          display: "none",
-        })
-        .to([rightblob, leftblob], .5, {
+      })
+        .to([step2], 0.5, {
           display: "block"
         })
-        .to([textleft, textright], .5, {
+        .to([step2], 0.5, {
+          display: "none"
+        })
+        .to([step3], 0.5, {
+          display: "block"
+        })
+        .to([step3], 0.5, {
+          display: "none"
+        })
+        .to([step4], 0.5, {
+          display: "block"
+        })
+        .to([step4], 0.5, {
+          display: "none"
+        })
+        .to([step5], 0.5, {
+          display: "block"
+        })
+        .to([step5], 0.5, {
+          display: "none"
+        })
+        .to([rightblob, leftblob], 0.5, {
+          display: "block"
+        })
+        .to([textleft, textright], 0.5, {
           display: "block"
         });
 
