@@ -1,4 +1,4 @@
-import { html, css } from "lit-element/lit-element.js";
+import { html, css } from "lit-element";
 import { LearnTwoTheme } from "@lrnwebcomponents/learn-two-theme/learn-two-theme.js";
 import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-store.js"
 import { autorun, toJS } from "mobx/lib/mobx.module.js"

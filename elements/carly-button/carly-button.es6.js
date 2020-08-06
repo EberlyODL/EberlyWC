@@ -1,7 +1,7 @@
 /**
  * Copyright 2019 PSU
  * @license Apache-2.0, see License.md for full text.
- */import{LitElement,html}from"./node_modules/@polymer/lit-element/lit-element.js";export{CarlyButton};/**
+ */import{LitElement,html}from"./node_modules/@polymer/lit-element";export{CarlyButton};/**
  * `carly-button`
  * `Cool submit button for testing.`
  *

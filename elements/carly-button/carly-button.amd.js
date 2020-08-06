@@ -1,4 +1,4 @@
-define(["exports","./node_modules/@polymer/lit-element/lit-element.js"],function(_exports,_litElement){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.CarlyButton=void 0;function _templateObject_41a9fdf0614811e9a89e5f16905b6d5d(){var data=babelHelpers.taggedTemplateLiteral(["\n<style>:host {\n  display: block;\n}\n\n:host([hidden]) {\n  display: none;\n}\n</style>\n<slot></slot>"]);_templateObject_41a9fdf0614811e9a89e5f16905b6d5d=function _templateObject_41a9fdf0614811e9a89e5f16905b6d5d(){return data};return data}/**
+define(["exports","./node_modules/@polymer/lit-element"],function(_exports,_litElement){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.CarlyButton=void 0;function _templateObject_41a9fdf0614811e9a89e5f16905b6d5d(){var data=babelHelpers.taggedTemplateLiteral(["\n<style>:host {\n  display: block;\n}\n\n:host([hidden]) {\n  display: none;\n}\n</style>\n<slot></slot>"]);_templateObject_41a9fdf0614811e9a89e5f16905b6d5d=function _templateObject_41a9fdf0614811e9a89e5f16905b6d5d(){return data};return data}/**
  * `carly-button`
  * `Cool submit button for testing.`
  *
