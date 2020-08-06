@@ -1,4 +1,4 @@
-import { html, css, LitElement } from "lit-element";
+import { html, css, LitElement } from "lit-element/lit-element.js";
 
 class PageBanner extends LitElement {
   static get properties() {

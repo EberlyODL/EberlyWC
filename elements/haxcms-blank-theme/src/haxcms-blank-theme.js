@@ -1,4 +1,4 @@
-import { html, css } from "lit-element";
+import { html, css } from "lit-element/lit-element.js";
 import { CleanOne } from "@lrnwebcomponents/clean-one/clean-one.js";
 
 class HaxcmsBlankTheme extends CleanOne {

@@ -2,7 +2,7 @@
  * Copyright 2020 PSU
  * @license Apache-2.0, see License.md for full text.
  */
-import { LitElement, html, css } from "lit-element";
+import { LitElement, html, css } from "lit-element/lit-element.js";
 
 /**
  * `eberlywc-animationctl-button`

@@ -1,4 +1,4 @@
-import { LitElement, html } from "lit-element";
+import { LitElement, html } from "lit-element/lit-element.js";
 
 class ThinSpinner extends LitElement {
   static get properties() {
