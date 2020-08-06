@@ -1,41 +1,41 @@
 import { html, css } from "lit-element";
 import { LearnTwoTheme } from "@lrnwebcomponents/learn-two-theme/learn-two-theme.js";
-import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-store.js"
-import { autorun, toJS } from "mobx/lib/mobx.module.js"
+import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-store.js";
+import { autorun, toJS } from "mobx/lib/mobx.module.js";
 
 class OdlLearnTwoTheme extends LearnTwoTheme {
   static get properties() {
     return {
       ...super.properties,
-      layout: { type: String, reflect: true },
-    }
+      layout: { type: String, reflect: true }
+    };
   }
   constructor() {
     super();
-    this.layout = 'default'
+    this.layout = "default";
   }
   //styles function
   static get styles() {
     return [super.styles, css``];
   }
   connectedCallback() {
-    super.connectedCallback()
-    autorun((resolve) => {
-      this.__updateLayout(store)
-    })
+    super.connectedCallback();
+    autorun(resolve => {
+      this.__updateLayout(store);
+    });
   }
   __updateLayout(store) {
-    const activeId = toJS(store.activeId)
-    const manifest = toJS(store.manifest.items)
-    const activeItem = manifest.find(i => i.id === activeId)
-    if (typeof activeItem.metadata !== 'undefined') {
-      if (typeof activeItem.metadata.layout !== 'undefined') {
-        this.layout = activeItem.metadata.layout
-        return
+    const activeId = toJS(store.activeId);
+    const manifest = toJS(store.manifest.items);
+    const activeItem = manifest.find(i => i.id === activeId);
+    if (typeof activeItem.metadata !== "undefined") {
+      if (typeof activeItem.metadata.layout !== "undefined") {
+        this.layout = activeItem.metadata.layout;
+        return;
       }
     }
-    this.layout = "default"
-    return
+    this.layout = "default";
+    return;
   }
   // render function
   render() {
@@ -131,84 +131,83 @@ class OdlLearnTwoTheme extends LearnTwoTheme {
           }
         </style>
       </custom-style>
-          <app-drawer-layout responsive-width="900px">
-            ${(this.layout !== "course-intro")
-              ? html`
-                <paper-icon-button
-                  id="menubutton"
-                  icon="menu"
-                  @click="${this.toggleDrawer}"
-                  title="Toggle site menu"
-                ></paper-icon-button>
-              `
-              : html``
-            }
-            <app-drawer
-              swipe-open
-              slot="drawer"
-              .opened="${this.opened}"
-              @opened="${this.__openedChanged}"
-            >
+      <app-drawer-layout responsive-width="900px">
+        ${this.layout !== "course-intro"
+          ? html`
               <paper-icon-button
-                id="menubutton2"
+                id="menubutton"
                 icon="menu"
                 @click="${this.toggleDrawer}"
                 title="Toggle site menu"
               ></paper-icon-button>
-              <div class="header-wrapper">
-                <div class="header">
-                  <site-title ?disabled="${this.editMode}"></site-title>
-                  <site-modal
-                    @site-modal-click="${this.siteModalClick}"
-                    ?disabled="${this.editMode}"
-                    icon="icons:search"
-                    title="Search site"
-                    button-label="Search"
-                  >
-                    <site-search></site-search>
-                  </site-modal>
-                </div>
-              </div>
-              <site-menu></site-menu>
-              <div class="rss-buttons">
-                <site-rss-button
-                  ?disabled="${this.editMode}"
-                  type="atom"
-                ></site-rss-button>
-                <site-rss-button
-                  ?disabled="${this.editMode}"
-                  type="rss"
-                ></site-rss-button>
-                <site-print-button
-                  ?disabled="${this.editMode}"
-                  position="top"
-                ></site-print-button>
-              </div>
-            </app-drawer>
-            <div>
-              <site-menu-button type="prev"></site-menu-button>
-              ${(this.layout === "course-intro")
-                ? html`
-                  <course-intro>
-                    <div id="contentcontainer">
-                      <site-active-title></site-active-title>
-                      <div id="slot">
-                        <slot></slot>
-                      </div>
-                    </div>
-                  </course-intro>`
-                : html`
+            `
+          : html``}
+        <app-drawer
+          swipe-open
+          slot="drawer"
+          .opened="${this.opened}"
+          @opened="${this.__openedChanged}"
+        >
+          <paper-icon-button
+            id="menubutton2"
+            icon="menu"
+            @click="${this.toggleDrawer}"
+            title="Toggle site menu"
+          ></paper-icon-button>
+          <div class="header-wrapper">
+            <div class="header">
+              <site-title ?disabled="${this.editMode}"></site-title>
+              <site-modal
+                @site-modal-click="${this.siteModalClick}"
+                ?disabled="${this.editMode}"
+                icon="icons:search"
+                title="Search site"
+                button-label="Search"
+              >
+                <site-search></site-search>
+              </site-modal>
+            </div>
+          </div>
+          <site-menu></site-menu>
+          <div class="rss-buttons">
+            <site-rss-button
+              ?disabled="${this.editMode}"
+              type="atom"
+            ></site-rss-button>
+            <site-rss-button
+              ?disabled="${this.editMode}"
+              type="rss"
+            ></site-rss-button>
+            <site-print-button
+              ?disabled="${this.editMode}"
+              position="top"
+            ></site-print-button>
+          </div>
+        </app-drawer>
+        <div>
+          <site-menu-button type="prev"></site-menu-button>
+          ${this.layout === "course-intro"
+            ? html`
+                <course-intro>
                   <div id="contentcontainer">
                     <site-active-title></site-active-title>
                     <div id="slot">
                       <slot></slot>
                     </div>
                   </div>
-                `
-              }
-              <site-menu-button type="next"></site-menu-button>
-            </div>
-          </app-drawer-layout>
+                </course-intro>
+              `
+            : html`
+                <div id="contentcontainer">
+                  <site-active-title></site-active-title>
+                  <div id="slot">
+                    <slot></slot>
+                  </div>
+                </div>
+              `}
+          <site-menu-button type="next"></site-menu-button>
+        </div>
+      </app-drawer-layout>
     `;
   }
 }
