@@ -5,29 +5,29 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
     <script src="../node_modules/wct-browser-legacy/browser.js"></script>
-    <script type="module" src="../hydrolysis-element.js"></script>
+    <script type="module" src="../condensation-element.js"></script>
   </head>
   <body>
 
-    <hydrolysis-element>
+    <condensation-element>
       This is the element content.
-    </hydrolysis-element>
+    </condensation-element>
 <test-fixture id="BasicTestFixture">
   <template>
-    <hydrolysis-element></hydrolysis-element>
+    <condensation-element></condensation-element>
   </template>
 </test-fixture>
 
 <test-fixture id="ChangedPropertyTestFixture">
   <template>
-    <hydrolysis-element></hydrolysis-element>
+    <condensation-element></condensation-element>
   </template>
 </test-fixture>
 
 <script type="module">
-  suite('<hydrolysis-element>', () => {
+  suite('<condensation-element>', () => {
     test('it should upgrade', () => {
-      assert.instanceOf(document.querySelector('hydrolysis-element'), customElements.get("hydrolysis-element", 'hydrolysis-element should be an instance of hydrolysisElement'));
+      assert.instanceOf(document.querySelector('condensation-element'), customElements.get("condensation-element", 'condensation-element should be an instance of hydrolysisElement'));
     });
 
     /*test('setting a property on the element works', () => {

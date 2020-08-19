@@ -6,7 +6,7 @@ import { LitElement, html, svg } from "lit-element/lit-element.js";
 import "@eberlywc/eberlywc-animationctl-button/eberlywc-animationctl-button.js";
 
 /**
- * `hydrolysis-element`
+ * `condensation-element`
  * ``
  *
  * @microcopy - language worth noting:
@@ -17,13 +17,13 @@ import "@eberlywc/eberlywc-animationctl-button/eberlywc-animationctl-button.js";
  * @lit-element
  * @demo demo/index.html
  */
-class HydrolysisElement extends LitElement {
+class CondensationElement extends LitElement {
   /**
    * Store the tag name to make it easier to obtain directly.
    * @notice function name must be here for tooling to operate correctly
    */
   tag() {
-    return "hydrolysis-element";
+    return "condensation-element";
   }
 
   static get properties() {
@@ -239,6 +239,6 @@ class HydrolysisElement extends LitElement {
     this.__tl.pause();
   }
 }
-customElements.define("hydrolysis-element", HydrolysisElement);
+customElements.define("condensation-element", CondensationElement);
 
-export { HydrolysisElement };
+export { CondensationElement };

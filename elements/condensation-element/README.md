@@ -1,4 +1,4 @@
-# &lt;hydrolysis-element&gt;
+# &lt;condensation-element&gt;
 
 Element
 > 
@@ -8,19 +8,19 @@ To use this web component in your project you can utilize one of the following s
 
 ```js
 /* In an existing JS module / web component */
-import '@eberlywc/hydrolysis-element/hydrolysis-element.js';
+import '@eberlywc/condensation-element/condensation-element.js';
 /* At top of an application with build routine */
-<script type="module" src="@eberlywc/hydrolysis-element/hydrolysis-element.js"></script>
+<script type="module" src="@eberlywc/condensation-element/condensation-element.js"></script>
 /* Alternatives for top of application */
 <script type="module">
-  import '@eberlywc/hydrolysis-element/hydrolysis-element.js';
+  import '@eberlywc/condensation-element/condensation-element.js';
   // imperative form
-  import {HydrolysisElement} from '@eberlywc/hydrolysis-element';
+  import {CondensationElement} from '@eberlywc/condensation-element';
   // if you don't have a build routine and need to reference directly
-  import './node_modules/@eberlywc/hydrolysis-element/hydrolysis-element.js';
+  import './node_modules/@eberlywc/condensation-element/condensation-element.js';
 </script>
 // via unpkg CDN (good for testing)
-<script type="module" src="https://unpkg.com/@eberlywc/hydrolysis-element/hydrolysis-element.js"></script>
+<script type="module" src="https://unpkg.com/@eberlywc/condensation-element/condensation-element.js"></script>
 ```
 
 ## Develop / Demo

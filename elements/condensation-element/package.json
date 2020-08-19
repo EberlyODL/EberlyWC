@@ -1,14 +1,14 @@
 {
-  "name": "@eberlywc/hydrolysis-element",
+  "name": "@eberlywc/condensation-element",
   "wcfactory": {
-    "className": "HydrolysisElement",
+    "className": "CondensationElement",
     "customElementClass": "LitElement",
-    "elementName": "hydrolysis-element",
+    "elementName": "condensation-element",
     "generator-wcfactory-version": "0.8.4",
     "useHAX": false,
     "useSass": false,
     "files": {
-      "js": "src/hydrolysis-element.js"
+      "js": "src/condensation-element.js"
     },
     "sharedHaxProps": [],
     "sharedProps": [],
@@ -20,9 +20,9 @@
     "type": "git",
     "url": "git@github.com:EberlyODL/EberlyWC.git"
   },
-  "main": "hydrolysis-element.js",
-  "module": "hydrolysis-element.js",
-  "umd": "hydrolysis-element.umd.js",
+  "main": "condensation-element.js",
+  "module": "condensation-element.js",
+  "umd": "condensation-element.umd.js",
   "scripts": {
     "test": "../../node_modules/.bin/wct --configFile ../../wct.conf.json node_modules/@lrnwebcomponents/haxcms-elements/test/",
     "start": "yarn run dev",
