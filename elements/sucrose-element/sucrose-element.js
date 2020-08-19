@@ -54,16 +54,16 @@ class SucroseElement extends LitElement {
       var playButton = this.shadowRoot.querySelector("#play-button");
       var replayButton = this.shadowRoot.querySelector("#replay-button");
       var tl = new TimelineMax();
-      var svg = this.shadowRoot.querySelector('#hexagons');
-      var h20 = svg.getElementById('h20');
-      var sucrosecenter = svg.getElementById('sucrosecenter');
-      var ohleft = svg.getElementById('ohleft');
-      var hright = svg.getElementById('hright');
-      var glucoseleft = svg.getElementById('glucoseleft');
-      var fructoseright = svg.getElementById('fructoseright');
-      var fructosehexright = svg.getElementById('fructosehexright');
-      var glucosehexleft = svg.getElementById('glucosehexleft');
-      var oright = svg.getElementById('oright');
+      var svg = this.shadowRoot.querySelector("#hexagons");
+      var h20 = svg.getElementById("h20");
+      var sucrosecenter = svg.getElementById("sucrosecenter");
+      var ohleft = svg.getElementById("ohleft");
+      var hright = svg.getElementById("hright");
+      var glucoseleft = svg.getElementById("glucoseleft");
+      var fructoseright = svg.getElementById("fructoseright");
+      var fructosehexright = svg.getElementById("fructosehexright");
+      var glucosehexleft = svg.getElementById("glucosehexleft");
+      var oright = svg.getElementById("oright");
 
       // Set Animate
       tl.set([h20, sucrosecenter], {
@@ -75,40 +75,59 @@ class SucroseElement extends LitElement {
         y: "+=50",
         x: "+=25",
         ease: Power2.easeOut
-      })
+      });
       tl.to([hright], 1, {
         y: "+=50",
         x: "-=20",
         ease: Power2.easeOut
-      })
-      tl.to([ohleft,hright], 1, {
+      });
+      tl.to([ohleft, hright], 1, {
         x: "+=200",
         y: "-=60",
         ease: Power2.easeOut,
         alpha: 0
-      })
-      tl.to([h20], .1, {
-        x: "-=10",
-      })
-      .to([h20, sucrosecenter], .5, {
+      });
+      tl.to([h20], 0.1, {
+        x: "-=10"
+      }).to([h20, sucrosecenter], 0.5, {
         alpha: 1
-      })
-      tl.to([glucoseleft,fructoseright], .3, {
-        alpha: 0
-      }, 3)
-      tl.to([glucosehexleft], .5, {
-        x: "-=30",
-        ease: Power2.easeOut,
-      }, 3)
-      tl.to([fructosehexright], .5, {
-        x: "-=90",
-        ease: Power2.easeOut,
-      }, 3)
-      tl.to([oright], .5, {
-        x: "-=95",
-        y: "+=10",
-        ease: Power2.easeOut
-      }, 3);
+      });
+      tl.to(
+        [glucoseleft, fructoseright],
+        0.3,
+        {
+          alpha: 0
+        },
+        3
+      );
+      tl.to(
+        [glucosehexleft],
+        0.5,
+        {
+          x: "-=30",
+          ease: Power2.easeOut
+        },
+        3
+      );
+      tl.to(
+        [fructosehexright],
+        0.5,
+        {
+          x: "-=90",
+          ease: Power2.easeOut
+        },
+        3
+      );
+      tl.to(
+        [oright],
+        0.5,
+        {
+          x: "-=95",
+          y: "+=10",
+          ease: Power2.easeOut
+        },
+        3
+      );
 
       tl.pause();
       this.__tl = tl;

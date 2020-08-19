@@ -27,7 +27,9 @@ stories.add("disaccharide-formation", () => {
         case "Object":
         case "Array":
         case "Date":
-          method = DisaccharideFormation.properties[key].type.name.toLowerCase();
+          method = DisaccharideFormation.properties[
+            key
+          ].type.name.toLowerCase();
           break;
         default:
           method = "text";

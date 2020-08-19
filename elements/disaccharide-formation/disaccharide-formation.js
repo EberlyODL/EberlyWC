@@ -29,8 +29,7 @@ class DisaccharideFormation extends LitElement {
   }
 
   static get properties() {
-    return {
-    };
+    return {};
   }
 
   // life cycle
