@@ -1506,14 +1506,14 @@ class MonohybridElement4 extends LitElement {
   }
 
   reset() {
-   this.__tl.progress(0);
-   this.__tltopl.progress(0);
-   this.__tltopr.progress(0);
-   this.__tlright.progress(0);
-   this.__tl.pause();
-   this.__tltopl.pause();
-   this.__tltopr.pause();
-   this.__tlright.pause();
+    this.__tl.progress(0);
+    this.__tltopl.progress(0);
+    this.__tltopr.progress(0);
+    this.__tlright.progress(0);
+    this.__tl.pause();
+    this.__tltopl.pause();
+    this.__tltopr.pause();
+    this.__tlright.pause();
   }
 }
 customElements.define("monohybrid-element-4", MonohybridElement4);

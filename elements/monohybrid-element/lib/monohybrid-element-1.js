@@ -56,7 +56,7 @@ class MonohybridElement1 extends LitElement {
 
       // Set Animate
       tl.set([svg], {
-          x: "+=90"
+        x: "+=90"
       });
       this.__tl = tl;
     });
@@ -114,10 +114,15 @@ class MonohybridElement1 extends LitElement {
 
   render() {
     return html`
-      <p>A punnet square is a tool that can be used to predict possible offspring that can result from a genetic cross. This
-          animation will illustrate the constrution and use of a punnet square in a monohyrid cross (a genetic cross that
-          tracks the inheritance of a single character). Note that each individual involved in this cross hass the same
-          genotype (Bb) and thus half the gametes from each will contain the B allele and half will contain the b allele.</p>
+      <p>
+        A punnet square is a tool that can be used to predict possible offspring
+        that can result from a genetic cross. This animation will illustrate the
+        constrution and use of a punnet square in a monohyrid cross (a genetic
+        cross that tracks the inheritance of a single character). Note that each
+        individual involved in this cross hass the same genotype (Bb) and thus
+        half the gametes from each will contain the B allele and half will
+        contain the b allele.
+      </p>
       <eberlywc-animationctrl-button @click=${this.play}
         >play</eberlywc-animationctrl-button
       >

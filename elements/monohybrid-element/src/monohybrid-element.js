@@ -73,7 +73,10 @@ class MonohybridElement extends LitElement {
         <figure id="figure-4">
           <monohybrid-element-4></monohybrid-element-4>
         </figure>
-        <div slot="below" style="display:flex;align-items:stretch;justify-content:center">
+        <div
+          slot="below"
+          style="display:flex;align-items:stretch;justify-content:center"
+        >
           <a11y-carousel-button button-type="prev">prev</a11y-carousel-button>
           <a11y-carousel-button button-type="next">next</a11y-carousel-button>
         </div>

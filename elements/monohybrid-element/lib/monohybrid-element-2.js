@@ -52,35 +52,37 @@ class MonohybridElement2 extends LitElement {
     import(this.gsapCDN).then(() => {
       var tlblue = new TimelineMax();
       var tlpink = new TimelineMax();
-      var svg = this.shadowRoot.querySelector('#squares');
+      var svg = this.shadowRoot.querySelector("#squares");
 
       // SVG
-      var pinkcatlittleb = svg.getElementById('pinkcatlittleb');
-      var pinkcatbigb = svg.getElementById('pinkcatbigb');
-      var bluecatlittleb = svg.getElementById('bluecatlittleb');
-      var bluecatbigb = svg.getElementById('bluecatbigb');
+      var pinkcatlittleb = svg.getElementById("pinkcatlittleb");
+      var pinkcatbigb = svg.getElementById("pinkcatbigb");
+      var bluecatlittleb = svg.getElementById("bluecatlittleb");
+      var bluecatbigb = svg.getElementById("bluecatbigb");
 
       // Set Animate
       tlblue.set([svg], {
-          x: "+=90"
+        x: "+=90"
       });
 
       // Start Animate Pink Big
-      tlpink.to([pinkcatlittleb], 1, {
-              x: "+=50",
-          })
-          .to([pinkcatbigb], 1, {
-              x: "-=50",
-          });
+      tlpink
+        .to([pinkcatlittleb], 1, {
+          x: "+=50"
+        })
+        .to([pinkcatbigb], 1, {
+          x: "-=50"
+        });
 
       // Start Animate Blue
-      tlblue.to([bluecatlittleb], 1, {
-              y: "+=50",
-          })
-          .to([bluecatbigb], 1, {
-              y: "-=50",
-              x: "+=10"
-          });
+      tlblue
+        .to([bluecatlittleb], 1, {
+          y: "+=50"
+        })
+        .to([bluecatbigb], 1, {
+          y: "-=50",
+          x: "+=10"
+        });
 
       tlblue.pause();
       tlpink.pause();
@@ -140,8 +142,12 @@ class MonohybridElement2 extends LitElement {
 
   render() {
     return html`
-        <p>These gametes (B and b) are distributed along both axes of the punnet square. This represents the two possible genetic
-            contributions of each parent to resulting offspring. Click on the play button to line up the gametes.</p>
+      <p>
+        These gametes (B and b) are distributed along both axes of the punnet
+        square. This represents the two possible genetic contributions of each
+        parent to resulting offspring. Click on the play button to line up the
+        gametes.
+      </p>
       <eberlywc-animationctrl-button @click=${this.play}
         >play</eberlywc-animationctrl-button
       >

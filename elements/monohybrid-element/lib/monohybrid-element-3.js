@@ -49,55 +49,69 @@ class MonohybridElement3 extends LitElement {
   firstUpdated() {
     import(this.gsapCDN).then(() => {
       var tl = new TimelineMax();
-      var svg = this.shadowRoot.querySelector('#squares');
+      var svg = this.shadowRoot.querySelector("#squares");
 
       // SVG
-      var pinkcatlittleb = svg.getElementById('pinkcatlittleb');
-      var pinkcatbigb = svg.getElementById('pinkcatbigb');
-      var bluecatlittleb = svg.getElementById('bluecatlittleb');
-      var bluecatbigb = svg.getElementById('bluecatbigb');
+      var pinkcatlittleb = svg.getElementById("pinkcatlittleb");
+      var pinkcatbigb = svg.getElementById("pinkcatbigb");
+      var bluecatlittleb = svg.getElementById("bluecatlittleb");
+      var bluecatbigb = svg.getElementById("bluecatbigb");
 
-      var littlebfourone = svg.getElementById('littlebfourone');
-      var littlebfourtwo = svg.getElementById('littlebfourtwo');
-      var bigbfour = svg.getElementById('bigbfour');
+      var littlebfourone = svg.getElementById("littlebfourone");
+      var littlebfourtwo = svg.getElementById("littlebfourtwo");
+      var bigbfour = svg.getElementById("bigbfour");
 
-      var littlebthree = svg.getElementById('littlebthree');
-      var bigbthree = svg.getElementById('bigbthree');
-      var littlebtwo = svg.getElementById('littlebtwo');
-      var bigbtwo = svg.getElementById('bigbtwo');
-      var littlebone = svg.getElementById('littlebone');
-      var bigbone = svg.getElementById('bigbone');
+      var littlebthree = svg.getElementById("littlebthree");
+      var bigbthree = svg.getElementById("bigbthree");
+      var littlebtwo = svg.getElementById("littlebtwo");
+      var bigbtwo = svg.getElementById("bigbtwo");
+      var littlebone = svg.getElementById("littlebone");
+      var bigbone = svg.getElementById("bigbone");
 
       // Set Animate
       tl.set([svg], {
-              x: "+=90"
-          })
-          .set([pinkcatlittleb], {
-              x: "+=50",
-          })
-          .set([pinkcatbigb], {
-              x: "-=50",
-          })
-          .set([bluecatlittleb], {
-              y: "+=50",
-          })
-          .set([bluecatbigb], {
-              y: "-=50",
-              x: "+=10"
-          })
-          .set([bigbfour, littlebfourone, littlebfourtwo, littlebthree, bigbthree, littlebtwo,
-              bigbtwo, littlebone, bigbone
-          ], {
-              alpha: 0
-          });
+        x: "+=90"
+      })
+        .set([pinkcatlittleb], {
+          x: "+=50"
+        })
+        .set([pinkcatbigb], {
+          x: "-=50"
+        })
+        .set([bluecatlittleb], {
+          y: "+=50"
+        })
+        .set([bluecatbigb], {
+          y: "-=50",
+          x: "+=10"
+        })
+        .set(
+          [
+            bigbfour,
+            littlebfourone,
+            littlebfourtwo,
+            littlebthree,
+            bigbthree,
+            littlebtwo,
+            bigbtwo,
+            littlebone,
+            bigbone
+          ],
+          {
+            alpha: 0
+          }
+        );
 
       // Start Animate
       tl.to([bigbtwo, littlebfourtwo, bigbthree, littlebthree], 1, {
-              alpha: 1
-          })
-          .to([bigbone, littlebfourone, bigbfour, bigbthree, littlebtwo, littlebone], 1, {
-              alpha: 1
-          });
+        alpha: 1
+      }).to(
+        [bigbone, littlebfourone, bigbfour, bigbthree, littlebtwo, littlebone],
+        1,
+        {
+          alpha: 1
+        }
+      );
 
       tl.pause();
       this.__tl = tl;
@@ -181,7 +195,12 @@ class MonohybridElement3 extends LitElement {
 
   render() {
     return html`
-      <p>To use the punnet square simply add the appropriate alleles (B or b) to the squares. Each combination of alleles within a square represents a possible genotype of an individual offspring. Click on the play button to fill in the punnet square.</p>
+      <p>
+        To use the punnet square simply add the appropriate alleles (B or b) to
+        the squares. Each combination of alleles within a square represents a
+        possible genotype of an individual offspring. Click on the play button
+        to fill in the punnet square.
+      </p>
       <eberlywc-animationctrl-button @click=${this.play}
         >play</eberlywc-animationctrl-button
       >
