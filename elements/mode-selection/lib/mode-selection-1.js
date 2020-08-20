@@ -52,32 +52,30 @@ class ModeSelection1 extends LitElement {
     import(this.gsapCDN).then(() => {
       var root = this;
       var tl = new TimelineMax();
-      var svg = this.shadowRoot.querySelector('#modes');
+      var svg = this.shadowRoot.querySelector("#modes");
 
       // SVG
-      var stabilizingtextarrow = svg.getElementById('stabilizingtextarrow');
-      var stabilizingone = svg.getElementById('stabilizingone');
-      var stabilizingarrows = svg.getElementById('stabilizingarrows');
+      var stabilizingtextarrow = svg.getElementById("stabilizingtextarrow");
+      var stabilizingone = svg.getElementById("stabilizingone");
+      var stabilizingarrows = svg.getElementById("stabilizingarrows");
 
       // Set Animate
       tl.set([stabilizingtextarrow], {
-          alpha: 0
+        alpha: 0
       });
 
       // Start Animate
       tl.to([stabilizingone, stabilizingarrows], 2, {
-              scaleX: .5,
-              transformOrigin: "50% 30%",
-              ease: Cubic.easeOut
-          })
-          .to([stabilizingtextarrow], .5, {
-              alpha: 1
-          });
-
+        scaleX: 0.5,
+        transformOrigin: "50% 30%",
+        ease: Cubic.easeOut
+      }).to([stabilizingtextarrow], 0.5, {
+        alpha: 1
+      });
 
       tl.pause();
       this.__tl = tl;
-    })
+    });
   }
 
   renderSVG() {

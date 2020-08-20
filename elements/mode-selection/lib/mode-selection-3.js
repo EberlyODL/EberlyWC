@@ -76,7 +76,7 @@ class ModeSelection3 extends LitElement {
       tl.pause();
       tl2.pause();
       this.__tl = tl;
-      this.__tl2= tl2;
+      this.__tl2 = tl2;
     });
   }
 
