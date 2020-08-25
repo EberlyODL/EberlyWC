@@ -1,4 +1,3 @@
-
 # EberlyWC
 [![Published on npm](https://img.shields.io/npm/v/@eberlywc/EberlyWC.svg?style=flat)](https://www.npmjs.com/package/@eberlywc/EberlyWC)
 [![Build Status](https://travis-ci.org/EberlyODL/EberlyWC.svg?branch=master)](https://travis-ci.org/EberlyODL/EberlyWC)
