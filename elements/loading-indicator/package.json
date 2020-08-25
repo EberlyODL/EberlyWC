@@ -1,14 +1,14 @@
 {
-  "name": "@eberlywc/loading-indictor",
+  "name": "@eberlywc/loading-indicator",
   "wcfactory": {
     "className": "LoadingIndicator",
     "customElementClass": "LitElement",
-    "elementName": "loading-indictor",
+    "elementName": "loading-indicator",
     "generator-wcfactory-version": "0.8.4",
     "useHAX": false,
     "useSass": false,
     "files": {
-      "js": "src/loading-indictor.js"
+      "js": "src/loading-indicator.js"
     },
     "sharedHaxProps": [],
     "sharedProps": [],
@@ -20,9 +20,9 @@
     "type": "git",
     "url": "git@github.com:EberlyODL/eberlywc.git"
   },
-  "main": "loading-indictor.js",
-  "module": "loading-indictor.js",
-  "umd": "loading-indictor.umd.js",
+  "main": "loading-indicator.js",
+  "module": "loading-indicator.js",
+  "umd": "loading-indicator.umd.js",
   "scripts": {
     "test": "../../node_modules/.bin/wct --configFile ../../wct.conf.json node_modules/@lrnwebcomponents/haxcms-elements/test/",
     "start": "yarn run dev",

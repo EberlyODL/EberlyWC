@@ -57,4 +57,4 @@ class LoadingIndicator extends LitElement {
     `;
   }
 }
-customElements.define("loading-indictor", LoadingIndicator);
+customElements.define("loading-indicator", LoadingIndicator);
