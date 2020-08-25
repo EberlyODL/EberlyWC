@@ -1,7 +1,8 @@
 # &lt;course-intro&gt;
 
+
 Element
-> 
+>
 
 ## Usage
 To use this web component in your project you can utilize one of the following styles of syntax.
