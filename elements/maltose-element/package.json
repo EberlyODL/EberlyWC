@@ -19,7 +19,7 @@
     "sharedProps": [],
     "sharedStyles": []
   },
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "",
   "repository": {
     "type": "git",
@@ -42,7 +42,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@eberlywc/eberlywc-animationctl-button": "^0.0.17",
+    "@eberlywc/eberlywc-animationctl-button": "^0.0.18",
     "lit-element": "^2.3.1"
   },
   "devDependencies": {

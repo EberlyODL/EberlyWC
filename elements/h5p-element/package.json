@@ -14,7 +14,7 @@
     "sharedProps": [],
     "sharedStyles": []
   },
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "",
   "repository": {
     "type": "git",
@@ -37,10 +37,10 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@eberlywc/iframe-loader": "0.0.17",
+    "@eberlywc/iframe-loader": "^0.0.18",
+    "@lrnwebcomponents/haxcms-elements": "^2.7.1",
     "@polymer/polymer": "^3.4.1",
-    "mobx": "^5.15.6",
-    "@lrnwebcomponents/haxcms-elements": "^2.7.1"
+    "mobx": "^5.15.6"
   },
   "devDependencies": {
     "@polymer/iron-component-page": "github:PolymerElements/iron-component-page",
