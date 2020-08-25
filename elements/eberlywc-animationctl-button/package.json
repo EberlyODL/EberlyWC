@@ -19,7 +19,7 @@
     "sharedProps": [],
     "sharedStyles": []
   },
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "Buttons that will be controls in javascript animations.",
   "repository": {
     "type": "git",
@@ -42,7 +42,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@eberlywc/eberlywc-animationctl-button": "^0.0.22",
+    "@eberlywc/eberlywc-animationctl-button": "^0.0.23",
     "@polymer/lit-element": "^0.6.1"
   },
   "devDependencies": {
