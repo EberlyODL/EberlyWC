@@ -54,6 +54,8 @@ class H5pElement extends LitElement {
     this.__disposer = autorun(() => {
       this.__editMode = store.editMode;
     });
+    this.HAXWiring = new s();
+    this.HAXWiring.setup(c.haxProperties, c.tag, this);
   }
   disconnectedCallback() {
     super.disconnectedCallback();
@@ -66,8 +68,8 @@ class H5pElement extends LitElement {
           item.nodeName === "IFRAME" ? item : this.querySelector("iframe");
         if (iframe) {
           if (typeof iframe.src !== "undefined") {
-            const editUrl = "https://media.ed.science.psu.edu/node/$1/edit"
-            this.__editLink = iframe.src.replace(/.*\/node\/([0-9]*)/, editUrl)
+            const editUrl = "https://media.ed.science.psu.edu/node/$1/edit";
+            this.__editLink = iframe.src.replace(/.*\/node\/([0-9]*)/, editUrl);
           }
         }
       });
@@ -79,7 +81,7 @@ class H5pElement extends LitElement {
         if (this.src) {
         }
       }
-    })
+    });
   }
   static get haxProperties() {
     return {
@@ -111,17 +113,21 @@ class H5pElement extends LitElement {
   }
   render() {
     return html`
-      <div part="container" class="${this.__editMode ? 'editing' : 'editing' }">
+      <div part="container" class="${this.__editMode ? "editing" : "editing"}">
         ${this.__editMode
           ? html`
               <slot></slot>
               <div part="edit-screen">
-                <div part="source-link"><a part="anchor" href="${this.__editLink}" target="_blank">Edit H5P Source</a></div>
+                <div part="source-link">
+                  <a part="anchor" href="${this.__editLink}" target="_blank"
+                    >Edit H5P Source</a
+                  >
+                </div>
               </div>
             `
           : html`
-            <iframe-loader><slot></slot></iframe-loader>
-          `}
+              <iframe-loader><slot></slot></iframe-loader>
+            `}
       </div>
     `;
   }
