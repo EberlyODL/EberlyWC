@@ -1,46 +1,130 @@
-/**
- * Copyright 2020 The Pennsylvania State University
- * @license Apache-2.0, see License.md for full text.
- */
-import { html, css } from "lit-element/lit-element.js";
-import { CleanTwo } from "@lrnwebcomponents/clean-two/clean-two.js";
+import { LitElement, html, css } from "lit-element/lit-element.js";
+import { FlattenedNodesObserver } from "@polymer/polymer/lib/utils/flattened-nodes-observer.js";
+import "@eberlywc/loading-indicator/loading-indicator.js";
 
-/**
- * `clean-two`
- * `A 2nd clean theme`
- *
- * @microcopy - language worth noting:
- *  - HAXcms - A headless content management system
- *  - HAXCMSTheme - A super class that provides correct baseline wiring to build a new theme
- *
- * @demo demo/index.html
- * @element clean-two
- */
-class IframeLoader extends CleanTwo {
-  //styles function
+class IframeLoader extends LitElement {
+  static get properties() {
+    return {
+      loading: { type: Boolean },
+      __iframeHeight: { type: Number }
+    };
+  }
   static get styles() {
-    return [
-      ...super.styles,
-      css`
-        site-menu {
-          margin: 0;
-        }
-        .content {
-          margin: 16px;
-        }
-        .right-col {
-          display: block;
-          overflow: hidden;
-        }
-      `
-    ];
+    return css`
+      :host {
+        display: block;
+      }
+      #container {
+        position: relative;
+        overflow: hidden;
+        transition: height 0.4s ease-in-out;
+      }
+      #loading-screen {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .loaded#container {
+        height: auto;
+        overflow: visible;
+      }
+      .loaded #loading-screen {
+        display: none;
+      }
+      #slot {
+        transition: opacity 1s ease-in-out;
+      }
+    `;
   }
   constructor() {
     super();
+    this.loading = true;
+    this.__iframeHeight = 100;
+    this.__iframe = null;
+    this.__mutationObserver = new MutationObserver(mutations => {
+      mutations.forEach(mutation => {
+        if (mutation.target.offsetHeight) {
+          // if we are still in the loading state
+          if (this.loading && mutation.target.offsetHeight > 100) {
+            this.loading = false;
+            this.__iframeHeight = mutation.target.offsetHeight + 25;
+          }
+        }
+      });
+    });
   }
-  static get tag() {
-    return "iframe-loader";
+  connectedCallback() {
+    super.connectedCallback();
+  }
+  disconnectedCallback() {
+    super.disconnectedCallback();
+  }
+  firstUpdated() {
+    this.__observer = new FlattenedNodesObserver(
+      this.shadowRoot.querySelector("slot"),
+      info => {
+        if (info.addedNodes.length > 0) {
+          info.addedNodes.forEach(item => {
+            let iframe = null;
+            if (item.nodeName === "IFRAME") {
+              iframe = item;
+            } else if (item.querySelector) {
+              const selector = item.querySelector("iframe");
+              if (selector) {
+                iframe = selector;
+              }
+            }
+            if (iframe) {
+              this.__iframe = iframe;
+              // add lazy loading
+              // Evergreen only right now.
+              iframe.loading = "lazy";
+              this.__mutationObserver.observe(this.__iframe, {
+                attributes: true
+              });
+            }
+          });
+        }
+      }
+    );
+  }
+
+  updated(propertiesChanged) {
+    propertiesChanged.forEach((oldValue, propName) => {
+      if (propName === "loading") {
+        if (this.loading === false) {
+          if (this.__observer) {
+            this.__observer.disconnect();
+          }
+        }
+      }
+    });
+  }
+
+  render() {
+    return html`
+      <div
+        id="container"
+        class="${this.loading ? "loading" : "loaded"}"
+        style="height: ${this.__iframeHeight}px;"
+      >
+        <div id="loading-screen">
+          <loading-indictor></loading-indictor>
+        </div>
+        <div
+          id="slot"
+          style="height: ${this.__iframeHeight}px; opacity: ${this.loading
+            ? "0"
+            : "1"}"
+        >
+          <slot></slot>
+        </div>
+      </div>
+    `;
   }
 }
-window.customElements.define(IframeLoader.tag, IframeLoader);
-export { IframeLoader };
+customElements.define("iframe-loader", IframeLoader);
