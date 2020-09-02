@@ -40,7 +40,8 @@
     "@eberlywc/iframe-loader": "^0.0.27",
     "@lrnwebcomponents/haxcms-elements": "^2.7.1",
     "@polymer/polymer": "^3.4.1",
-    "mobx": "^5.15.6"
+    "mobx": "^5.15.6",
+    "@lrnwebcomponents/hax-body-behaviors": "^2.7.3"
   },
   "devDependencies": {
     "@polymer/iron-component-page": "github:PolymerElements/iron-component-page",

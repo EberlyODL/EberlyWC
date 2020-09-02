@@ -2,6 +2,7 @@ import { store } from "@lrnwebcomponents/haxcms-elements/lib/core/haxcms-site-st
 import { FlattenedNodesObserver } from "@polymer/polymer/lib/utils/flattened-nodes-observer.js";
 import { css, html, LitElement } from "lit-element/lit-element.js";
 import { autorun } from "mobx/lib/mobx.module.js";
+import { HAXWiring } from "@lrnwebcomponents/hax-body-behaviors/lib/HAXWiring.js";
 import "@eberlywc/iframe-loader/iframe-loader.js";
 
 class H5pElement extends LitElement {
@@ -54,8 +55,8 @@ class H5pElement extends LitElement {
     this.__disposer = autorun(() => {
       this.__editMode = store.editMode;
     });
-    this.HAXWiring = new s();
-    this.HAXWiring.setup(c.haxProperties, c.tag, this);
+    this.HAXWiring = new HAXWiring();
+    this.HAXWiring.setup(this.haxProperties, this.tag, this);
   }
   disconnectedCallback() {
     super.disconnectedCallback();
