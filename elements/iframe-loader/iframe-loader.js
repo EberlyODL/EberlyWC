@@ -49,7 +49,7 @@ class IframeLoader extends LitElement {
       mutations.forEach(mutation => {
         if (mutation.target.offsetHeight) {
           // if we are still in the loading state
-          if (this.loading && mutation.target.offsetHeight > 100) {
+          if (mutation.target.offsetHeight > 100) {
             this.loading = false;
             this.__iframeHeight = mutation.target.offsetHeight + 25;
           }

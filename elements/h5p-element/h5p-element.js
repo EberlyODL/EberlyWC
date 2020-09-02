@@ -56,7 +56,7 @@ class H5pElement extends LitElement {
       this.__editMode = store.editMode;
     });
     this.HAXWiring = new HAXWiring();
-    this.HAXWiring.setup(this.haxProperties, this.tag, this);
+    this.HAXWiring.setup(H5pElement.haxProperties, H5pElement.tag, this);
   }
   disconnectedCallback() {
     super.disconnectedCallback();
