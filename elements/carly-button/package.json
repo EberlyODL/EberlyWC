@@ -16,7 +16,7 @@
       "hax": "src/carly-button-hax.json"
     }
   },
-  "version": "0.0.29",
+  "version": "0.0.30",
   "description": "Cool submit button for testing.",
   "repository": {
     "type": "git",
