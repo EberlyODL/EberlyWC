@@ -50,7 +50,6 @@ class IframeLoader extends LitElement {
         if (mutation.target.offsetHeight) {
           // if we are still in the loading state
           if (mutation.target.offsetHeight > 100) {
-            this.loading = false;
             this.__iframeHeight = mutation.target.offsetHeight + 25;
           }
         }
@@ -83,6 +82,8 @@ class IframeLoader extends LitElement {
               // add lazy loading
               // Evergreen only right now.
               iframe.loading = "lazy";
+              // set loading to false
+              iframe.onload = () => { this.loading = false; }
               this.__mutationObserver.observe(this.__iframe, {
                 attributes: true
               });
