@@ -113,7 +113,7 @@ class IframeLoader extends LitElement {
         style="height: ${this.__iframeHeight}px;"
       >
         <div id="loading-screen">
-          <loading-indictor></loading-indictor>
+          <loading-indicator></loading-indicator>
         </div>
         <div
           id="slot"
