@@ -14,7 +14,7 @@
     "sharedProps": [],
     "sharedStyles": []
   },
-  "version": "0.0.28",
+  "version": "0.0.29",
   "description": "",
   "repository": {
     "type": "git",
@@ -37,9 +37,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@eberlywc/eberlywc-animationctl-button": "^0.0.28",
-    "@eberlywc/maltose-element": "^0.0.28",
-    "@eberlywc/sucrose-element": "^0.0.28",
+    "@eberlywc/eberlywc-animationctl-button": "^0.0.29",
+    "@eberlywc/maltose-element": "^0.0.29",
+    "@eberlywc/sucrose-element": "^0.0.29",
     "lit-element": "^2.3.1"
   },
   "devDependencies": {
