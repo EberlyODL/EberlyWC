@@ -83,7 +83,9 @@ class IframeLoader extends LitElement {
               // Evergreen only right now.
               iframe.loading = "lazy";
               // set loading to false
-              iframe.onload = () => { this.loading = false; }
+              iframe.onload = () => {
+                this.loading = false;
+              };
               this.__mutationObserver.observe(this.__iframe, {
                 attributes: true
               });
