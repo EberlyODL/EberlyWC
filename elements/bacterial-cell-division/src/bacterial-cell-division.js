@@ -3,7 +3,6 @@
  * @license Apache-2.0, see License.md for full text.
  */
 import { LitElement, html, svg } from "lit-element/lit-element.js";
-import "@eberlywc/eberlywc-animationctl-button/eberlywc-animationctl-button.js";
 
 /**
  * `bacterial-cell-division`
