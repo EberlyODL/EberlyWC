@@ -15,11 +15,17 @@
       import '@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
       import '@polymer/iron-demo-helpers/demo-snippet.js';
       import '../course-model.js';
+      import {VideoPlayer} from '@lrnwebcomponents/video-player';
     </script>
     <style is="custom-style" include="demo-pages-shared-styles"></style>
     <style>
       body {
         font-family: "Roboto", sans-serif;
+      }
+      video-player {
+        margin: 50px auto 0;
+        width: 80%;
+        min-height: 850px;
       }
       </style>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -34,10 +40,10 @@
       <demo-snippet>
         <template>
           <course-model
-            title="Arm Model"
-            src="../src/models/arm/models_arm.gltf"
-            alt="A 3D model of an arm">
-            <model-option title="Humerous" url="https://www.google.com">
+            title="Colt 1911 Handgun (.45 Caliber)"
+            src="../src/models/guns/colt-1911/colt_1911_full.gltf"
+            alt="A 3D model of a Colt 1911 handgun.">
+            <model-option title="Colt 1911 Parts" url="https://www.google.com">
               <span>
                 Vivamus magna justo, lacinia eget consectetur sed, convallis
                 at tellus. Cras ultricies ligula sed magna dictum porta.
@@ -47,7 +53,8 @@
                 tincidunt.
               </span>
             </model-option>
-            <model-option title="Radius" url="https://www.google.com">
+            <model-option title="Colt 1911 Parts: Labels"
+              url="https://www.google.com">
               <span>
                 Vivamus magna justo, lacinia eget consectetur sed, convallis
                 at tellus. Cras ultricies ligula sed magna dictum porta.
@@ -57,7 +64,7 @@
                 tincidunt.
               </span>
             </model-option>
-            <model-option title="Ulna" url="https://www.google.com">
+            <model-option title="Colt 1911 Ammunition"url="https://www.google.com">
               <span>
                 Vivamus magna justo, lacinia eget consectetur sed, convallis
                 at tellus. Cras ultricies ligula sed magna dictum porta.
@@ -76,7 +83,12 @@
               tincidunt.
             </div>
             <div slot="animation">
-              <iframe width="100%" height="601" src="https://www.youtube.com/embed/e44-Rl0loOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <!-- <iframe width="100%" height="601" src="https://www.youtube.com/embed/e44-Rl0loOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+              <video-player
+                accent-color="red"
+                preload="none"
+                source="https://youtu.be/JzXMrzvh1UM">
+              </video-player>
             </div>
           </course-model>
         </template>

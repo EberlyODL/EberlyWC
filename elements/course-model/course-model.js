@@ -110,8 +110,8 @@ class CourseModel extends LitElement {
 
         @media screen and (min-width: 920px) {
           #info-wrap {
-            min-height: 701px;
-            max-height: 701px;
+            min-height: 750px;
+            max-height: 750px;
           }
         }
 
@@ -239,7 +239,7 @@ class CourseModel extends LitElement {
       `,
     ];
   }
-  
+
   render() {
     return html`
       <div id="model-wrap">
