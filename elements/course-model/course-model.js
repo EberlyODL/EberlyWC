@@ -14,76 +14,6 @@ import './src/model-option.js';
  * @element course-model
  */
 class CourseModel extends LitElement {
-  
-  //styles function
-  static get styles() {
-    return  [
-      
-      css`
-:host {
-  display: block;
-}
-
-:host([hidden]) {
-  display: none;
-}
-      `
-    ];
-  }
-
-// Template return function
-  render() {
-    return html`
-
-`;
-  }
-
-  // haxProperty definition
-  static get haxProperties() {
-    return {
-  "canScale": true,
-  "canPosition": true,
-  "canEditSource": false,
-  "gizmo": {
-    "title": "Course model",
-    "description": "3D Model Viewer",
-    "icon": "icons:android",
-    "color": "green",
-    "groups": ["Model"],
-    "handles": [
-      {
-        "type": "todo:read-the-docs-for-usage"
-      }
-    ],
-    "meta": {
-      "author": "cgldevel",
-      "owner": ""
-    }
-  },
-  "settings": {
-    "configure": [
-      {
-        "property": "title",
-        "description": "",
-        "inputMethod": "textfield",
-        "required": false,
-        "icon": "icons:android"
-      }
-    ],
-    "advanced": []
-  }
-}
-;
-  }
-  // properties available to the custom element for data binding
-  static get properties() {
-    return    
-;
-  }
-
-  /**
-   * Convention we use
-   */
   static get tag() {
     return "course-model";
   }
@@ -309,10 +239,7 @@ class CourseModel extends LitElement {
       `,
     ];
   }
-  /**
-   * HTMLElement
-   */
-
+  
   render() {
     return html`
       <div id="model-wrap">

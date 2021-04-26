@@ -14,11 +14,6 @@ import './src/model-option.js';
  * @element course-model
  */
 class CourseModel extends LitElement {
-  /* REQUIRED FOR TOOLING DO NOT TOUCH */
-
-  /**
-   * Convention we use
-   */
   static get tag() {
     return "course-model";
   }
@@ -244,10 +239,7 @@ class CourseModel extends LitElement {
       `,
     ];
   }
-  /**
-   * HTMLElement
-   */
-
+  
   render() {
     return html`
       <div id="model-wrap">

@@ -2,11 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, minimum-scale=1,
+      initial-scale=1, user-scalable=yes">
     <title>CourseModel: course-model Demo</title>
-    <script src="../../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-    <script src="../../../node_modules/@lrnwebcomponents/deduping-fix/deduping-fix.js"></script>
-    <script src="../../../node_modules/web-animations-js/web-animations-next-lite.min.js"></script>
+    <script
+      src="../../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script
+      src="../../../node_modules/@lrnwebcomponents/deduping-fix/deduping-fix.js"></script>
+    <script
+      src="../../../node_modules/web-animations-js/web-animations-next-lite.min.js"></script>
     <script type="module">
       import '@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
       import '@polymer/iron-demo-helpers/demo-snippet.js';
@@ -22,7 +26,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap"
       rel="stylesheet"
-    />
+      />
   </head>
   <body>
     <div class="vertical-section-container centered">
@@ -30,58 +34,51 @@
       <demo-snippet>
         <template>
           <course-model
-          title="Arm Model"
-          src="../src/models/arm/models_arm.gltf"
-          alt="A 3D model of an arm"
-        >
-          <model-option title="Humerous" url="https://www.google.com">
-            <span>
-              Vivamus magna justo, lacinia eget consectetur sed, convallis
-              at tellus. Cras ultricies ligula sed magna dictum porta.
-              Curabitur aliquet quam id dui posuere blandit. Quisque velit
-              nisi, pretium ut lacinia in, elementum id enim. Cras ultricies
-              ligula sed magna dictum porta. Nulla porttitor accumsan
-              tincidunt.
-            </span>
-          </model-option>
-
-          <model-option title="Radius" url="https://www.google.com">
-            <span>
-              Vivamus magna justo, lacinia eget consectetur sed, convallis
-              at tellus. Cras ultricies ligula sed magna dictum porta.
-              Curabitur aliquet quam id dui posuere blandit. Quisque velit
-              nisi, pretium ut lacinia in, elementum id enim. Cras ultricies
-              ligula sed magna dictum porta. Nulla porttitor accumsan
-              tincidunt.
-            </span>
-          </model-option>
-
-          <model-option title="Ulna" url="https://www.google.com">
-            <span>
-              Vivamus magna justo, lacinia eget consectetur sed, convallis
-              at tellus. Cras ultricies ligula sed magna dictum porta.
-              Curabitur aliquet quam id dui posuere blandit. Quisque velit
-              nisi, pretium ut lacinia in, elementum id enim. Cras ultricies
-              ligula sed magna dictum porta. Nulla porttitor accumsan
-              tincidunt.
-            </span>
-          </model-option>
-         
-          <div slot="detail">
-       
+            title="Arm Model"
+            src="../src/models/arm/models_arm.gltf"
+            alt="A 3D model of an arm">
+            <model-option title="Humerous" url="https://www.google.com">
+              <span>
+                Vivamus magna justo, lacinia eget consectetur sed, convallis
+                at tellus. Cras ultricies ligula sed magna dictum porta.
+                Curabitur aliquet quam id dui posuere blandit. Quisque velit
+                nisi, pretium ut lacinia in, elementum id enim. Cras ultricies
+                ligula sed magna dictum porta. Nulla porttitor accumsan
+                tincidunt.
+              </span>
+            </model-option>
+            <model-option title="Radius" url="https://www.google.com">
+              <span>
+                Vivamus magna justo, lacinia eget consectetur sed, convallis
+                at tellus. Cras ultricies ligula sed magna dictum porta.
+                Curabitur aliquet quam id dui posuere blandit. Quisque velit
+                nisi, pretium ut lacinia in, elementum id enim. Cras ultricies
+                ligula sed magna dictum porta. Nulla porttitor accumsan
+                tincidunt.
+              </span>
+            </model-option>
+            <model-option title="Ulna" url="https://www.google.com">
+              <span>
+                Vivamus magna justo, lacinia eget consectetur sed, convallis
+                at tellus. Cras ultricies ligula sed magna dictum porta.
+                Curabitur aliquet quam id dui posuere blandit. Quisque velit
+                nisi, pretium ut lacinia in, elementum id enim. Cras ultricies
+                ligula sed magna dictum porta. Nulla porttitor accumsan
+                tincidunt.
+              </span>
+            </model-option>
+            <div slot="detail">
               Info Box, lacinia eget consectetur sed, convallis
               at tellus. Cras ultricies ligula sed magna dictum porta.
               Curabitur aliquet quam id dui posuere blandit. Quisque velit
               nisi, pretium ut lacinia in, elementum id enim. Cras ultricies
               ligula sed magna dictum porta. Nulla porttitor accumsan
               tincidunt.
-          </div>
-
-          <div slot="animation">
-          <!-- <iframe width="100%" height="601" src="https://www.youtube.com/embed/e44-Rl0loOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-          <video-player preload="auto" source="//www.youtube.com/watch?v=LrS7dqokTLE" track="./samples/HAXshort.vtt"></video-player>
-          </div>
-        </course-model>
+            </div>
+            <div slot="animation">
+              <iframe width="100%" height="601" src="https://www.youtube.com/embed/e44-Rl0loOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </course-model>
         </template>
       </demo-snippet>
     </div>
