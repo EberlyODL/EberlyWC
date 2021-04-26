@@ -1,0 +1,33 @@
+{
+  "canScale": true,
+  "canPosition": true,
+  "canEditSource": false,
+  "gizmo": {
+    "title": "Course model",
+    "description": "3D Model Viewer",
+    "icon": "icons:android",
+    "color": "green",
+    "groups": ["Model"],
+    "handles": [
+      {
+        "type": "todo:read-the-docs-for-usage"
+      }
+    ],
+    "meta": {
+      "author": "cgldevel",
+      "owner": ""
+    }
+  },
+  "settings": {
+    "configure": [
+      {
+        "property": "title",
+        "description": "",
+        "inputMethod": "textfield",
+        "required": false,
+        "icon": "icons:android"
+      }
+    ],
+    "advanced": []
+  }
+}
