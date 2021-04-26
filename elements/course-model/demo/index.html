@@ -13,15 +13,75 @@
       import '../course-model.js';
     </script>
     <style is="custom-style" include="demo-pages-shared-styles"></style>
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+      </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="vertical-section-container centered">
-      <h3>Basic course-model demo</h3>
+      <h3>course-model demo</h3>
       <demo-snippet>
         <template>
-          <course-model>
-            This is course-model
-          </course-model>
+          <course-model
+          title="Arm Model"
+          src="../src/models/arm/models_arm.gltf"
+          alt="A 3D model of an arm"
+        >
+          <model-option title="Humerous" url="https://www.google.com">
+            <span>
+              Vivamus magna justo, lacinia eget consectetur sed, convallis
+              at tellus. Cras ultricies ligula sed magna dictum porta.
+              Curabitur aliquet quam id dui posuere blandit. Quisque velit
+              nisi, pretium ut lacinia in, elementum id enim. Cras ultricies
+              ligula sed magna dictum porta. Nulla porttitor accumsan
+              tincidunt.
+            </span>
+          </model-option>
+
+          <model-option title="Radius" url="https://www.google.com">
+            <span>
+              Vivamus magna justo, lacinia eget consectetur sed, convallis
+              at tellus. Cras ultricies ligula sed magna dictum porta.
+              Curabitur aliquet quam id dui posuere blandit. Quisque velit
+              nisi, pretium ut lacinia in, elementum id enim. Cras ultricies
+              ligula sed magna dictum porta. Nulla porttitor accumsan
+              tincidunt.
+            </span>
+          </model-option>
+
+          <model-option title="Ulna" url="https://www.google.com">
+            <span>
+              Vivamus magna justo, lacinia eget consectetur sed, convallis
+              at tellus. Cras ultricies ligula sed magna dictum porta.
+              Curabitur aliquet quam id dui posuere blandit. Quisque velit
+              nisi, pretium ut lacinia in, elementum id enim. Cras ultricies
+              ligula sed magna dictum porta. Nulla porttitor accumsan
+              tincidunt.
+            </span>
+          </model-option>
+         
+          <div slot="detail">
+       
+              Info Box, lacinia eget consectetur sed, convallis
+              at tellus. Cras ultricies ligula sed magna dictum porta.
+              Curabitur aliquet quam id dui posuere blandit. Quisque velit
+              nisi, pretium ut lacinia in, elementum id enim. Cras ultricies
+              ligula sed magna dictum porta. Nulla porttitor accumsan
+              tincidunt.
+          </div>
+
+          <div slot="animation">
+          <!-- <iframe width="100%" height="601" src="https://www.youtube.com/embed/e44-Rl0loOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+          <video-player preload="auto" source="//www.youtube.com/watch?v=LrS7dqokTLE" track="./samples/HAXshort.vtt"></video-player>
+          </div>
+        </course-model>
         </template>
       </demo-snippet>
     </div>
