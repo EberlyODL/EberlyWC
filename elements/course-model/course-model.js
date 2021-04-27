@@ -22,12 +22,12 @@ class CourseModel extends LitElement {
     return {
       visible: {
         type: String,
-        reflect: true,
+        reflect: true
       },
       title: { type: String },
       src: { type: String },
       alt: { type: String },
-      eimage: { type: String },
+      eimage: { type: String }
     };
   }
 
@@ -104,8 +104,8 @@ class CourseModel extends LitElement {
 
         @media screen and (min-width: 320px) {
           #info-wrap {
-            min-height: 301px;
-            max-height: 301px;
+            min-height: 350px;
+            max-height: 350px;
           }
         }
 
@@ -222,7 +222,7 @@ class CourseModel extends LitElement {
           width: 70px;
         }
       }
-      `,
+      `
     ];
   }
 

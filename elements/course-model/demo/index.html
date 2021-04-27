@@ -16,6 +16,7 @@
       import '@polymer/iron-demo-helpers/demo-snippet.js';
       import '../course-model.js';
       import {VideoPlayer} from '@lrnwebcomponents/video-player';
+      import {MediaImage} from '@lrnwebcomponents/media-image';
     </script>
     <style is="custom-style" include="demo-pages-shared-styles"></style>
     <style>
@@ -39,8 +40,7 @@
             title="Colt 1911 Handgun (.45 Caliber)"
             src="../src/models/guns/colt-1911/colt_1911_full.gltf"
             eimage="../src/models/guns/colt-1911/autoshop_01_1k.hdr"
-            alt="A 3D model of a Colt 1911 handgun."
-            >
+            alt="A 3D model of a Colt 1911 handgun.">
             <model-option title="Colt 1911 Parts" url="https://www.google.com">
               <span>
                 View the Colt 1911 Handgun (.45 Caliber) stripped down to the
@@ -93,8 +93,19 @@
                   Manufacturing Company and the U.S. government's Springfield
                   Armory.
                 </p>
-                <div slot="images">
-           
+                <div id="images" slot="images">
+                  <media-image source="../src/models/guns/img/colt1911-1.jpeg"
+                    figure-label-title="1.1" figure-label-description="This is
+                    the description of the figure.">
+                  </media-image>
+                  <media-image source="../src/models/guns/img/colt1911-2.png"
+                    figure-label-title="2.1" figure-label-description="This is
+                    the description of the figure.">
+                  </media-image>
+                  <media-image source="../src/models/guns/img/colt1911-3.jpeg"
+                    figure-label-title="2.2" figure-label-description="This is
+                    the description of the figure.">
+                  </media-image>
                 </div>
               </model-info>
             </div>

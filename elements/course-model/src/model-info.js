@@ -3,7 +3,7 @@ import { LitElement, html, css } from "lit-element/lit-element.js";
 class ModelInfo extends LitElement {
   static get properties() {
     return {
-      title: { type: String },
+      title: { type: String }
     };
   }
   constructor() {
@@ -75,10 +75,18 @@ class ModelInfo extends LitElement {
           }
         }
 
-        .images {
-          width: 50%;
+        @media screen and (min-width: 320px) {
+          .images {
+            width: 100%;
+            margin: 25px 0 0 25px;
         }
-      `,
+  
+        @media screen and (min-width: 920px) {
+          .images {
+            width: 50%;
+          }
+        }
+      `
     ];
   }
 
@@ -98,8 +106,6 @@ class ModelInfo extends LitElement {
             <slot name="images"></slot>
           </div>
         </div>
-
-        
       </div>
     `;
   }
