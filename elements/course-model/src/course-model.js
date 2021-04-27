@@ -4,8 +4,8 @@
  */
 import { LitElement, html, css } from "lit-element/lit-element.js";
 import { ModelViewerElement } from "@google/model-viewer";
-import './src/model-option.js';
-
+import "./src/model-option.js";
+import "./src/model-info.js";
 
 /**
  * `course-model`
@@ -27,6 +27,7 @@ class CourseModel extends LitElement {
       title: { type: String },
       src: { type: String },
       alt: { type: String },
+      eimage: { type: String },
     };
   }
 
@@ -35,6 +36,7 @@ class CourseModel extends LitElement {
     this.visible = "model";
     this.title = "";
     this.src = "";
+    this.eimage = "";
   }
 
   static get styles() {
@@ -42,7 +44,6 @@ class CourseModel extends LitElement {
       css`
         :host {
           display: block;
-          font-family: "Roboto", sans-serif;
         }
 
         :host([visible="model"]) .overlay {
@@ -91,7 +92,7 @@ class CourseModel extends LitElement {
         }
 
         #info-wrap {
-          background: rgba(0, 0, 0, 0.4);
+          background: rgba(0, 0, 0, 0.8);
           color: rgb(255, 255, 255);
           position: absolute;
           z-index: 1;
@@ -113,6 +114,10 @@ class CourseModel extends LitElement {
             min-height: 750px;
             max-height: 750px;
           }
+        }
+
+        .slotted-text {
+          padding: 25px;
         }
 
         model-viewer {
@@ -154,7 +159,7 @@ class CourseModel extends LitElement {
 
         .tool-button {
           background-color: transparent;
-          margin-right: -10px;
+          
           border: none;
         }
 
@@ -199,30 +204,11 @@ class CourseModel extends LitElement {
 
       #title {
         flex-grow: 1;
-      }
-
-      @media screen and (min-width: 320px) {
-        #title {
-          margin-left: 5px;
-        }
-      }
-
-      @media screen and (min-width: 920px) {
-        #title {
-          margin-left: 25px;
-        }
-      }
-    
-      @media screen and (min-width: 320px) {
-        #logo {
-          margin-right: 10px;
-        }
-      }
-
-      @media screen and (min-width: 920px) {
-        #logo {
-          margin-right: 25px;
-        }
+        background-color: dimgray;
+        height: inherit;
+        display: flex;
+        align-items: center;
+        padding: 0 0 0 15px;
       }
 
       @media screen and (min-width: 320px) {
@@ -246,14 +232,14 @@ class CourseModel extends LitElement {
         <div id="toolbar-wrap">
           <div id="nav">
             <button
-              title="Explore Model"
+              title="Explore Models"
               id="explore"
               class="tool-button"
               @click="${this.openInfo}"
             >
               <svg fill="#fff" viewBox="0 0 24 24">
                 <path
-                  d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 16.057v-3.057h2.994c-.059 1.143-.212 2.24-.456 3.279-.823-.12-1.674-.188-2.538-.222zm1.957 2.162c-.499 1.33-1.159 2.497-1.957 3.456v-3.62c.666.028 1.319.081 1.957.164zm-1.957-7.219v-3.015c.868-.034 1.721-.103 2.548-.224.238 1.027.389 2.111.446 3.239h-2.994zm0-5.014v-3.661c.806.969 1.471 2.15 1.971 3.496-.642.084-1.3.137-1.971.165zm2.703-3.267c1.237.496 2.354 1.228 3.29 2.146-.642.234-1.311.442-2.019.607-.344-.992-.775-1.91-1.271-2.753zm-7.241 13.56c-.244-1.039-.398-2.136-.456-3.279h2.994v3.057c-.865.034-1.714.102-2.538.222zm2.538 1.776v3.62c-.798-.959-1.458-2.126-1.957-3.456.638-.083 1.291-.136 1.957-.164zm-2.994-7.055c.057-1.128.207-2.212.446-3.239.827.121 1.68.19 2.548.224v3.015h-2.994zm1.024-5.179c.5-1.346 1.165-2.527 1.97-3.496v3.661c-.671-.028-1.329-.081-1.97-.165zm-2.005-.35c-.708-.165-1.377-.373-2.018-.607.937-.918 2.053-1.65 3.29-2.146-.496.844-.927 1.762-1.272 2.753zm-.549 1.918c-.264 1.151-.434 2.36-.492 3.611h-3.933c.165-1.658.739-3.197 1.617-4.518.88.361 1.816.67 2.808.907zm.009 9.262c-.988.236-1.92.542-2.797.9-.89-1.328-1.471-2.879-1.637-4.551h3.934c.058 1.265.231 2.488.5 3.651zm.553 1.917c.342.976.768 1.881 1.257 2.712-1.223-.49-2.326-1.211-3.256-2.115.636-.229 1.299-.435 1.999-.597zm9.924 0c.7.163 1.362.367 1.999.597-.931.903-2.034 1.625-3.257 2.116.489-.832.915-1.737 1.258-2.713zm.553-1.917c.27-1.163.442-2.386.501-3.651h3.934c-.167 1.672-.748 3.223-1.638 4.551-.877-.358-1.81-.664-2.797-.9zm.501-5.651c-.058-1.251-.229-2.46-.492-3.611.992-.237 1.929-.546 2.809-.907.877 1.321 1.451 2.86 1.616 4.518h-3.933z"
+                  d="M13.818 16.646c-1.273.797-2.726 1.256-4.202 1.354l-.537-1.983c2.083-.019 4.132-.951 5.49-2.724 2.135-2.79 1.824-6.69-.575-9.138l-1.772 2.314-1.77-6.469h6.645l-1.877 2.553c3.075 2.941 3.681 7.659 1.423 11.262l7.357 7.357-2.828 2.828-7.354-7.354zm-11.024-1.124c-1.831-1.745-2.788-4.126-2.794-6.522-.005-1.908.592-3.822 1.84-5.452 1.637-2.138 4.051-3.366 6.549-3.529l.544 1.981c-2.087.015-4.142.989-5.502 2.766-2.139 2.795-1.822 6.705.589 9.154l1.774-2.317 1.778 6.397h-6.639l1.861-2.478z"
                 />
               </svg>
             </button>
@@ -270,7 +256,7 @@ class CourseModel extends LitElement {
               </svg>
             </button>
             <button
-              title="Animation"
+              title="Play Animation"
               id="animation"
               class="tool-button"
               @click="${this.openAnimation}"
@@ -294,7 +280,9 @@ class CourseModel extends LitElement {
 
         <div id="info-wrap" class="overlay">
           <div class="slotted-info"><slot></slot></div>
-          <div class="slotted-text"><slot name="detail"></slot></div>
+          <div class="slotted-text">
+            <slot name="detail"></slot>
+          </div>
           <div class="slotted-animation"><slot name="animation"></slot></div>
         </div>
         <div id="model-wrap" class="model">
@@ -303,6 +291,7 @@ class CourseModel extends LitElement {
             src="${this.src}"
             alt="${this.alt}"
             camera-controls
+            environment-image="${this.eimage}"
           ></model-viewer>
         </div>
       </div>

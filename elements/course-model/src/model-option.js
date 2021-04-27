@@ -20,7 +20,6 @@ class ModelOption extends LitElement {
       css`
         :host {
           display: block;
-          font-family: "Roboto", sans-serif;
         }
 
         a {
@@ -29,8 +28,18 @@ class ModelOption extends LitElement {
         }
 
         h2 {
-          font-size: 36px;
           margin-bottom: 10px;
+        }
+
+        @media screen and (min-width: 320px) {
+          h2 {
+            font-size: 24px;
+        }
+  
+        @media screen and (min-width: 920px) {
+          h2 {
+            font-size: 36px;
+          }
         }
 
         #option-wrap {
