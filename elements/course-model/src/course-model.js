@@ -22,12 +22,12 @@ class CourseModel extends LitElement {
     return {
       visible: {
         type: String,
-        reflect: true
+        reflect: true,
       },
       title: { type: String },
       src: { type: String },
       alt: { type: String },
-      eimage: { type: String }
+      eimage: { type: String },
     };
   }
 
@@ -50,11 +50,11 @@ class CourseModel extends LitElement {
           display: none;
         }
 
-        :host([visible="model-info"]) .slotted-text, .slotted-animation {
+        :host([visible="model-info"]) .slotted-text, .slotted-animation, . {
           display: none;
         }
 
-        :host([visible="model-text"]) .slotted-info, .slotted-animation {
+        :host([visible="model-text"]) .slotted-info, .slotted-animation, .slotted-check {
           display: none;
         }
 
@@ -68,6 +68,14 @@ class CourseModel extends LitElement {
 
         :host([visible="model-animation"]) .slotted-animation {
           display: block;
+        }
+
+        :host([visible="model-check"]) .slotted-check {
+          display: block;
+        }
+
+        :host([visible="model-check"])  .slotted-info {
+          display: none;
         }
 
         h1 {
@@ -159,7 +167,6 @@ class CourseModel extends LitElement {
 
         .tool-button {
           background-color: transparent;
-          
           border: none;
         }
 
@@ -222,7 +229,7 @@ class CourseModel extends LitElement {
           width: 70px;
         }
       }
-      `
+      `,
     ];
   }
 
@@ -267,14 +274,29 @@ class CourseModel extends LitElement {
                 />
               </svg>
             </button>
+            <button
+              title="Knowledge Check"
+              id="check"
+              class="tool-button"
+              @click="${this.openCheck}"
+            >
+              <svg fill="#fff" viewBox="0 0 24 24">
+                <path
+                  d="M21.856 10.303c.086.554.144 1.118.144 1.697 0 6.075-4.925 11-11 11s-11-4.925-11-11 4.925-11 11-11c2.347 0 4.518.741 6.304 1.993l-1.422 1.457c-1.408-.913-3.082-1.45-4.882-1.45-4.962 0-9 4.038-9 9s4.038 9 9 9c4.894 0 8.879-3.928 8.99-8.795l1.866-1.902zm-.952-8.136l-9.404 9.639-3.843-3.614-3.095 3.098 6.938 6.71 12.5-12.737-3.096-3.096z"
+                />
+              </svg>
+            </button>
           </div>
           <div id="title"><h1>${this.title}</h1></div>
           <div id="logo">
-            <img
-              id="brand"
-              src="../src/img/ecosodl.png"
-              alt="The Office of Digital Learning"
-            />
+            <a href="https://odl.science.psu.edu/" target="_blank">
+              <img
+                title="ECOS Office of Digital Learning"
+                id="brand"
+                src="../src/img/ecosodl.png"
+                alt="The Office of Digital Learning"
+              />
+            </a>
           </div>
         </div>
 
@@ -284,6 +306,7 @@ class CourseModel extends LitElement {
             <slot name="detail"></slot>
           </div>
           <div class="slotted-animation"><slot name="animation"></slot></div>
+          <div class="slotted-check"><slot name="check"></slot></div>
         </div>
         <div id="model-wrap" class="model">
           <model-viewer
@@ -292,6 +315,9 @@ class CourseModel extends LitElement {
             alt="${this.alt}"
             camera-controls
             environment-image="${this.eimage}"
+            exposure="10"
+            camera-orbit="30deg"
+            shadow-intensity="0.5"
           ></model-viewer>
         </div>
       </div>
@@ -329,6 +355,16 @@ class CourseModel extends LitElement {
       this.visible = "model-animation";
     }
   }
+  /**
+   * Open Knowledge-Check Slot
+   */
+     openCheck(e) {
+      if (this.visible == "model-check") {
+        this.visible = "model";
+      } else if (this.visible != "model-check") {
+        this.visible = "model-check";
+      }
+    }
   /**
    * LitElement ready
    */

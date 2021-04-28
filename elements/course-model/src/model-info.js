@@ -78,12 +78,13 @@ class ModelInfo extends LitElement {
         @media screen and (min-width: 320px) {
           .images {
             width: 100%;
-            margin: 25px 0 0 25px;
+            margin: 25px 0 0 0;
         }
   
         @media screen and (min-width: 920px) {
           .images {
             width: 50%;
+            margin: 25px 0 0 25px;
           }
         }
       `
