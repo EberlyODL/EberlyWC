@@ -155,7 +155,7 @@ class CourseModel extends LitElement {
 
         @media screen and (min-width: 320px) {
           #toolbar-wrap {
-            height: 50px;
+            height: 40px;
           }
         }
 
@@ -172,8 +172,8 @@ class CourseModel extends LitElement {
 
         @media screen and (min-width: 320px) {
           .tool-button {
-            height: 50px;
-            width: 45px;
+            height: 40px;
+            width: 40px;
           }
         }
 
@@ -198,8 +198,8 @@ class CourseModel extends LitElement {
 
       @media screen and (min-width: 320px) {
         svg {
-          height: 24px;
-          width: 24px;
+          height: 20px;
+          width: 20px;
       }
 
       @media screen and (min-width: 920px) {
@@ -299,7 +299,6 @@ class CourseModel extends LitElement {
             </a>
           </div>
         </div>
-
         <div id="info-wrap" class="overlay">
           <div class="slotted-info"><slot></slot></div>
           <div class="slotted-text">
@@ -318,6 +317,7 @@ class CourseModel extends LitElement {
             exposure="10"
             camera-orbit="30deg"
             shadow-intensity="0.5"
+            ar
           ></model-viewer>
         </div>
       </div>
@@ -327,7 +327,6 @@ class CourseModel extends LitElement {
   /**
    * Open Explore Slot
    */
-
   openInfo(e) {
     if (this.visible == "model-info") {
       this.visible = "model";
@@ -358,13 +357,14 @@ class CourseModel extends LitElement {
   /**
    * Open Knowledge-Check Slot
    */
-     openCheck(e) {
-      if (this.visible == "model-check") {
-        this.visible = "model";
-      } else if (this.visible != "model-check") {
-        this.visible = "model-check";
-      }
+  openCheck(e) {
+    if (this.visible == "model-check") {
+      this.visible = "model";
+    } else if (this.visible != "model-check") {
+      this.visible = "model-check";
     }
+  }
+
   /**
    * LitElement ready
    */

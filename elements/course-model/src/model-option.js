@@ -5,12 +5,16 @@ class ModelOption extends LitElement {
     return {
       title: { type: String },
       url: { type: String },
+      id: { type: String},
+      src: { type: String },
     };
   }
   constructor() {
     super();
     this.title = "";
     this.url = "";
+    this.id = "";
+    this.src = "";
   }
   /**
    * LitElement constructable styles enhancement
@@ -46,14 +50,14 @@ class ModelOption extends LitElement {
           padding: 15px 25px 15px;
         }
 
-        #option-wrap:hover {
-          background: rgba(0, 0, 0, 0.6);
-        }
-
         #accent-color {
           background-color: #e2801e;
           width: 80px;
           height: 5px;
+        }
+
+        .button {
+          width: 100%;
         }
       `,
     ];
@@ -61,7 +65,8 @@ class ModelOption extends LitElement {
 
   render() {
     return html`
-      <a href="${this.url}" target="_blank">
+    <a>
+      <div id="${this.id}" class="button" @click="${this._handleClick}">
         <div id="option-wrap">
           <div id="accent-color"></div>
           <div id="title">
@@ -69,14 +74,22 @@ class ModelOption extends LitElement {
           </div>
           <slot></slot>
         </div>
-      </a>
+      </div>
+    </a>
+     
     `;
+  }
+  
+
+  _handleClick(e) {
+   console.log("click");
   }
 
   static get tag() {
     return "model-option";
   }
 }
+
 
 customElements.define("model-option", ModelOption);
 
