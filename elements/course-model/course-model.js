@@ -316,7 +316,7 @@ class CourseModel extends LitElement {
             camera-controls
             environment-image="${this.eimage}"
             exposure="10"
-            camera-orbit="30deg"
+            camera-orbit="60deg"
             shadow-intensity="0.5"
             ar
           ></model-viewer>
