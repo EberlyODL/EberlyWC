@@ -37,6 +37,7 @@ class CourseModel extends LitElement {
     this.title = "";
     this.src = "";
     this.eimage = "";
+    this.addEventListener('model-select', this._srcChanged);
   }
 
   static get styles() {
@@ -242,7 +243,7 @@ class CourseModel extends LitElement {
               title="Explore Models"
               id="explore"
               class="tool-button"
-              @click="${this.openInfo}"
+              @click="${this._openInfo}"
             >
               <svg fill="#fff" viewBox="0 0 24 24">
                 <path
@@ -254,7 +255,7 @@ class CourseModel extends LitElement {
               title="More Information"
               id="moreinfo"
               class="tool-button"
-              @click="${this.openText}"
+              @click="${this._openText}"
             >
               <svg fill="#fff" viewBox="0 0 24 24">
                 <path
@@ -266,7 +267,7 @@ class CourseModel extends LitElement {
               title="Play Animation"
               id="animation"
               class="tool-button"
-              @click="${this.openAnimation}"
+              @click="${this._openAnimation}"
             >
               <svg fill="#fff" viewBox="0 0 24 24">
                 <path
@@ -278,7 +279,7 @@ class CourseModel extends LitElement {
               title="Knowledge Check"
               id="check"
               class="tool-button"
-              @click="${this.openCheck}"
+              @click="${this._openCheck}"
             >
               <svg fill="#fff" viewBox="0 0 24 24">
                 <path
@@ -327,7 +328,7 @@ class CourseModel extends LitElement {
   /**
    * Open Explore Slot
    */
-  openInfo(e) {
+  _openInfo(e) {
     if (this.visible == "model-info") {
       this.visible = "model";
     } else if (this.visible != "model-info") {
@@ -337,7 +338,7 @@ class CourseModel extends LitElement {
   /**
    * Open Info Slot
    */
-  openText(e) {
+  _openText(e) {
     if (this.visible == "model-text") {
       this.visible = "model";
     } else if (this.visible != "model-text") {
@@ -347,7 +348,7 @@ class CourseModel extends LitElement {
   /**
    * Open Animation Slot
    */
-  openAnimation(e) {
+  _openAnimation(e) {
     if (this.visible == "model-animation") {
       this.visible = "model";
     } else if (this.visible != "model-animation") {
@@ -357,18 +358,25 @@ class CourseModel extends LitElement {
   /**
    * Open Knowledge-Check Slot
    */
-  openCheck(e) {
+  _openCheck(e) {
     if (this.visible == "model-check") {
       this.visible = "model";
     } else if (this.visible != "model-check") {
       this.visible = "model-check";
     }
   }
-
+  /**
+   * Receives 'model-select' event from 'model-option' and updates properties accordingly.
+   */
+  _srcChanged(e) {
+    this.src = e.detail.src
+    this.title = e.detail.title
+    this.visible = "model"
+  }
   /**
    * LitElement ready
    */
-  firstUpdated(changedProperties) {}
+  firstUpdated(changedProperties)  {}
   /**
    * LitElement life cycle - property changed
    */

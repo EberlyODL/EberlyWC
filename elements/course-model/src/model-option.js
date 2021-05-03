@@ -5,7 +5,6 @@ class ModelOption extends LitElement {
     return {
       title: { type: String },
       url: { type: String },
-      id: { type: String},
       src: { type: String },
     };
   }
@@ -13,7 +12,6 @@ class ModelOption extends LitElement {
     super();
     this.title = "";
     this.url = "";
-    this.id = "";
     this.src = "";
   }
   /**
@@ -65,8 +63,8 @@ class ModelOption extends LitElement {
 
   render() {
     return html`
-    <a>
-      <div id="${this.id}" class="button" @click="${this._handleClick}">
+    <a @click="${this._handleClick}">
+      <div class="button">
         <div id="option-wrap">
           <div id="accent-color"></div>
           <div id="title">
@@ -79,11 +77,19 @@ class ModelOption extends LitElement {
      
     `;
   }
-  
 
+  firstUpdated(changedProperties) {}
+   /**
+   * Sends custom event 'model-select' to 'course-model'.
+   */
   _handleClick(e) {
-   console.log("click");
+    let modelSelect = new CustomEvent('model-select', { 
+      detail: this,
+      bubbles: true, 
+      composed: true });
+    this.dispatchEvent(modelSelect);
   }
+ 
 
   static get tag() {
     return "model-option";
