@@ -26,7 +26,7 @@ class CourseModel extends LitElement {
       },
       title: { type: String },
       src: { type: String },
-      alt: { type: String },
+      alt: { type: String }
     };
   }
 
