@@ -22,12 +22,12 @@ class CourseModel extends LitElement {
     return {
       visible: {
         type: String,
-        reflect: true,
+        reflect: true
       },
       title: { type: String },
       src: { type: String },
       alt: { type: String },
-      eimage: { type: String },
+      eimage: { type: String }
     };
   }
 
@@ -37,7 +37,7 @@ class CourseModel extends LitElement {
     this.title = "";
     this.src = "";
     this.eimage = "";
-    this.addEventListener('model-select', this._srcChanged);
+    this.addEventListener("model-select", this._srcChanged);
   }
 
   static get styles() {
@@ -230,7 +230,7 @@ class CourseModel extends LitElement {
           width: 70px;
         }
       }
-      `,
+      `
     ];
   }
 
@@ -369,14 +369,14 @@ class CourseModel extends LitElement {
    * Receives 'model-select' event from 'model-option' and updates properties accordingly.
    */
   _srcChanged(e) {
-    this.src = e.detail.src
-    this.title = e.detail.title
-    this.visible = "model"
+    this.src = e.detail.src;
+    this.title = e.detail.title;
+    this.visible = "model";
   }
   /**
    * LitElement ready
    */
-  firstUpdated(changedProperties)  {}
+  firstUpdated(changedProperties) {}
   /**
    * LitElement life cycle - property changed
    */
