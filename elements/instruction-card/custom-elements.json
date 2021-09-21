@@ -1,0 +1,30 @@
+{
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "instruction-card",
+      "path": "./instruction-card.js",
+      "description": "`instruction-card`\n`An element for displaying learning materials.`",
+      "attributes": [
+        {
+          "name": "type",
+          "type": "string",
+          "default": "\"\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "type",
+          "attribute": "type",
+          "type": "string",
+          "default": "\"\""
+        }
+      ]
+    },
+    {
+      "name": "instruction-card",
+      "path": "./src/instruction-card.js",
+      "description": "`instruction-card`\n`An element for displaying learning materials.`"
+    }
+  ]
+}
