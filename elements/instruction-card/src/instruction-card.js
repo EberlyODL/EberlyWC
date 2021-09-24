@@ -50,23 +50,23 @@ class InstructionCard extends LitElement {
         :host {
           display: block;
           font-family: "Open Sans", sans-serif;
-          border: 1px solid #d9d9d9;
+          border: 1px solid var(--card-border-color, #d9d9d9);
         }
 
         :host([type="knowledge"]) .header {
-          background-color: #1d6ba0;
+          background-color: var(--header-knowledge-bg-color, #1d6ba0);
         }
 
         :host([type="connection"]) .header {
-          background-color: #268842;
+          background-color: var(--header-connection-bg-color, #268842);
         }
 
         :host([type="knowledge"]) svg#url {
-          fill: #1d6ba0;
+          fill: var(--svg-url-knowledge-fill-color, #1d6ba0);
         }
 
         :host([type="connection"]) svg#url {
-          fill: #268842;
+          fill: var(--svg-url-connection-fill-color, #268842);
         }
 
         :host([url=""]) svg#url {
@@ -76,9 +76,9 @@ class InstructionCard extends LitElement {
         .header {
           display: flex;
           align-items: center;
-          background-color: #dc7927;
+          background-color: var(--header-objectives-bg-color,#dc7927);
           padding: 10px;
-          color: #fff;
+          color: var(--header-font-color, #fff);
         }
 
         h1 {
@@ -92,9 +92,10 @@ class InstructionCard extends LitElement {
             font-size: 24px;
           }
         }
+
         @media screen and (min-width: 920px) {
           h1 {
-            font-size: 32px;
+            font-size: 28px;
           }
         }
 
@@ -119,7 +120,7 @@ class InstructionCard extends LitElement {
           svg#header {
             width: 35px;
             height: 35px;
-            border: 2px solid #fff;
+            border: 2px solid var(--header-svg-border-color, #fff);
           }
         }
 
@@ -127,12 +128,16 @@ class InstructionCard extends LitElement {
           svg#header {
             width: 50px;
             height: 50px;
-            border: 4px solid #fff;
+           
           }
         }
 
+        .icon {
+          display: flex;
+        }
+
         svg#header {
-          fill: #fff;
+          fill: var(--header-svg-fill-color, #fff);
           border-radius: 50%;
           margin: 0 15px 0 10px;
           padding: 5px;
@@ -143,7 +148,6 @@ class InstructionCard extends LitElement {
         }
 
         #url-button {
-          
           margin: 25px 0 0 0;
         }
 
