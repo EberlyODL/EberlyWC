@@ -181,7 +181,7 @@
          @media screen and (min-width: 920px) {
            .sub-title {
              font-size: 24px;
-             margin: 0 0 -15px;
+             margin: 0 0 -14px;
            }
          }
  
@@ -212,9 +212,6 @@
            padding: 5px;
          }
  
-          {
-           
-         }
 
          @media screen and (min-width: 320px) {
             .content {
