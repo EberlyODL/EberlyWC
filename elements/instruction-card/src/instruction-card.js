@@ -51,6 +51,7 @@ class InstructionCard extends LitElement {
           display: block;
           font-family: "Open Sans", sans-serif;
           border: 1px solid var(--card-border-color, #d9d9d9);
+          margin: 15px 0 15px;
         }
 
         :host([type="knowledge"]) .header {
@@ -61,12 +62,20 @@ class InstructionCard extends LitElement {
           background-color: var(--header-connection-bg-color, #268842);
         }
 
+        :host([type="strategy"]) .header {
+          background-color: var(--header-strategy-bg-color, #008080);
+        }
+
         :host([type="knowledge"]) svg#url {
           fill: var(--svg-url-knowledge-fill-color, #1d6ba0);
         }
 
         :host([type="connection"]) svg#url {
           fill: var(--svg-url-connection-fill-color, #268842);
+        }
+
+        :host([type="strategy"]) svg#url {
+          fill: var(--svg-url-strategy-fill-color, #008080);
         }
 
         :host([url=""]) svg#url {
@@ -113,6 +122,7 @@ class InstructionCard extends LitElement {
         @media screen and (min-width: 920px) {
           .sub-title {
             font-size: 24px;
+            margin: 0 0 -15px;
           }
         }
 
@@ -195,6 +205,9 @@ class InstructionCard extends LitElement {
       case "knowledge":
         return this.renderKnowledge();
         break;
+      case "strategy":
+        return this.renderStrategy();
+        break;
     }
     return this.renderObjectives();
   }
@@ -263,6 +276,30 @@ class InstructionCard extends LitElement {
           <div class="sub-title">${this.subtitle}</div>
           <div class="title"></div>
           <h1>Did You Know ?</h1>
+        </div>
+      </div>
+      <div class="content">
+        <slot></slot>
+        <div id="url-button" tabindex="-1" role="button" aria-label="Read More">
+          <a href="${this.url}" target="_blank">
+            <svg id="url" width="35" height="35" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg>
+          </a>
+          <simple-tooltip for="url" animation-delay="0">Read More</simple-tooltip>
+        </div>
+      </div>
+    `;
+  }
+
+  renderStrategy() {
+    return html`
+      <div class="header">
+        <div class="icon">
+          <svg id="header" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 -4 23 32"><path d="M4.991 19.053c-.365-4.385 4.436-7.43 4.468-8.513.003-.084-.058-.09-.114-.088-.527.02-2.061 1.722-3.939 1.108-1.194-.389-1.89-1.705-1.96-2.805-.065-1.021.378-1.859 1.186-2.242.984-.466 1.279-1.209 1.592-1.997.182-.456.72-2.238 2.696-2.238.305 0 .578.044.821.086.119-.565-.254-1.828-.883-2.364 8.276.037 11.226 5.967 11.226 9.652 0 5.012-2.729 7.166-1.37 9.357 1.585.138 2.286 1.511 2.286 2.491 0 1.198-.953 2.5-2.5 2.5h-13c-1.196 0-2.5-.946-2.5-2.5 0-1.197.847-2.211 1.991-2.447zm14.009 2.447c0-.276-.223-.5-.5-.5h-13c-.276 0-.5.224-.5.5 0 .277.224.5.5.5h13c.277 0 .5-.223.5-.5zm-1.149-13.5c-.602-2.197-2.408-4.682-5.981-5.655.332 1.324-.543 2.323-2.416 2-.955-.169-.998-.027-1.371.911-.359.9-.9 2.262-2.594 3.065-.181.194.102 1.196.536 1.337.852.278 1.93-1.201 3.339-1.201 1.207 0 2.076 1.099 2.094 2.041.027 1.135-.914 2.111-2.003 3.239-1.392 1.444-2.678 3.247-2.467 5.263h9.503c-.256-.91-.156-2.205.423-4h-1.195c-.239 0-.5-.189-.5-.5 0-.31.26-.5.5-.5h1.541c.11-.319.222-.651.323-1h-1.251c-.31 0-.5-.259-.5-.5 0-.239.19-.5.5-.5h1.506c.068-.318.124-.65.166-1h-1.285c-.239 0-.5-.189-.5-.5 0-.31.26-.5.5-.5h1.36c.01-.382.008-.643-.034-1h-1.491c-.239 0-.5-.189-.5-.5 0-.31.26-.5.5-.5h1.297zm-7.911-2.684c.519 0 .94.378.94.842 0 .465-.421.842-.94.842-.518 0-.94-.377-.94-.842 0-.464.422-.842.94-.842z"/></svg>
+        </div>
+        <div class="title-wrap">
+          <div class="sub-title">${this.subtitle}</div>
+          <div class="title"></div>
+          <h1>Learning Strategies</h1>
         </div>
       </div>
       <div class="content">
