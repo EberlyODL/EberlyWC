@@ -10,7 +10,7 @@ const typeOptions = {
   objectives: "Learning Objectives",
   connection: "Chem Connection",
   knowledge: "Did You Know?",
-  strategy: "Learning Strategies",
+  strategy: "Learning Strategies"
 };
 
 /**
@@ -37,7 +37,7 @@ class InstructionCard extends LitElement {
     return {
       type: { type: String, reflect: true },
       subtitle: { type: String },
-      url: { type: String },
+      url: { type: String }
     };
   }
 
@@ -197,7 +197,7 @@ class InstructionCard extends LitElement {
             justify-content: end;
           }
         }
-      `,
+      `
     ];
   }
 
@@ -381,12 +381,12 @@ class InstructionCard extends LitElement {
         handles: [
           {
             type: "text",
-            title: "label",
-          },
+            title: "label"
+          }
         ],
         meta: {
-          author: "@cgldevel",
-        },
+          author: "@cgldevel"
+        }
       },
       settings: {
         configure: [
@@ -396,14 +396,14 @@ class InstructionCard extends LitElement {
             description: "The type of instruction-card to be used.",
             inputMethod: "select",
             options: typeOptions,
-            required: true,
+            required: true
           },
           {
             property: "subtitle",
             title: "Sub-Title",
             description: "The sub-title of the card.",
             inputMethod: "textfield",
-            icon: "editor:title",
+            icon: "editor:title"
           },
           {
             slot: "content",
@@ -411,7 +411,7 @@ class InstructionCard extends LitElement {
             description: "The content area for your card.",
             inputMethod: "textfield",
             icon: "editor:title",
-            required: true,
+            required: true
           },
           {
             property: "url",
@@ -419,22 +419,22 @@ class InstructionCard extends LitElement {
             description:
               "An optional link  for the card (Link not available for Learning Objectives).",
             inputMethod: "textfield",
-            icon: "editor:insert-link",
-          },
+            icon: "editor:insert-link"
+          }
         ],
-        advanced: [],
+        advanced: []
       },
       demoSchema: [
         {
           tag: "instruction-card",
           properties: {
             type: "objectives",
-            subtitle: "Unit 1",
+            subtitle: "Unit 1"
           },
           content:
-            '<p slot="content">By the end of this lesson, you should be able to...</p>',
-        },
-      ],
+            '<p slot="content">By the end of this lesson, you should be able to...</p>'
+        }
+      ]
     };
   }
 }
