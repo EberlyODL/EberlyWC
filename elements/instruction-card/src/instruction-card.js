@@ -4,14 +4,13 @@
  */
 import { LitElement, html, css } from "lit-element/lit-element.js";
 import "@lrnwebcomponents/simple-tooltip/simple-tooltip.js";
-import { HAXWiring } from "@lrnwebcomponents/hax-body-behaviors/lib/HAXWiring.js";
 
 const typeOptions = {
-  objectives: "Learning Objectives",
-  connection: "Chem Connection",
-  knowledge: "Did You Know?",
-  strategy: "Learning Strategies"
-};
+  "objectives": "Learning Objectives",
+  "connection": "Chem Connection",
+  "knowledge": "Did You Know?",
+  "strategy": "Learning Strategies"
+}
 
 /**
  * `instruction-card`
@@ -37,7 +36,7 @@ class InstructionCard extends LitElement {
     return {
       type: { type: String, reflect: true },
       subtitle: { type: String },
-      url: { type: String }
+      url: { type: String },
     };
   }
 
@@ -84,10 +83,6 @@ class InstructionCard extends LitElement {
 
         :host([type="strategy"]) svg#url {
           fill: var(--svg-url-strategy-fill-color, #008080);
-        }
-
-        :host([url=""]) svg#url {
-          display: none;
         }
 
         .header {
@@ -197,7 +192,7 @@ class InstructionCard extends LitElement {
             justify-content: end;
           }
         }
-      `
+      `,
     ];
   }
 
@@ -244,7 +239,7 @@ class InstructionCard extends LitElement {
         </div>
       </div>
       <div class="content">
-        <slot name="content"></slot>
+        <slot></slot>
       </div>
     `;
   }
@@ -266,19 +261,21 @@ class InstructionCard extends LitElement {
         </div>
       </div>
       <div class="content">
-        <slot name="content"></slot>
-        <div id="url-button" tabindex="-1" role="button" aria-label="Read More">
-          <a href="${this.url}" id="link" target="_blank">
-            <svg id="url" width="35" height="35" viewBox="0 0 24 24">
-              <path
-                d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"
-              />
-            </svg>
-          </a>
-          <simple-tooltip for="url" animation-delay="0"
-            >Read More</simple-tooltip
-          >
-        </div>
+        <slot></slot>
+        ${this.url
+            ? html`
+              <div id="url-button" tabindex="-1" role="button" aria-label="Read More">
+                <a href="${this.url}" id="link" target="_blank">
+                  <svg id="url" width="35" height="35" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"
+                    />
+                  </svg>
+                </a>
+                <simple-tooltip for="url" animation-delay="0">Read More</simple-tooltip>
+              </div>
+              `
+            : ``}
       </div>
     `;
   }
@@ -300,19 +297,21 @@ class InstructionCard extends LitElement {
         </div>
       </div>
       <div class="content">
-        <slot name="content"></slot>
-        <div id="url-button" tabindex="-1" role="button" aria-label="Read More">
-          <a href="${this.url}" id="link" target="_blank">
-            <svg id="url" width="35" height="35" viewBox="0 0 24 24">
-              <path
-                d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"
-              />
-            </svg>
-          </a>
-          <simple-tooltip for="url" animation-delay="0"
-            >Read More</simple-tooltip
-          >
-        </div>
+        <slot></slot>
+          ${this.url
+            ? html`
+              <div id="url-button" tabindex="-1" role="button" aria-label="Read More">
+                <a href="${this.url}" id="link" target="_blank">
+                  <svg id="url" width="35" height="35" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"
+                    />
+                  </svg>
+                </a>
+                <simple-tooltip for="url" animation-delay="0">Read More</simple-tooltip>
+              </div>
+              `
+            : ``}
       </div>
     `;
   }
@@ -339,38 +338,34 @@ class InstructionCard extends LitElement {
         </div>
       </div>
       <div class="content">
-        <slot name="content"></slot>
-        <div id="url-button" tabindex="-1" role="button" aria-label="Read More">
-          <a href="${this.url}" id="link" target="_blank">
-            <svg id="url" width="35" height="35" viewBox="0 0 24 24">
-              <path
-                d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"
-              />
-            </svg>
-          </a>
-          <simple-tooltip for="url" animation-delay="0"
-            >Read More</simple-tooltip
-          >
-        </div>
+        <slot></slot>
+        ${this.url
+            ? html`
+              <div id="url-button" tabindex="-1" role="button" aria-label="Read More">
+                <a href="${this.url}" id="link" target="_blank">
+                  <svg id="url" width="35" height="35" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"
+                    />
+                  </svg>
+                </a>
+                <simple-tooltip for="url" animation-delay="0">Read More</simple-tooltip>
+              </div>
+              `
+            : ``}
       </div>
     `;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    this.HAXWiring = new HAXWiring();
-    this.HAXWiring.setup(
-      InstructionCard.haxProperties,
-      InstructionCard.tag,
-      this
-    );
-  }
+
 
   static get haxProperties() {
     return {
+      type: "grid",
       canScale: true,
       canPosition: true,
       canEditSource: true,
+      contentEditable: true,
       gizmo: {
         title: "Instruction Card",
         description:
@@ -381,37 +376,30 @@ class InstructionCard extends LitElement {
         handles: [
           {
             type: "text",
-            title: "label"
-          }
+            title: "label",
+          },
         ],
         meta: {
-          author: "@cgldevel"
-        }
+          author: "@cgldevel",
+        },
       },
       settings: {
         configure: [
           {
             property: "type",
             title: "Type",
-            description: "The type of instruction-card to be used.",
+            description:
+              "The type of instruction-card to be used.",
             inputMethod: "select",
             options: typeOptions,
-            required: true
+            required: true,
           },
           {
             property: "subtitle",
             title: "Sub-Title",
             description: "The sub-title of the card.",
             inputMethod: "textfield",
-            icon: "editor:title"
-          },
-          {
-            slot: "content",
-            title: "Content",
-            description: "The content area for your card.",
-            inputMethod: "textfield",
             icon: "editor:title",
-            required: true
           },
           {
             property: "url",
@@ -419,22 +407,22 @@ class InstructionCard extends LitElement {
             description:
               "An optional link  for the card (Link not available for Learning Objectives).",
             inputMethod: "textfield",
-            icon: "editor:insert-link"
-          }
+            icon: "editor:insert-link",
+          },
         ],
-        advanced: []
+        advanced: [],
       },
       demoSchema: [
         {
           tag: "instruction-card",
           properties: {
             type: "objectives",
-            subtitle: "Unit 1"
+            subtitle: "Unit 1",
           },
           content:
-            '<p slot="content">By the end of this lesson, you should be able to...</p>'
-        }
-      ]
+            '<p>By the end of this lesson, you should be able to...</p>',
+        },
+      ],
     };
   }
 }
