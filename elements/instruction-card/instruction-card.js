@@ -21,7 +21,65 @@ const typeOptions = {
  * @element instruction-card
  */
 class InstructionCard extends LitElement {
-  /* REQUIRED FOR TOOLING DO NOT TOUCH */
+  
+  //styles function
+  static get styles() {
+    return  [
+      
+      css`
+
+      `
+    ];
+  }
+
+// Template return function
+  render() {
+    return html`
+
+`;
+  }
+
+  // haxProperty definition
+  static get haxProperties() {
+    return {
+  "canScale": true,
+  "canPosition": true,
+  "canEditSource": false,
+  "gizmo": {
+    "title": "Instruction card",
+    "description": "An element for displaying learning materials.",
+    "icon": "icons:android",
+    "color": "green",
+    "groups": ["Card"],
+    "handles": [
+      {
+        "type": "todo:read-the-docs-for-usage"
+      }
+    ],
+    "meta": {
+      "author": "cgldevel",
+      "owner": ""
+    }
+  },
+  "settings": {
+    "configure": [
+      {
+        "property": "type",
+        "description": "",
+        "inputMethod": "textfield",
+        "required": false,
+        "icon": "icons:android"
+      }
+    ],
+    "advanced": []
+  }
+}
+;
+  }
+  // properties available to the custom element for data binding
+  static get properties() {
+    return ;
+  }
 
   /**
    * Convention we use
