@@ -2,15 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1,
-      initial-scale=1, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
     <title>InstructionCard: instruction-card Demo</title>
-    <script
-      src="../../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-    <script
-      src="../../../node_modules/@lrnwebcomponents/deduping-fix/deduping-fix.js"></script>
-    <script
-      src="../../../node_modules/web-animations-js/web-animations-next-lite.min.js"></script>
+    <script src="../../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../../../node_modules/@lrnwebcomponents/deduping-fix/deduping-fix.js"></script>
+    <script src="../../../node_modules/web-animations-js/web-animations-next-lite.min.js"></script>
     <script type="module">
       import '@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
       import '@polymer/iron-demo-helpers/demo-snippet.js';
@@ -19,36 +15,24 @@
     <style is="custom-style" include="demo-pages-shared-styles"></style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="vertical-section-container centered">
       <h3>Basic instruction-card demo</h3>
       <demo-snippet>
         <template>
-          <instruction-card type="" subtitle="Unit 1">
-            <span>
-              <ul>
-                <li>Learning Objective 1...</li>
-                <li>Learning Objective 2...</li>
-                <li>Learning Objective 3...</li>
-                <li>Learning Objective 4...</li>
-                <li>Learning Objective 5...</li>
-              </ul>
-            </span>
+          <instruction-card>
+            Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet quam id dui posuere blandit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
           </instruction-card>
-          <instruction-card type="knowledge" subtitle="Unit 1">
-            <span>Did you know that the topic in this lessson relates to...</span>
+          <instruction-card type="strategy" subtitle="Draw a Picture">
+            Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet quam id dui posuere blandit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
           </instruction-card>
-          <instruction-card type="connection" subtitle="Unit 1">
-            <span>This specific chemistry foundation is related to...</span>
+          <instruction-card type="connection" subtitle="Unit 1" url="https://www.google.com">
+            Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet quam id dui posuere blandit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
           </instruction-card>
-          <instruction-card type="strategy" subtitle="Draw a Diagram"
-            url="https://www.google.com">
-            <span>In order to better understand this complex process, try
-              drawing a diagam to help undestand the concept...</span>
+          <instruction-card type="knowledge" subtitle="Unit 1" url="https://www.google.com">
+            Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet quam id dui posuere blandit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
           </instruction-card>
         </template>
       </demo-snippet>
