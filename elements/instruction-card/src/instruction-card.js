@@ -4,7 +4,6 @@
  */
 import { LitElement, html, css } from "lit-element/lit-element.js";
 import "@lrnwebcomponents/simple-tooltip/simple-tooltip.js";
-import { HAXStore } from "@lrnwebcomponents/hax-body/lib/hax-store.js";
 
 // Defines the type options available in the HAX wiring, "Learning Objectives" is the default.
 
@@ -48,7 +47,6 @@ class InstructionCard extends LitElement {
     this.type = "";
     this.subtitle = "";
     this.url = "";
-    HAXStore.HAXWiring.setHaxProperties(this.haxProperties, "instruction-card");
   }
 
   /**
@@ -461,3 +459,10 @@ class InstructionCard extends LitElement {
 }
 customElements.define(InstructionCard.tag, InstructionCard);
 export { InstructionCard };
+
+window.addEventListener("hax-store-ready", function(e) {
+  setTimeout(function() {
+    window.HaxStore.requestAvailability().setHaxProperties(window.customElements.get('instruction-card').haxProperties, 'instruction-card');
+
+  }, 1000);
+});
