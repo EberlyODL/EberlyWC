@@ -20,7 +20,7 @@
     "sharedProps": [],
     "sharedStyles": []
   },
-  "version": "0.0.31",
+  "version": "0.0.32",
   "description": "An element for displaying learning materials.",
   "repository": {
     "type": "git",
@@ -33,19 +33,39 @@
     "test": "web-test-runner \"test/**/*.test.js\" --node-resolve",
     "test:watch": "web-test-runner \"test/**/*.test.js\" --node-resolve --watch",
     "test:browsers": "web-test-runner \"test/**/*.test.js\" --node-resolve --playwright --browsers chromium firefox webkit",
-    "start":"yarn run dev","build":"gulp --gulpfile=gulpfile.cjs && rollup -c && prettier --ignore-path ../../.prettierignore --write '**/*.{js,json}' && wca analyze \"**/*.js\" --outFile custom-elements.json","dev":"concurrently --kill-others \"yarn run watch\" \"yarn run serve\"","watch":"gulp dev --gulpfile=gulpfile.cjs","serve":"es-dev-server -c ../../es-dev-server.config.js","lighthouse":"gulp lighthouse --gulpfile=gulpfile.cjs"
+    "start": "yarn run dev",
+    "build": "gulp --gulpfile=gulpfile.cjs && rollup -c && prettier --ignore-path ../../.prettierignore --write '**/*.{js,json}' && wca analyze \"**/*.js\" --outFile custom-elements.json",
+    "dev": "concurrently --kill-others \"yarn run watch\" \"yarn run serve\"",
+    "watch": "gulp dev --gulpfile=gulpfile.cjs",
+    "serve": "es-dev-server -c ../../es-dev-server.config.js",
+    "lighthouse": "gulp lighthouse --gulpfile=gulpfile.cjs"
   },
   "author": {
     "name": "cgldevel"
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "lit-element":"2.4.0",
+    "@lrnwebcomponents/haxcms-elements": "^2.0.1",
     "@lrnwebcomponents/simple-tooltip": "4.0.0",
-    "@lrnwebcomponents/haxcms-elements": "^2.0.1"
+    "lit-element": "2.4.0"
   },
   "devDependencies": {
-    "@lrnwebcomponents/deduping-fix":"2.7.7","@polymer/iron-component-page":"github:PolymerElements/iron-component-page","@polymer/iron-demo-helpers":"3.1.0","@webcomponents/webcomponentsjs":"2.5.0","concurrently":"5.3.0","gulp-babel":"8.0.0","lodash":"4.17.21","polymer-build":"3.1.4","polymer-cli":"1.9.11","wct-browser-legacy":"1.0.2","web-animations-js":"2.3.2","@open-wc/testing":"2.5.32","@web/test-runner":"0.12.19","@web/test-runner-commands":"0.4.2","@web/test-runner-playwright":"0.8.4","@web/test-runner-puppeteer":"0.9.3"
+    "@lrnwebcomponents/deduping-fix": "2.7.7",
+    "@open-wc/testing": "2.5.32",
+    "@polymer/iron-component-page": "github:PolymerElements/iron-component-page",
+    "@polymer/iron-demo-helpers": "3.1.0",
+    "@web/test-runner": "0.12.19",
+    "@web/test-runner-commands": "0.4.2",
+    "@web/test-runner-playwright": "0.8.4",
+    "@web/test-runner-puppeteer": "0.9.3",
+    "@webcomponents/webcomponentsjs": "2.5.0",
+    "concurrently": "5.3.0",
+    "gulp-babel": "8.0.0",
+    "lodash": "4.17.21",
+    "polymer-build": "3.1.4",
+    "polymer-cli": "1.9.11",
+    "wct-browser-legacy": "1.0.2",
+    "web-animations-js": "2.3.2"
   },
   "private": false,
   "publishConfig": {

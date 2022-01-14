@@ -14,7 +14,7 @@
     "sharedProps": [],
     "sharedStyles": []
   },
-  "version": "0.0.31",
+  "version": "0.0.32",
   "description": "",
   "repository": {
     "type": "git",
@@ -37,7 +37,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@eberlywc/loading-indicator": "^0.0.31",
+    "@eberlywc/loading-indicator": "^0.0.32",
     "@polymer/polymer": "^3.4.1",
     "lit-element": "^2.4.0"
   },
