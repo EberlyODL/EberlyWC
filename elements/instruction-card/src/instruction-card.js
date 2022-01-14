@@ -462,7 +462,9 @@ export { InstructionCard };
 
 window.addEventListener("hax-store-ready", function(e) {
   setTimeout(function() {
-    window.HaxStore.requestAvailability().setHaxProperties(window.customElements.get('instruction-card').haxProperties, 'instruction-card');
-
+    window.HaxStore.requestAvailability().setHaxProperties(
+      window.customElements.get("instruction-card").haxProperties,
+      "instruction-card"
+    );
   }, 1000);
 });
