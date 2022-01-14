@@ -19,7 +19,7 @@
     "sharedProps": [],
     "sharedStyles": []
   },
-  "version": "0.0.32",
+  "version": "0.0.33",
   "description": "",
   "repository": {
     "type": "git",
@@ -42,7 +42,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@eberlywc/eberlywc-animationctl-button": "^0.0.32",
+    "@eberlywc/eberlywc-animationctl-button": "^0.0.33",
     "@lrnwebcomponents/a11y-carousel": "^2.7.1",
     "lit-element": "^2.3.1"
   },

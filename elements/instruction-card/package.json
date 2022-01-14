@@ -20,7 +20,7 @@
     "sharedProps": [],
     "sharedStyles": []
   },
-  "version": "0.0.32",
+  "version": "0.0.33",
   "description": "An element for displaying learning materials.",
   "repository": {
     "type": "git",
