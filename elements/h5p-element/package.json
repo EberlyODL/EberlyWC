@@ -14,7 +14,7 @@
     "sharedProps": [],
     "sharedStyles": []
   },
-  "version": "0.0.33",
+  "version": "0.0.34",
   "description": "",
   "repository": {
     "type": "git",
@@ -37,7 +37,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@eberlywc/iframe-loader": "^0.0.33",
+    "@eberlywc/iframe-loader": "^0.0.34",
     "@lrnwebcomponents/hax-body-behaviors": "^2.7.3",
     "@lrnwebcomponents/haxcms-elements": "^2.7.1",
     "@polymer/polymer": "^3.4.1",
